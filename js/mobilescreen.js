@@ -35,12 +35,11 @@ var mobilescreen = {
         if($('#otpnextBtn').length){
             $('#otpnextBtn').parent().remove();
         }        
-        _this.renderNextBtn(); 
+        //_this.renderNextBtn(); 
         var mobField = $('#mobile');
-        $('#nextBtn').click(function(){
+        /*$('#nextBtn').click(function(){
             if(!$(this).hasClass( "disable" )){
                 var mobile = $(mobField).val();
-                console.log(mobile);
                 appObj.setUserMobile(mobile);
                 if(mobile != ''){
                     var clickRes = _this.clickNext(appObj.getUserMobile());
@@ -54,14 +53,22 @@ var mobilescreen = {
                 $(mobField).focus();
                 return false;
             }            
-        });
+        });*/
 
-        $('.input-arrow').click(function(){
-            
+        $('.input-arrow').click(function(){            
             if($(mobField).val() == ''){
                 $(mobField).addClass('error');
             }else{
-                $('#nextBtn').removeClass('disable');
+                var mobile = $(mobField).val();
+                appObj.setUserMobile(mobile);
+                if(mobile != ''){
+                    var clickRes = _this.clickNext(appObj.getUserMobile());
+                    if (!clickRes.success.isexist){  
+                        var registerResponse = appObj.mobileScreen.registerUser(appObj.getUserMobile());
+                    }
+                    appObj.mainDom.innerHTML = appObj.otpScreen.loadOtpScreen();
+                    appObj.otpScreen.bindClicks(appObj);
+                }
             }            
         });
       },
