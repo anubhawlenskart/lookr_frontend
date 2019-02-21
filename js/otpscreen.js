@@ -10,7 +10,7 @@ var otpscreen = {
         htmlStr += '<div class="input-box">';
         htmlStr += '<div class="row otp-section">';
         htmlStr += '<div class="col-md-3">';
-        htmlStr += '<input type="text" class="otp-cls" name="otp-1" id="otp-1" placeholder="X" class="form-control" maxlength="1" tabindex="1" autofocus>';
+        htmlStr += '<input type="text" class="otp-cls" name="otp-1" id="otp-1" placeholder="" class="form-control" maxlength="1" tabindex="1" autofocus>';
         htmlStr += '</div>';
         htmlStr += '<div class="col-md-3">';
         htmlStr += '<input type="text" class="otp-cls" name="otp-2" id="otp-2" placeholder="" class="form-control" maxlength="1" tabindex="2">';
@@ -21,7 +21,7 @@ var otpscreen = {
         htmlStr += '<div class="col-md-3">';
         htmlStr += '<input type="text" class="otp-cls" name="otp-4" id="otp-4" placeholder="" class="form-control" maxlength="1" tabindex="4">';
         htmlStr += '</div>';
-        htmlStr += '</div>';             
+        htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
@@ -41,18 +41,18 @@ var otpscreen = {
     },
 
     bindClicks:function(appObj){
-        var _this = this;    
-        $('#nextBtn').parent().remove();        
-        _this.renderotpNextBtn(); 
+        var _this = this;
+        $('#nextBtn').parent().remove();
+        _this.renderotpNextBtn();
         $('#otpnextBtn').click(function(){
             var otp = $('#otp-1').val()+$('#otp-2').val()+$('#otp-3').val()+$('#otp-4').val();
-            var submitOtp = appObj.otpScreen.SubmitNext(appObj.getUserMobile() , otp); 
+            var submitOtp = appObj.otpScreen.SubmitNext(appObj.getUserMobile() , otp);
             if (!submitOtp['successy']){
                 /**************  Set required Cookies *************/
                 common.createCookie('eyewish-token' , submitOtp.success.token , common.cookieexpiryday);
                 common.createCookie('eyewish-mobile' , appObj.getUserMobile() , common.cookieexpiryday);
                 /**************  Set required Cookies *************/
-                //appObj.setAuthToken(submitOtp.success.token); 
+                //appObj.setAuthToken(submitOtp.success.token);
                 appObj.setDittoId(submitOtp.success.dittoId)
                 appObj.afterAuthScreen();
                 $('#nextBtn').parent().remove();
@@ -66,7 +66,7 @@ var otpscreen = {
 
         // Blur event
         $('.otp-cls').keyup(function(){
-            var idattr = $(this).attr('id');           
+            var idattr = $(this).attr('id');
             var split = idattr.split('-');
             var nexttab = parseInt(parseInt(split[1])+1);
             $('#otp-'+nexttab).focus().val($('#otp-'+nexttab).val());
@@ -76,16 +76,16 @@ var otpscreen = {
     SubmitNext : function(mobile,otp){
         // First check User exist or not
         var requestUrl = common.apiUrl+'/login?mobile='+mobile+'&otp='+otp;
-        res = common.sendRequest(requestUrl); 
+        res = common.sendRequest(requestUrl);
         if ('success' in res){
             return res;
         }else{
-            if(res.error == 'Unauthroized'){               
+            if(res.error == 'Unauthroized'){
                 appObj.showPopup('Your session has been expired','alert-danger','Error!');
                 appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                 appObj.mobileScreen.setMobileonField(appObj);
                 appObj.mobileScreen.bindClicks(appObj);
             }
-        } 
+        }
     }
 }
