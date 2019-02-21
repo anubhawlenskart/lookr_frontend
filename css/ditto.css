@@ -1,0 +1,61 @@
+#creation {
+    height: 600px;
+  }
+  
+  #ditto {
+    /* Size of the viewer can be changed. */
+    overflow: hidden;
+    width: 640px;
+    height: 480px;
+  }
+  
+  /* Rules both for mobiles and tablets. */
+  @media only screen and (max-width: 1024px) {
+    .ditto-mobile-api #creation {
+      display: none;
+    }
+  }
+  
+  /* Rules for mobile devices except tablets. */
+  @media only screen and (max-width: 600px) {
+    /* Make the Try On take the full screen on mobile. */
+    .ditto-mobile-api #ditto {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  @media only screen and (orientation: portrait) and (max-width: 600px) {
+    .ditto-mobile-api #ditto iframe {
+    /*
+     * On iPhone 6 the width of the recorded video is 360px, while the width
+     * of the screen is 375px. To avoid the small gap, we zoom the iframe by 5%,
+     * so it becomes 672x504 instead of 640x480.
+     *
+     * Corresponding margin value (- @width / 2) and left help to center the
+     * iframe within the parent object.
+     *
+     * If 504px height is too big, you can crop it by setting the height on
+     * parent element (e.g. 450px) to make it smaller, and negative top on
+     * this element (e.g. -27px) to crop it in the center. Cropping too much may
+     * not look nice though.
+     */
+      position: relative;
+      left: 50%;
+      width: 672px;
+      height: 504px;
+      margin-left: -336px;
+    }
+  }
+  
+  /* Rules for iPhone-like devices in landscape mode. */
+  @media only screen and (orientation: landscape) and (max-width: 600px) {
+    .ditto-mobile-api #ditto {
+      height: 280px;
+    }
+  
+    .ditto-mobile-api #ditto iframe {
+      margin-top: -7%;
+      height: 480px;
+    }
+  }
