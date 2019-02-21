@@ -22,6 +22,12 @@ var otpscreen = {
         htmlStr += '<input type="text" class="otp-cls" name="otp-4" id="otp-4" placeholder="" class="form-control" maxlength="1" tabindex="4">';
         htmlStr += '</div>';
         htmlStr += '</div>';
+        htmlStr += '<div class="buttons buttons-static">';
+        htmlStr += '<div class="row">';
+        htmlStr += '<div class="col-md-6"><span>Didn’t receive OTP?</span></div>';
+        htmlStr += '<div class="col-md-6"><a href="#">RESEND</a></div>';
+        htmlStr += '</div>';
+        htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
@@ -31,10 +37,6 @@ var otpscreen = {
 
     renderotpNextBtn : function(){
         var htm= '<div class="buttons">';
-        htm += '<div class="row">';
-        htm += '<div class="col-md-6"><span>Didn’t receive OTP?</span></div>';
-        htm += '<div class="col-md-6"><a href="#">RESEND</a></div>';
-        htm += '</div>';
         htm += '<button class="btn" id="otpnextBtn">Next</button>';
         htm += '</div>';
         $('main').after(htm);
