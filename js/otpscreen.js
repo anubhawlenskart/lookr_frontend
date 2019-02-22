@@ -37,7 +37,7 @@ var otpscreen = {
 
     renderotpNextBtn : function(){
         var htm= '<div class="buttons">';
-        htm += '<button class="btn" id="otpnextBtn">Next</button>';
+        htm += '<button class="btn disable" id="otpnextBtn">Next</button>';
         htm += '</div>';
         $('main').after(htm);
     },
@@ -46,18 +46,21 @@ var otpscreen = {
         var _this = this;
         $('#nextBtn').parent().remove();
         _this.renderotpNextBtn();
-        $('#otpnextBtn').click(function(){
-            var otp = $('#otp-1').val()+$('#otp-2').val()+$('#otp-3').val()+$('#otp-4').val();
-            var submitOtp = appObj.otpScreen.SubmitNext(appObj.getUserMobile() , otp);
-            if (!submitOtp['successy']){
-                /**************  Set required Cookies *************/
-                common.createCookie('eyewish-token' , submitOtp.success.token , common.cookieexpiryday);
-                common.createCookie('eyewish-mobile' , appObj.getUserMobile() , common.cookieexpiryday);
-                /**************  Set required Cookies *************/
-                //appObj.setAuthToken(submitOtp.success.token);
-                appObj.setDittoId(submitOtp.success.dittoId)
-                appObj.afterAuthScreen();
-                $('#nextBtn').parent().remove();
+        $('#otpnextBtn').click(function(){ 
+            if(!$( "#otpnextBtn" ).hasClass( "disable" )){
+                var otp = $('#otp-1').val()+$('#otp-2').val()+$('#otp-3').val()+$('#otp-4').val();            
+                var submitOtp = appObj.otpScreen.SubmitNext(appObj.getUserMobile() , otp);
+                if (!submitOtp['successy']){
+                    $('#otpnextBtn').remove();
+                    /**************  Set required Cookies *************/
+                    common.createCookie('eyewish-token' , submitOtp.success.token , common.cookieexpiryday);
+                    common.createCookie('eyewish-mobile' , appObj.getUserMobile() , common.cookieexpiryday);
+                    /**************  Set required Cookies *************/
+                    //appObj.setAuthToken(submitOtp.success.token);
+                    appObj.setDittoId(submitOtp.success.dittoId)
+                    appObj.afterAuthScreen();
+                    $('#nextBtn').parent().remove();
+                }
             }
         });
 
@@ -71,7 +74,12 @@ var otpscreen = {
             var idattr = $(this).attr('id');
             var split = idattr.split('-');
             var nexttab = parseInt(parseInt(split[1])+1);
+
+            var otp = $('#otp-1').val()+$('#otp-2').val()+$('#otp-3').val()+$('#otp-4').val();
             $('#otp-'+nexttab).focus().val($('#otp-'+nexttab).val());
+            if(otp.length == 4){
+                $('#otpnextBtn').removeClass('disable');
+            }
         })
       },
 
