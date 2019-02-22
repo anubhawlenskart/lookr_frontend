@@ -4,7 +4,7 @@ var mobilescreen = {
         var htmlStr = '<div class="container">';
         htmlStr += '<div class="row">';
         htmlStr += '<div class="col-md-12">';
-        htmlStr += '<div class="main-content">';        
+        htmlStr += '<div class="main-content main-content-phone">';        
         htmlStr += '<h1>';
         htmlStr += 'Tell us your phone number.';
         htmlStr += '<span>We’ll send an OTP so we know that you’re real!</span>';
@@ -15,7 +15,7 @@ var mobilescreen = {
         htmlStr += '<span class="input-arrow"></span>';
         htmlStr += '</div>';
         htmlStr += '</div>';
-        
+
         htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
@@ -24,25 +24,53 @@ var mobilescreen = {
     },
 
     bindClicks:function(appObj){
-        var _this = this;    
+        var _this = this;
         if($('#otpnextBtn').length){
             $('#otpnextBtn').parent().remove();
+<<<<<<< HEAD
         }       
+=======
+        }
+        //_this.renderNextBtn();
+>>>>>>> c2994d536e27148fdd4a654d827147b311871ee9
         var mobField = $('#mobile');
         $('.input-arrow').click(function(){   
             if(_this.validateMobile($(mobField).val())){
                 appObj.setUserMobile($(mobField).val());
                 if(mobile != ''){
                     var clickRes = _this.clickNext(appObj.getUserMobile());
-                    if (!clickRes.success.isexist){  
+                    if (!clickRes.success.isexist){
                         var registerResponse = appObj.mobileScreen.registerUser(appObj.getUserMobile());
                     }
                     appObj.mainDom.innerHTML = appObj.otpScreen.loadOtpScreen();
                     appObj.otpScreen.bindClicks(appObj);
                 }
             }else{
+<<<<<<< HEAD
                 $(mobField).addClass('error');
             }         
+=======
+                $(mobField).focus();
+                return false;
+            }
+        });*/
+
+        $('.input-arrow').click(function(){
+            if($(mobField).val() == ''){
+                $(mobField).addClass('error');
+            }else{
+                var mobile = $(mobField).val();
+                appObj.setUserMobile(mobile);
+                if(mobile != ''){
+                    var clickRes = _this.clickNext(appObj.getUserMobile());
+                    if (!clickRes.success.isexist){
+                        var registerResponse = appObj.mobileScreen.registerUser(appObj.getUserMobile());
+                    }
+                    appObj.mainDom.innerHTML = appObj.otpScreen.loadOtpScreen();
+                    appObj.otpScreen.bindClicks(appObj);
+                }
+            }
+>>>>>>> c2994d536e27148fdd4a654d827147b311871ee9
         });
     },
 
@@ -62,33 +90,33 @@ var mobilescreen = {
     clickNext : function (mobile){
         // First check User exist or not
         var requestUrl = common.apiUrl+'/isregisteredmobile?mobile='+mobile;
-        res = common.sendRequest(requestUrl); 
+        res = common.sendRequest(requestUrl);
         if ('success' in res){
             return res;
-        }else{            
-            if(res.error == 'Unauthroized'){               
+        }else{
+            if(res.error == 'Unauthroized'){
                 appObj.showPopup('Your session has been expired','alert-danger','Error!');
                 appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                 appObj.mobileScreen.setMobileonField(appObj);
                 appObj.mobileScreen.bindClicks(appObj);
-            }    
+            }
         }
-        
+
     },
 
     registerUser : function (mobile){
         // First check User exist or not
         var requestUrl = common.apiUrl+'/register?mobile='+mobile;
-        res = common.sendRequest(requestUrl);  
+        res = common.sendRequest(requestUrl);
         if ('success' in res){
             return res;
-        }else{            
-            if(res.error == 'Unauthroized'){               
+        }else{
+            if(res.error == 'Unauthroized'){
                 appObj.showPopup('Your session has been expired','alert-danger','Error!');
                 appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                 appObj.mobileScreen.setMobileonField(appObj);
                 appObj.mobileScreen.bindClicks(appObj);
-            }    
+            }
         }
     },
 

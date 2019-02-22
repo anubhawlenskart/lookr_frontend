@@ -86,6 +86,10 @@ padding: 10% 0 0 0;
 position: relative;
 min-height: 90%;
 }
+.main-content-phone{
+  padding-top: 30%;
+  min-height: 70%;
+}
 .main-content h1 span{
 display: block;
 font-size: 16px;
