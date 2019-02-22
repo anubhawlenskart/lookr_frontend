@@ -27,39 +27,12 @@ var mobilescreen = {
         var _this = this;
         if($('#otpnextBtn').length){
             $('#otpnextBtn').parent().remove();
-<<<<<<< HEAD
-        }       
-=======
-        }
-        //_this.renderNextBtn();
->>>>>>> c2994d536e27148fdd4a654d827147b311871ee9
+        } 
         var mobField = $('#mobile');
-        $('.input-arrow').click(function(){   
-            if(_this.validateMobile($(mobField).val())){
-                appObj.setUserMobile($(mobField).val());
-                if(mobile != ''){
-                    var clickRes = _this.clickNext(appObj.getUserMobile());
-                    if (!clickRes.success.isexist){
-                        var registerResponse = appObj.mobileScreen.registerUser(appObj.getUserMobile());
-                    }
-                    appObj.mainDom.innerHTML = appObj.otpScreen.loadOtpScreen();
-                    appObj.otpScreen.bindClicks(appObj);
-                }
-            }else{
-<<<<<<< HEAD
-                $(mobField).addClass('error');
-            }         
-=======
-                $(mobField).focus();
-                return false;
-            }
-        });*/
-
+        
         $('.input-arrow').click(function(){
-            if($(mobField).val() == ''){
-                $(mobField).addClass('error');
-            }else{
-                var mobile = $(mobField).val();
+            var mobile = $(mobField).val();
+            if(_this.validateMobile(mobile)){
                 appObj.setUserMobile(mobile);
                 if(mobile != ''){
                     var clickRes = _this.clickNext(appObj.getUserMobile());
@@ -69,8 +42,9 @@ var mobilescreen = {
                     appObj.mainDom.innerHTML = appObj.otpScreen.loadOtpScreen();
                     appObj.otpScreen.bindClicks(appObj);
                 }
-            }
->>>>>>> c2994d536e27148fdd4a654d827147b311871ee9
+            }else{
+                $(mobField).addClass('error');
+            }            
         });
     },
 
