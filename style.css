@@ -646,6 +646,9 @@ position: relative;
 .phone{
 position: relative;
 }
+#creation{
+  padding-top: 10%;
+}
 .main-content.other-info.settings,.main-content.wishlist-page {
 margin: -6px -15px 0;
 padding: 0 15px;

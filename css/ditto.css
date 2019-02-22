@@ -1,21 +1,21 @@
 #creation {
     height: 600px;
   }
-  
+
   #ditto {
     /* Size of the viewer can be changed. */
     overflow: hidden;
     width: 640px;
     height: 480px;
   }
-  
+
   /* Rules both for mobiles and tablets. */
   @media only screen and (max-width: 1024px) {
     .ditto-mobile-api #creation {
       display: none;
     }
   }
-  
+
   /* Rules for mobile devices except tablets. */
   @media only screen and (max-width: 600px) {
     /* Make the Try On take the full screen on mobile. */
@@ -24,7 +24,7 @@
       height: auto;
     }
   }
-  
+
   @media only screen and (orientation: portrait) and (max-width: 600px) {
     .ditto-mobile-api #ditto iframe {
     /*
@@ -47,13 +47,13 @@
       margin-left: -336px;
     }
   }
-  
+
   /* Rules for iPhone-like devices in landscape mode. */
   @media only screen and (orientation: landscape) and (max-width: 600px) {
     .ditto-mobile-api #ditto {
       height: 280px;
     }
-  
+
     .ditto-mobile-api #ditto iframe {
       margin-top: -7%;
       height: 480px;
