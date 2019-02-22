@@ -118,7 +118,7 @@ var lookersscreen = {
                 cardHtml += '<div class="demo__card__drag"></div>';
                 cardHtml += '</div>';
             }else{
-                for(var i = (frameLen-1); i>=(frameLen - 2); i--){
+                for(var i = 1; i>=0; i--){
                     cardHtml += '<div class="demo__card" id="'+i+'">';
                     cardHtml += '<div class="demo__card__top cyan">';
                     cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" alt=""></div>';
@@ -128,18 +128,7 @@ var lookersscreen = {
                     cardHtml += '<div class="demo__card__drag"></div>';
                     cardHtml += '</div>';
                 }
-            }
-            
-            /*_this.userFrames.forEach(function(element,index) {
-                cardHtml += '<div class="demo__card" id="'+index+'">';
-                cardHtml += '<div class="demo__card__top cyan">';
-                cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+element.sku+'" alt=""></div>';
-                cardHtml += '</div>';
-                cardHtml += '<div class="demo__card__choice m--reject">Dis Like</div>';
-                cardHtml += '<div class="demo__card__choice m--like">Like</div>';
-                cardHtml += '<div class="demo__card__drag"></div>';
-                cardHtml += '</div>';
-            });*/
+            }        
         }else{
             cardHtml += '<div class="demo__card">';
             cardHtml += '<div class="demo__card__top cyan">';
@@ -163,37 +152,30 @@ var lookersscreen = {
 
     setFrameNameandLikeCount : function(appObj,key){ 
         var _this = this;
-        var nextelemKey = 0;
-        if(key == 0){
-            var firstelem = $('.demo__card-cont').find('.demo__card').first();
-            nextelemKey = $(firstelem).attr('id');
-        }else{
-            nextelemKey = (key - 1);
-        }
-        var nameStr = appObj.lookersScreen.userFrames[nextelemKey].brand+' '+appObj.lookersScreen.userFrames[nextelemKey].size;
+        var nameStr = appObj.lookersScreen.userFrames[key+1].brand+' '+appObj.lookersScreen.userFrames[key+1].size;
         $('#framename').html(nameStr.substr(0, 25));
-        $('.like-post').html('<i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+appObj.lookersScreen.userFrames[nextelemKey].like_count);
+        $('.like-post').html('<i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+appObj.lookersScreen.userFrames[key+1].like_count);
     },
 
     swipeCard : function(appObj,key,swipeDirection){
         var _this = this;
         $('#'+key).remove();
-        if(key > 0){
-            var cardHtml = '<div class="demo__card" id="'+ (key - 1)+'">';
+
+        var newCardKey = parseInt(key) + 2;
+        if(newCardKey <= _this.userFrames.length){
+            var cardHtml = '<div class="demo__card" id="'+ newCardKey +'">';
             cardHtml += '<div class="demo__card__top cyan">';
-            cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[key - 1].sku+'" alt=""></div>';
+            cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[newCardKey].sku+'" alt=""></div>';
             cardHtml += '</div>';
             cardHtml += '<div class="demo__card__choice m--reject">Dis Like</div>';
             cardHtml += '<div class="demo__card__choice m--like">Like</div>';
             cardHtml += '<div class="demo__card__drag"></div>';
             cardHtml += '</div>';
-            $('.demo__card').before(cardHtml);
-        }
-        _this.setFrameNameandLikeCount(appObj,key);
-
+        }        
+        $('.demo__card').before(cardHtml);
+        _this.setFrameNameandLikeCount(appObj,parseInt(newCardKey));
         _this.bindCardCLick(appObj);
-        // First set the user swipe
-        
+        // First set the user swipe        
         var requestUrl = common.apiUrl+'/userswapes?mobile='+appObj.getUserMobile();
         requestUrl +='&sku='+_this.userFrames[key].sku;
         requestUrl +='&swaptype='+swipeDirection;

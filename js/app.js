@@ -56,7 +56,7 @@ var app = {
                     common.createCookie('eyewish-ditto',res.success.dittoid);
                     app.mainDom.innerHTML = app.lookersScreen.loadLookersScreen(app);
                     app.lookersScreen.bindClicks(app);
-                    app.lookersScreen.setFrameNameandLikeCount(app,app.lookersScreen.userFrames.length);
+                    app.lookersScreen.setFrameNameandLikeCount(app,0);
                     $.getScript( 'js/swipe.js', function() {
                         //console.log('swipe script loaded');
                     });
