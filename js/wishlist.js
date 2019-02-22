@@ -6,22 +6,22 @@ var wishlist = {
         if ('success' in res){
             return res.success;
         }else{
-            if(res.error == 'Unauthroized'){               
+            if(res.error == 'Unauthroized'){
                 appObj.showPopup('Your session has been expired','alert-danger','Error!');
                 appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                 appObj.mobileScreen.setMobileonField(appObj);
                 appObj.mobileScreen.bindClicks(appObj);
             }else{
                 appObj.showPopup('Some error occur','alert-danger','Error!');
-            }            
+            }
         }
     },
 
     getwishListFramesHtml : function(appObj){
         var responseList = Array();
-        var framesObj = this.getUserWishList(appObj); 
-        var framesonlyHtm = ''; 
-        var dittoHtm = '';      
+        var framesObj = this.getUserWishList(appObj);
+        var framesonlyHtm = '';
+        var dittoHtm = '';
         framesObj.forEach(function(element,index) {
             framesonlyHtm += '<div class="col-md-6">';
             framesonlyHtm += '<div class="wishlist-img" sku="'+element.sku+'">';
@@ -34,7 +34,7 @@ var wishlist = {
             dittoHtm += '<img src="'+element.image+'" alt="">  <span class="arrow-up"><i class="fa">&times;</i></span>';
             dittoHtm += '<span class="wish-title">'+element.brand+' '+element.size+' <span class="input-arrow"><i class="fa fa-arrow-right"></i></span></span>';
             dittoHtm += '</div></div>';
-            
+
         });
         responseList['dittoHtml'] = framesonlyHtm;
         responseList['framesHtml'] = dittoHtm;
@@ -42,7 +42,7 @@ var wishlist = {
     },
 
     wishListScreen : function(appObj){
-        var _this = this;        
+        var _this = this;
         var htmlStr = '<div class="container">';
         htmlStr += '<div class="row">';
         htmlStr += '<div class="col-md-12">';
@@ -61,7 +61,7 @@ var wishlist = {
         htmlStr += '<input type="checkbox" value="false" id="parametros_MOSTRAPEDIDOS" class="toggleCheckBox" name="parametros.MOSTRAPEDIDOS" />';
         htmlStr += '<label class="clickToggle" for="parametros_MOSTRAPEDIDOS"></label>';
         htmlStr += '</span>';
-        htmlStr += '<span class="frame" id="framefilter">Frame Only </span> </p>';
+        htmlStr += '<span class="frame" id="framefilter">View Frames Only </span> </p>';
         htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '<div class="single-details row">';
@@ -74,7 +74,7 @@ var wishlist = {
         htmlStr += '</div>';
         htmlStr += '<div class="slider-wrapper">';
         htmlStr += '<div id="single-product" class="row">';
-        
+
         /********  Add Wishlist frames html with frames only ********/
         htmlStr += getHtmlList['framesHtml'];
         /********  Add Wishlist frames html with frames only ********/
@@ -97,14 +97,14 @@ var wishlist = {
                 appObj.mainDom.innerHTML = appObj.frameDetailScreen.loadDetailProfileScreen(appObj,res.success.detail);
                 appObj.frameDetailScreen.bindClicks(appObj);
             }else{
-                if(res.error == 'Unauthroized'){               
+                if(res.error == 'Unauthroized'){
                     appObj.showPopup('Your session has been expired','alert-danger','Error!');
                     appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                     appObj.mobileScreen.setMobileonField(appObj);
                     appObj.mobileScreen.bindClicks(appObj);
                 }else{
                     appObj.showPopup('Some error occur','alert-danger','Error!');
-                }                
+                }
             }
         });
     },
@@ -142,14 +142,14 @@ var wishlist = {
         });
 
         // Bind close icon click
-        $('.arrow-up i').click(function(e){            
+        $('.arrow-up i').click(function(e){
             var requestUrl = common.apiUrl+'/clearwishlist?mobile='+appObj.getUserMobile();
             requestUrl +='&sku='+$(this).parent().parent().attr('sku');
             res = common.sendRequest(requestUrl,'POST',false);
             if('success' in res){
                 $(this).parent().parent().parent().remove();
             }else{
-                if(res.error == 'Unauthroized'){               
+                if(res.error == 'Unauthroized'){
                     appObj.showPopup('Your session has been expired','alert-danger','Error!');
                     appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                     appObj.mobileScreen.setMobileonField(appObj);
