@@ -24,7 +24,7 @@ var dittoscreen = {
 
     bindClicks : function(appObj){
       var _this = this;
-      _this.renderotpNextBtn();
+      //_this.renderotpNextBtn();
       $('#creation').hide();
       $('#ditto').hide();
       $('#ditto-thumbnail').hide();
@@ -33,10 +33,10 @@ var dittoscreen = {
         appObj.loadScreen();
       });
 
-      $('#dittotrybtn').click(function(){
+      //$('#dittotrybtn').click(function(){
         $('#creation').show();
         _this.createTryOnView(appObj,'#creation');
-      });
+      //});
     },
 
     createTryOnView : function(appObj,selector) {
