@@ -8,10 +8,14 @@
 }
 .slider-wrapper{
   display: none;
-  min-height: 299px
+  min-height: 360px
 }
 .slider-wrapper.active{
   display: block;
+}
+.single-details {
+  height: 360px;
+  overflow: hidden;
 }
 .slick-slide {
   margin: 0px;
