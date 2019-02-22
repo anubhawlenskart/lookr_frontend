@@ -1,6 +1,6 @@
 var setting = {
     getFilters : function(appObj){
-        var requestUrl = common.apiUrl+'/getfilter?mobile='+appObj.getUserMobile();  
+        var requestUrl = common.apiUrl+'/getfilter?mobile='+appObj.getUserMobile();
         res = common.sendRequest(requestUrl);
         if ('success' in res){
             return res.success.filters;
@@ -8,12 +8,12 @@ var setting = {
     },
 
     getProfile : function(appObj){
-        var requestUrl = common.apiUrl+'/getuserprofile?mobile='+appObj.getUserMobile();  
+        var requestUrl = common.apiUrl+'/getuserprofile?mobile='+appObj.getUserMobile();
         res = common.sendRequest(requestUrl);
         if ('success' in res){
             return res.success;
         }else{
-            if(res.error == 'Unauthroized'){               
+            if(res.error == 'Unauthroized'){
                 appObj.showPopup('Your session has been expired','alert-danger','Error!');
                 appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                 appObj.mobileScreen.setMobileonField(appObj);
@@ -23,17 +23,17 @@ var setting = {
     },
 
     getUserFilters : function(appObj){
-        var requestUrl = common.apiUrl+'/getUserfilter?mobile='+appObj.getUserMobile();  
+        var requestUrl = common.apiUrl+'/getUserfilter?mobile='+appObj.getUserMobile();
         res = common.sendRequest(requestUrl);
         if ('success' in res){
             return res.success;
-        }else{            
-            if(res.error == 'Unauthroized'){               
+        }else{
+            if(res.error == 'Unauthroized'){
                 appObj.showPopup('Your session has been expired','alert-danger','Error!');
                 appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                 appObj.mobileScreen.setMobileonField(appObj);
                 appObj.mobileScreen.bindClicks(appObj);
-            }    
+            }
         }
     },
 
@@ -77,7 +77,7 @@ var setting = {
         if (0 in fetchFilter){
             userFilters = fetchFilter[0];
         }
-        var Filters = _this.getFilters(appObj);        
+        var Filters = _this.getFilters(appObj);
         var brands = Filters.brand;
         var colors = Filters.color;
         var shapes = Filters.shape;
@@ -145,7 +145,7 @@ var setting = {
 
     loadSettingScreen : function(appObj){
         var _this = this;
-        var htmlStr = '<div class="container">';        
+        var htmlStr = '<div class="container">';
         htmlStr += '<div class="row">';
         htmlStr += '<div class="col-md-12">';
         htmlStr += '<header class="header-section">';
@@ -175,7 +175,7 @@ var setting = {
         // Set User Profile
         htmlStr += _this.renderProfile(appObj);
 
-        // Set Achievement 
+        // Set Achievement
         htmlStr += _this.renderAchievements(appObj);
         htmlStr += '</div>';
         return htmlStr;
@@ -188,7 +188,7 @@ var setting = {
             $(this).toggleClass("active");
             return false;
         });
-            
+
         $('.brand label').on('change', function(){
             $(this).toggleClass("active");
             return false;
@@ -231,7 +231,7 @@ var setting = {
                 _this.loadSettingScreen(appObj);
                 appObj.showPopup(res.success,'alert-success','Success!');
             }else{
-                if(res.error == 'Unauthroized'){               
+                if(res.error == 'Unauthroized'){
                     appObj.showPopup('Your session has been expired','alert-danger','Error!');
                     appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                     appObj.mobileScreen.setMobileonField(appObj);
@@ -248,9 +248,9 @@ var setting = {
             var res = common.sendRequest(requestUrl);
             if ('success' in res){
                 _this.loadSettingScreen(appObj);
-                appObj.showPopup(res.success,'alert-success','Success!');                
-            }else{                
-                if(res.error == 'Unauthroized'){               
+                appObj.showPopup(res.success,'alert-success','Success!');
+            }else{
+                if(res.error == 'Unauthroized'){
                     appObj.showPopup('Your session has been expired','alert-danger','Error!');
                     appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                     appObj.mobileScreen.setMobileonField(appObj);

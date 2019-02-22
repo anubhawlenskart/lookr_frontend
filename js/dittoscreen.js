@@ -6,19 +6,25 @@ var dittoscreen = {
         htmlStr += '<div class="col-md-12">';
         htmlStr += '<span class="back" id="backbtn"></span>';
         htmlStr += '<div class="main-content other-info">';
-        htmlStr += '<h1>Ditto</h1>';                
+        htmlStr += '<h1>Ditto</h1>';
         htmlStr += '<div class="input-box">';
-        htmlStr += '<div class="buttons">';
-        htmlStr += '<button class="btn" id="dittotrybtn">try on</button>';
-        htmlStr += '</div></div></div></div></div>';
+        htmlStr += '</div></div></div></div>';
         htmlStr += '<div id="creation"></div>';
         htmlStr += '<div id="ditto"></div>';
         htmlStr += '<div id="ditto-thumbnail"></div>';
         return htmlStr;
     },
 
+    renderotpNextBtn : function(){
+        var htm= '<div class="buttons">';
+        htm += '<button class="btn" id="dittotrybtn">try on</button>';
+        htm += '</div>';
+        $('main').after(htm);
+    },
+
     bindClicks : function(appObj){
-      var _this = this;      
+      var _this = this;
+      _this.renderotpNextBtn();
       $('#creation').hide();
       $('#ditto').hide();
       $('#ditto-thumbnail').hide();
@@ -34,7 +40,7 @@ var dittoscreen = {
     },
 
     createTryOnView : function(appObj,selector) {
-      $('.row').hide();  
+      $('.row').hide();
       var dittoCreation = new ditto.api.DittoCreation(
         {
           selector: selector,
@@ -45,7 +51,7 @@ var dittoscreen = {
             appObj.setDittoId(callbackObject.dittoId);
             common.createCookie('eyewish-ditto' , callbackObject.dittoId , common.cookieexpiryday);
             var requestUrl = common.apiUrl+'/setditto?mobile='+appObj.getUserMobile()+'&dittoid='+callbackObject.dittoId;
-            res = common.sendRequest(requestUrl); 
+            res = common.sendRequest(requestUrl);
             if ('success' in res){
               appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
               appObj.lookersScreen.bindClicks(appObj);
@@ -53,15 +59,15 @@ var dittoscreen = {
               $.getScript( 'js/swipe.js', function() {
                   //console.log('swipe script loaded');
               });
-            }else{            
-                if(res.error == 'Unauthroized'){               
+            }else{
+                if(res.error == 'Unauthroized'){
                     appObj.showPopup('Your session has been expired','alert-danger','Error!');
                     appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                     appObj.mobileScreen.setMobileonField(appObj);
                     appObj.mobileScreen.bindClicks(appObj);
-                }    
+                }
             }
-            
+
           },
           failure: function(callbackObject) {
             console.log("failure", callbackObject);
