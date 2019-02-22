@@ -23,24 +23,15 @@ var mobilescreen = {
         return htmlStr;
     },
 
-    renderNextBtn : function(){
-        var htm = '<div class="buttons">';
-        htm += '<button class="btn disable" id="nextBtn">Next</button>';
-        htm += '</div>';
-        $('main').after(htm);
-    },
-
     bindClicks:function(appObj){
         var _this = this;    
         if($('#otpnextBtn').length){
             $('#otpnextBtn').parent().remove();
-        }        
-        //_this.renderNextBtn(); 
+        }       
         var mobField = $('#mobile');
-        /*$('#nextBtn').click(function(){
-            if(!$(this).hasClass( "disable" )){
-                var mobile = $(mobField).val();
-                appObj.setUserMobile(mobile);
+        $('.input-arrow').click(function(){   
+            if(_this.validateMobile($(mobField).val())){
+                appObj.setUserMobile($(mobField).val());
                 if(mobile != ''){
                     var clickRes = _this.clickNext(appObj.getUserMobile());
                     if (!clickRes.success.isexist){  
@@ -50,28 +41,23 @@ var mobilescreen = {
                     appObj.otpScreen.bindClicks(appObj);
                 }
             }else{
-                $(mobField).focus();
-                return false;
-            }            
-        });*/
-
-        $('.input-arrow').click(function(){            
-            if($(mobField).val() == ''){
                 $(mobField).addClass('error');
-            }else{
-                var mobile = $(mobField).val();
-                appObj.setUserMobile(mobile);
-                if(mobile != ''){
-                    var clickRes = _this.clickNext(appObj.getUserMobile());
-                    if (!clickRes.success.isexist){  
-                        var registerResponse = appObj.mobileScreen.registerUser(appObj.getUserMobile());
-                    }
-                    appObj.mainDom.innerHTML = appObj.otpScreen.loadOtpScreen();
-                    appObj.otpScreen.bindClicks(appObj);
-                }
-            }            
+            }         
         });
-      },
+    },
+
+    validateMobile : function(mobile){
+        var flg = true;
+        if (isNaN(mobile)){
+            flg = false;
+        }else{
+            var moblen = mobile.length;
+            if(moblen != 10){
+                flg = false;
+            }
+        }
+        return flg;
+    },
 
     clickNext : function (mobile){
         // First check User exist or not
