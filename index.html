@@ -30,15 +30,15 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css?v={6}" type="text/css">
         <!-- Application CSS -->
-        <link rel="stylesheet" type="text/css" href="style.css?v={9}">
+        <link rel="stylesheet" type="text/css" href="style.css?v={10}">
         <!-- Ditto CSS -->
-        <link rel="stylesheet" type="text/css" href="css/ditto.css?v={6}">
+        <link rel="stylesheet" type="text/css" href="css/ditto.css?v={7}">
         <!-- Slick slider CSS -->
-        <link rel="stylesheet" type="text/css" href="css/slick.css?v={9}">
+        <link rel="stylesheet" type="text/css" href="css/slick.css?v={10}">
         <!--Font Awesome css -->
         <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
         <!-- TODO add manifest here -->
-        <link rel="manifest" href="manifest.json?v={7}">
+        <link rel="manifest" href="manifest.json?v={8}">
         <!-- Add to home screen for Safari on iOS -->
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -70,20 +70,84 @@
         <!-- Uncomment the line below when ready to test with fake data -->
         <script src="https://bsdk.api.ditto.com/lenskart/3.2.0/api.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="js/common.js?v={8}"></script>
-        <script src="js/lookersscreen.js?v={22}"></script>
-        <script src="js/dittoscreen.js?v={56}"></script>
-        <script src="js/otpscreen.js?v={59}"></script>
-        <script src="js/mobilescreen.js?v={59}"></script>
-        <script src="js/otherprofilescreen.js?v={67}"></script>
-        <script src="js/framedetailsscreen.js?{v=7}"></script>
-        <script src="js/setting.js?v={7}"></script>
-        <script src="js/wishlist.js?v={8}"></script>
-        <script src="js/editprofile.js?v={9}"></script>
-        <script src="js/custom.js?v={10}"></script>
-        <script src="js/toggle.js?v={11}"></script>
-        <script src="js/app.js?v={5}"></script>
-        <script src="js/bootstrap.min.js?v={6}"></script>
+        <script src="js/common.js?v={9}"></script>
+        <script src="js/lookersscreen.js?v={27}"></script>
+        <script src="js/dittoscreen.js?v={58}"></script>
+        <script src="js/otpscreen.js?v={60}"></script>
+        <script src="js/mobilescreen.js?v={60}"></script>
+        <script src="js/otherprofilescreen.js?v={68}"></script>
+        <script src="js/framedetailsscreen.js?v={69}"></script>
+        <script src="js/setting.js?v={9}"></script>
+        <script src="js/wishlist.js?v={9}"></script>
+        <script src="js/editprofile.js?v={10}"></script>
+        <script src="js/custom.js?v={11}"></script>
+        <script src="js/toggle.js?v={12}"></script>
+        <script src="js/app.js?v={8}"></script>
+        <script src="js/bootstrap.min.js?v={7}"></script> 
+        <script>
+          var animating = false;
+  var cardsCounter = 0;
+  var numOfCards = 6;
+  var decisionVal = 80;
+  var pullDeltaX = 0;
+  var deg = 0;
+  var $card, $cardReject, $cardLike;
 
+  function pullChange() {
+    animating = true;
+    deg = pullDeltaX / 10;
+    $card.css("transform", "translateX("+ pullDeltaX +"px) rotate("+ deg +"deg)");
+
+    var opacity = pullDeltaX / 100;
+    var rejectOpacity = (opacity >= 0) ? 0 : Math.abs(opacity);
+    var likeOpacity = (opacity <= 0) ? 0 : opacity;
+    $cardReject.css("opacity", rejectOpacity);
+    $cardLike.css("opacity", likeOpacity);
+  };
+
+  function release() {
+    // Anubhaw //
+    var swipeDirection = '';
+    // Anubhaw //
+    if (pullDeltaX >= decisionVal) {
+      $card.addClass("to-right");
+      // Anubhaw //
+      swipeDirection = 'right';
+      // Anubhaw //
+    } else if (pullDeltaX <= -decisionVal) {
+       // Anubhaw //
+       swipeDirection = 'left';
+       // Anubhaw //
+      $card.addClass("to-left");
+    }
+
+    if (Math.abs(pullDeltaX) >= decisionVal) {
+      $card.addClass("inactive");      
+      ///        Anubhaw hack    ///
+      app.lookersScreen.swipeCard(app,$card[0].id,swipeDirection)
+      ///        Anubhaw hack    ///
+      setTimeout(function() {
+        $card.addClass("below").removeClass("inactive to-left to-right");
+        cardsCounter++;
+        if (cardsCounter === numOfCards) {
+          cardsCounter = 0;
+          $(".demo__card").removeClass("below");
+        }
+      }, 300);
+    }
+
+    if (Math.abs(pullDeltaX) < decisionVal) {
+      $card.addClass("reset");
+    }
+
+    setTimeout(function() {
+      $card.attr("style", "").removeClass("reset")
+        .find(".demo__card__choice").attr("style", "");
+
+      pullDeltaX = 0;
+      animating = false;
+    }, 300);
+  };
+        </script>
     </body>
 </html>

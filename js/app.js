@@ -1,6 +1,7 @@
 
 
 var app = {    
+    appstate : {},    
     dittoVTUrl : 'https://vto.ditto.api.ditto.com/comparison/?ditto_id=',
     apiKey : common.key,
     mainDom : common.rootElement,
@@ -15,6 +16,7 @@ var app = {
     editprofileScreen : editprofile,
     wishListScreen : wishlist,
     settingScreen : setting,
+    cardcountinlookrscreen : 4,
 
     setAuthToken : function(token){
         common.authToken = token;
@@ -55,11 +57,12 @@ var app = {
                     this.setDittoId(res.success.dittoid); 
                     common.createCookie('eyewish-ditto',res.success.dittoid);
                     app.mainDom.innerHTML = app.lookersScreen.loadLookersScreen(app);
-                    app.lookersScreen.bindClicks(app);
-                    app.lookersScreen.setFrameNameandLikeCount(app,0);
-                    $.getScript( 'js/swipe.js', function() {
+                    //$.getScript( 'js/swipe.js', function() {
                         //console.log('swipe script loaded');
-                    });
+                    //});
+                    app.lookersScreen.bindClicks(app);
+                    app.lookersScreen.setFrameNameandLikeCount(app,1);
+                   
                 }else{
                     app.mainDom.innerHTML = app.otherProfileScreen.loadProfileScreen(app);
                     app.otherProfileScreen.bindClicks();

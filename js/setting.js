@@ -58,11 +58,14 @@ var setting = {
                 classval = 'active';
                 checkVar = 'checked="checked"';
             }
-            htm += '<div class="col-md-3"><label class="'+classval+'">'+element[keyname];
-            htm += '<input type="checkbox" '+checkVar+' name="'+keyname+'" placeholder="" class="form-control '+keyname+'" value="'+element[keyname]+'">';
-            htm += '<span class="checkmark"></span>';
-            htm += '</label>';
-            htm += '</div>';
+            if(element[keyname] != ''){
+                htm += '<div class="col-md-3"><label class="'+classval+'">'+element[keyname];
+                htm += '<input type="checkbox" '+checkVar+' name="'+keyname+'" placeholder="" class="form-control '+keyname+'" value="'+element[keyname]+'">';
+                htm += '<span class="checkmark"></span>';
+                htm += '</label>';
+                htm += '</div>';
+            }
+            
         });
         htm += '</div>';
         htm += '</div>';
@@ -176,7 +179,7 @@ var setting = {
         htmlStr += _this.renderProfile(appObj);
 
         // Set Achievement
-        htmlStr += _this.renderAchievements(appObj);
+        //htmlStr += _this.renderAchievements(appObj);
         htmlStr += '</div>';
         return htmlStr;
     },
