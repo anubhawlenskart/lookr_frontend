@@ -635,6 +635,9 @@ color: #666;
 padding-top: 0px;
 min-height: 0px;
 }
+.details-page .slider-wrapper{
+  background: #fff;
+}
 .wishlist-page .input-arrow {
 background: url(images/arrowBack.png) right center no-repeat;
 float:right;
@@ -1071,7 +1074,7 @@ display: none;
 }
 .details-wrapper .demo__card__name{
 margin-top: 20px;
-padding: 0px;
+padding: 0px 0 10px;
 overflow: hidden;
 }
 .details-wrapper .demo__card__name span.post-name{
@@ -1246,7 +1249,7 @@ background: #003366;
 }
 .arrow-down,.arrow-up{
 position: absolute;
-right: 30px;
+right:15px;
 top: 43%;
 background: rgba(0,0,0,0.7);
 color: #fff;
@@ -1261,7 +1264,7 @@ font-weight: bold;
 cursor: pointer;
 }
 .arrow-up{
-top: 5%;
+top: 15px;
 }
 .frame-container span.shape{
 color: rgba(74, 74, 74, 0.5);
@@ -1620,6 +1623,18 @@ margin: 0px;
 }
 .demo__card img{
   height: 440px;
+}
+}
+
+@media only screen and (max-width: 767px) and (min-width:375px) {
+  .demo__card-cont {
+    height: 22rem;
+  }
+  .demo__card img{
+    height: 334px;
+  }
+  .demo__card {
+    height: 95%;
 }
 }
 

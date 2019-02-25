@@ -21,7 +21,7 @@ var framedetailsscreen = {
         htmlStr += '<input type="checkbox" value="false" id="parametros_MOSTRAPEDIDOS" class="toggleCheckBox" name="parametros.MOSTRAPEDIDOS" />';
         htmlStr += '<label class="clickToggle" for="parametros_MOSTRAPEDIDOS"></label>';
         htmlStr += '</span>';
-        htmlStr += '<span class="frame">Frame Only </span>';
+        htmlStr += '<span class="frame">View Frames Only </span>';
         htmlStr += '</p>';
         htmlStr += '<p>'+framedet.description+'</p>';
         htmlStr += '<div class="frame-container">';
