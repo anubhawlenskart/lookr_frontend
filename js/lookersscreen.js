@@ -195,7 +195,6 @@ var lookersscreen = {
             cardHtml += '<div class="demo__card__choice m--like"></div>';
             cardHtml += '<div class="demo__card__drag"></div>';
             cardHtml += '</div>';
-<<<<<<< HEAD
             $('.demo__card').first().before(cardHtml);
             _this.setFrameNameandLikeCount(appObj,parseInt(newCardKey));
         }else{
@@ -203,11 +202,6 @@ var lookersscreen = {
         }        
         
         
-=======
-        }
-        $('.demo__card').before(cardHtml);
-        _this.setFrameNameandLikeCount(appObj,parseInt(newCardKey));
->>>>>>> 50d5492ceec6dfc0813c4bb20c3778249ef7cad8
         _this.bindCardCLick(appObj);
         // First set the user swipe
         var requestUrl = common.apiUrl+'/userswapes?mobile='+appObj.getUserMobile();
