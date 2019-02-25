@@ -30,11 +30,19 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css?v={6}" type="text/css">
         <!-- Application CSS -->
+<<<<<<< HEAD
         <link rel="stylesheet" type="text/css" href="style.css?v={10}">
         <!-- Ditto CSS -->
         <link rel="stylesheet" type="text/css" href="css/ditto.css?v={7}">
         <!-- Slick slider CSS -->
         <link rel="stylesheet" type="text/css" href="css/slick.css?v={10}">
+=======
+        <link rel="stylesheet" type="text/css" href="style.css?v={13}">
+        <!-- Ditto CSS -->
+        <link rel="stylesheet" type="text/css" href="css/ditto.css?v={7}">
+        <!-- Slick slider CSS -->
+        <link rel="stylesheet" type="text/css" href="css/slick.css?v={12}">
+>>>>>>> 50d5492ceec6dfc0813c4bb20c3778249ef7cad8
         <!--Font Awesome css -->
         <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
         <!-- TODO add manifest here -->
@@ -86,68 +94,68 @@
         <script src="js/bootstrap.min.js?v={7}"></script> 
         <script>
           var animating = false;
-  var cardsCounter = 0;
-  var numOfCards = 6;
-  var decisionVal = 80;
-  var pullDeltaX = 0;
-  var deg = 0;
-  var $card, $cardReject, $cardLike;
+          var cardsCounter = 0;
+          var numOfCards = 6;
+          var decisionVal = 80;
+          var pullDeltaX = 0;
+          var deg = 0;
+          var $card, $cardReject, $cardLike;
 
-  function pullChange() {
-    animating = true;
-    deg = pullDeltaX / 10;
-    $card.css("transform", "translateX("+ pullDeltaX +"px) rotate("+ deg +"deg)");
+          function pullChange() {
+            animating = true;
+            deg = pullDeltaX / 10;
+            $card.css("transform", "translateX("+ pullDeltaX +"px) rotate("+ deg +"deg)");
 
-    var opacity = pullDeltaX / 100;
-    var rejectOpacity = (opacity >= 0) ? 0 : Math.abs(opacity);
-    var likeOpacity = (opacity <= 0) ? 0 : opacity;
-    $cardReject.css("opacity", rejectOpacity);
-    $cardLike.css("opacity", likeOpacity);
-  };
+            var opacity = pullDeltaX / 100;
+            var rejectOpacity = (opacity >= 0) ? 0 : Math.abs(opacity);
+            var likeOpacity = (opacity <= 0) ? 0 : opacity;
+            $cardReject.css("opacity", rejectOpacity);
+            $cardLike.css("opacity", likeOpacity);
+          };
 
-  function release() {
-    // Anubhaw //
-    var swipeDirection = '';
-    // Anubhaw //
-    if (pullDeltaX >= decisionVal) {
-      $card.addClass("to-right");
-      // Anubhaw //
-      swipeDirection = 'right';
-      // Anubhaw //
-    } else if (pullDeltaX <= -decisionVal) {
-       // Anubhaw //
-       swipeDirection = 'left';
-       // Anubhaw //
-      $card.addClass("to-left");
-    }
+          function release() {
+            // Anubhaw //
+            var swipeDirection = '';
+            // Anubhaw //
+            if (pullDeltaX >= decisionVal) {
+              $card.addClass("to-right");
+              // Anubhaw //
+              swipeDirection = 'right';
+              // Anubhaw //
+            } else if (pullDeltaX <= -decisionVal) {
+              // Anubhaw //
+              swipeDirection = 'left';
+              // Anubhaw //
+              $card.addClass("to-left");
+            }
 
-    if (Math.abs(pullDeltaX) >= decisionVal) {
-      $card.addClass("inactive");      
-      ///        Anubhaw hack    ///
-      app.lookersScreen.swipeCard(app,$card[0].id,swipeDirection)
-      ///        Anubhaw hack    ///
-      setTimeout(function() {
-        $card.addClass("below").removeClass("inactive to-left to-right");
-        cardsCounter++;
-        if (cardsCounter === numOfCards) {
-          cardsCounter = 0;
-          $(".demo__card").removeClass("below");
-        }
-      }, 300);
-    }
+            if (Math.abs(pullDeltaX) >= decisionVal) {
+              $card.addClass("inactive");      
+              ///        Anubhaw hack    ///
+              app.lookersScreen.swipeCard(app,$card[0].id,swipeDirection)
+              ///        Anubhaw hack    ///
+              setTimeout(function() {
+                $card.addClass("below").removeClass("inactive to-left to-right");
+                cardsCounter++;
+                if (cardsCounter === numOfCards) {
+                  cardsCounter = 0;
+                  $(".demo__card").removeClass("below");
+                }
+              }, 300);
+            }
 
-    if (Math.abs(pullDeltaX) < decisionVal) {
-      $card.addClass("reset");
-    }
+            if (Math.abs(pullDeltaX) < decisionVal) {
+              $card.addClass("reset");
+            }
 
-    setTimeout(function() {
-      $card.attr("style", "").removeClass("reset")
-        .find(".demo__card__choice").attr("style", "");
+            setTimeout(function() {
+              $card.attr("style", "").removeClass("reset")
+                .find(".demo__card__choice").attr("style", "");
 
-      pullDeltaX = 0;
-      animating = false;
-    }, 300);
-  };
+              pullDeltaX = 0;
+              animating = false;
+            }, 300);
+          };
         </script>
     </body>
 </html>

@@ -7,7 +7,7 @@ var lookersscreen = {
             _this.userFrames = userFrames.success;
             cardHtml = this.getCardHtml(appObj);
         }else{
-            if(res.error == 'Unauthroized'){               
+            if(res.error == 'Unauthroized'){
                 appObj.showPopup('Your session has been expired','alert-danger','Error!');
                 appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                 appObj.mobileScreen.setMobileonField(appObj);
@@ -17,7 +17,7 @@ var lookersscreen = {
         var htmlStr = '<div class="container">';
         htmlStr += '<div class="row">';
         htmlStr += '<div class="col-md-12">';
-        
+
         htmlStr += '<header class="header-section">';
         htmlStr += '<ul class="">';
         htmlStr += '<li id="settings"><a href="#"><i class="fa fa-gear" style="font-size:30px"></i></a></li>';
@@ -33,11 +33,11 @@ var lookersscreen = {
 
         /********** card html*******************/
         htmlStr += cardHtml;
-        /********** card html*******************/        
+        /********** card html*******************/
         htmlStr += '</div>';
         htmlStr += '<div class="demo-like">';
         htmlStr += '<p class="demo__card__name"><span class="post-name" id="framename">Hungry cat </span><span class="like-post"><i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> 1234</span></p>';
-        htmlStr += '<div class="like-dislike"><span class="dislike-button"><i class="fa fa-thumbs-down"></i> Dislike</span> <span class="like-button"><i class="fa fa-thumbs-up"></i> Like</span></div>';
+        htmlStr += '<div class="like-dislike"><span class="dislike-button"><i class="fa fa-thumbs-down"></i></span> <span class="like-button"><i class="fa fa-thumbs-up"></i></span></div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
@@ -123,13 +123,13 @@ var lookersscreen = {
 
     getUserFrames : function(appObj){
         var requestUrl = common.apiUrl+'/userframes?mobile='+appObj.getUserMobile()+'&dittoid='+appObj.getDittoId();
-        res = common.sendRequest(requestUrl); 
+        res = common.sendRequest(requestUrl);
         return res;
     },
 
     getCardHtml : function(appObj){
         var _this = this;
-        var cardHtml = ''; 
+        var cardHtml = '';
         var frameLen = _this.userFrames.length;
         if(frameLen > 0){
             if(frameLen == 1){
@@ -152,7 +152,7 @@ var lookersscreen = {
                     cardHtml += '<div class="demo__card__drag"></div>';
                     cardHtml += '</div>';
                 }
-            }        
+            }
         }else{
             cardHtml += '<div class="demo__card">';
             cardHtml += '<div class="demo__card__top cyan">';
@@ -171,10 +171,10 @@ var lookersscreen = {
             cardHtml += '<div class="demo__card__drag"></div>';
             cardHtml += '</div>';
         }
-        return cardHtml;        
+        return cardHtml;
     },
 
-    setFrameNameandLikeCount : function(appObj,key){ 
+    setFrameNameandLikeCount : function(appObj,key){
         var _this = this;
         var nameStr = appObj.lookersScreen.userFrames[key].brand+' '+appObj.lookersScreen.userFrames[key].size;
         $('#framename').html(nameStr.substr(0, 25));
@@ -191,10 +191,11 @@ var lookersscreen = {
             cardHtml += '<div class="demo__card__top cyan">';
             cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[newCardKey].sku+'" alt=""></div>';
             cardHtml += '</div>';
-            cardHtml += '<div class="demo__card__choice m--reject">Dis Like</div>';
-            cardHtml += '<div class="demo__card__choice m--like">Like</div>';
+            cardHtml += '<div class="demo__card__choice m--reject"></div>';
+            cardHtml += '<div class="demo__card__choice m--like"></div>';
             cardHtml += '<div class="demo__card__drag"></div>';
             cardHtml += '</div>';
+<<<<<<< HEAD
             $('.demo__card').first().before(cardHtml);
             _this.setFrameNameandLikeCount(appObj,parseInt(newCardKey));
         }else{
@@ -202,8 +203,13 @@ var lookersscreen = {
         }        
         
         
+=======
+        }
+        $('.demo__card').before(cardHtml);
+        _this.setFrameNameandLikeCount(appObj,parseInt(newCardKey));
+>>>>>>> 50d5492ceec6dfc0813c4bb20c3778249ef7cad8
         _this.bindCardCLick(appObj);
-        // First set the user swipe        
+        // First set the user swipe
         var requestUrl = common.apiUrl+'/userswapes?mobile='+appObj.getUserMobile();
         requestUrl +='&sku='+_this.userFrames[key].sku;
         requestUrl +='&swaptype='+swipeDirection;
@@ -223,7 +229,7 @@ var lookersscreen = {
             requestUrl +='&status='+status;
             res = common.sendRequest(requestUrl,'POST',false);
         }else{
-            if(res.error == 'Unauthroized'){               
+            if(res.error == 'Unauthroized'){
                 appObj.showPopup('Your session has been expired','alert-danger','Error!');
                 appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                 appObj.mobileScreen.setMobileonField(appObj);
