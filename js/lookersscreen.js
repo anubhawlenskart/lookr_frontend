@@ -56,11 +56,35 @@ var lookersscreen = {
         });
     },
 
+    bindSwap : function(appObj){
+        $(document).on("mousedown touchstart", ".demo__card:not(.inactive)", function(e) {
+            if (animating) return;
+        
+            $card = $(this);
+            $cardReject = $(".demo__card__choice.m--reject", $card);
+            $cardLike = $(".demo__card__choice.m--like", $card);
+            var startX =  e.pageX || e.originalEvent.touches[0].pageX;
+        
+            $(document).on("mousemove touchmove", function(e) {
+              var x = e.pageX || e.originalEvent.touches[0].pageX;
+              pullDeltaX = (x - startX);
+              if (!pullDeltaX) return;
+              pullChange();
+            });
+        
+            $(document).on("mouseup touchend", function() {
+              $(document).off("mousemove touchmove mouseup touchend");
+              if (!pullDeltaX) return; // prevents from rapid click events
+              release();
+            });
+        });
+    },
+
     bindClicks : function(appObj){
         var _this = this;
         $('.wrapper').addClass('ditto-wrapper');
+        _this.bindSwap(appObj);
         _this.bindCardCLick(appObj);
-
         // Bind setting CLick
         $('#settings').click(function(){
             $('.wrapper').removeClass('ditto-wrapper');
@@ -118,7 +142,7 @@ var lookersscreen = {
                 cardHtml += '<div class="demo__card__drag"></div>';
                 cardHtml += '</div>';
             }else{
-                for(var i = 1; i>=0; i--){
+                for(var i = appObj.cardcountinlookrscreen; i>0; i--){
                     cardHtml += '<div class="demo__card" id="'+i+'">';
                     cardHtml += '<div class="demo__card__top cyan">';
                     cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" alt=""></div>';
@@ -152,17 +176,17 @@ var lookersscreen = {
 
     setFrameNameandLikeCount : function(appObj,key){
         var _this = this;
-        var nameStr = appObj.lookersScreen.userFrames[key+1].brand+' '+appObj.lookersScreen.userFrames[key+1].size;
+        var nameStr = appObj.lookersScreen.userFrames[key].brand+' '+appObj.lookersScreen.userFrames[key].size;
         $('#framename').html(nameStr.substr(0, 25));
-        $('.like-post').html('<i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+appObj.lookersScreen.userFrames[key+1].like_count);
+        $('.like-post').html('<i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+appObj.lookersScreen.userFrames[key].like_count);
     },
 
     swipeCard : function(appObj,key,swipeDirection){
         var _this = this;
         $('#'+key).remove();
-
-        var newCardKey = parseInt(key) + 2;
-        if(newCardKey <= _this.userFrames.length){
+        console.log((appObj.cardcountinlookrscreen+1));
+        var newCardKey = parseInt(key) + (appObj.cardcountinlookrscreen+1);
+        if(newCardKey < _this.userFrames.length){
             var cardHtml = '<div class="demo__card" id="'+ newCardKey +'">';
             cardHtml += '<div class="demo__card__top cyan">';
             cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[newCardKey].sku+'" alt=""></div>';
@@ -171,9 +195,13 @@ var lookersscreen = {
             cardHtml += '<div class="demo__card__choice m--like"></div>';
             cardHtml += '<div class="demo__card__drag"></div>';
             cardHtml += '</div>';
-        }
-        $('.demo__card').before(cardHtml);
-        _this.setFrameNameandLikeCount(appObj,parseInt(newCardKey));
+            $('.demo__card').first().before(cardHtml);
+            _this.setFrameNameandLikeCount(appObj,parseInt(newCardKey));
+        }else{
+            _this.setFrameNameandLikeCount(appObj,parseInt(key));
+        }        
+        
+        
         _this.bindCardCLick(appObj);
         // First set the user swipe
         var requestUrl = common.apiUrl+'/userswapes?mobile='+appObj.getUserMobile();
