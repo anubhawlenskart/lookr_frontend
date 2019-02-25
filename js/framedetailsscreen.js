@@ -5,11 +5,11 @@ var framedetailsscreen = {
         htmlStr += '<div class="row">';
         htmlStr += '<div class="main-content details-page">';
         htmlStr += '<div class="single-details">';
-        htmlStr += '<span class="arrow-up"><i class="fa fa-angle-down" id="backscreen"></i></span>';
+        htmlStr += '<span class="arrow-up"><i class="fa fa-angle-left" id="backscreen"></i></span>';
         htmlStr += '<img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+framedet.sku+'" alt="">';
         htmlStr += '</div>';
         htmlStr += '<div class="slider-wrapper">';
-        htmlStr += '<span class="arrow-up"><i class="fa fa-angle-down" id="backscreenfromslider"></i></span>';
+        htmlStr += '<span class="arrow-up"><i class="fa fa-angle-left" id="backscreenfromslider"></i></span>';
         htmlStr += '<div id="single-slider">';
         htmlStr += '<img src="'+framedet.image+'" alt="">';
         htmlStr += '<img src="'+framedet.image2+'" alt="">';

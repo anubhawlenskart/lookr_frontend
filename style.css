@@ -622,6 +622,7 @@ height: 30px;
 line-height: 36px;
 background: rgba(0, 0, 0, 0.3);
 top: 15px;
+left: auto;
 }
 #single-product .wishlist-img{
 padding: 50px 0;
@@ -1259,7 +1260,7 @@ background: #003366;
 }
 .arrow-down,.arrow-up{
 position: absolute;
-right:15px;
+left:15px;
 top: 43%;
 background: rgba(0,0,0,0.7);
 color: #fff;
@@ -1636,9 +1637,13 @@ padding: 0 6%;
 height: 64%;
 }
 .demo__card__name span.post-name{
-  font-size: 17px;
+  font-size: 15px;
 }
 .details-page p{
   font-size: 12px;
+}
+.settings .apply{
+  padding: 0 15px;
+  margin: 0 0 0 21px
 }
 }
