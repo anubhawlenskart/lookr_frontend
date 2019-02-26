@@ -2,8 +2,7 @@
 
 var app = {    
     appstate : {},    
-    dittoVTUrl : 'https://vto.ditto.api.ditto.com/comparison/?ditto_id=',
-    apiKey : common.key,
+    dittoVTUrl : 'https://vto.ditto.api.ditto.com/comparison/?ditto_id=',    
     mainDom : common.rootElement,
     apiUrl : common.apiUrl,
     cookieexpiryday : 1,
@@ -17,6 +16,7 @@ var app = {
     wishListScreen : wishlist,
     settingScreen : setting,
     cardcountinlookrscreen : 4,
+    swipedCardId : [],
 
     setAuthToken : function(token){
         common.authToken = token;
@@ -116,6 +116,29 @@ window.addEventListener('load', e => {
         }
     }*/
 });
+
+
+function handleUserSwipes(){
+    if(app.swipedCardId.length > 0){
+        for(var i = 0; i<= (app.swipedCardId.length - 1);i++){
+            var requestUrl = common.apiUrl+'/userswapes?mobile='+app.getUserMobile();
+            requestUrl +='&sku='+app.swipedCardId[i].sku;
+            requestUrl +='&swaptype='+app.swipedCardId[i].direction;
+            requestUrl +='&dittoid='+app.getDittoId();        
+            res = common.sendRequest(requestUrl,'POST',false);
+
+            if('success' in res){
+                var requestUrl = common.apiUrl+'/likedislikeproduct?mobile='+app.getUserMobile();
+                requestUrl +='&sku='+app.swipedCardId[i].sku;
+                requestUrl +='&status='+app.swipedCardId[i].status;
+                res = common.sendRequest(requestUrl,'POST',false);
+            }
+            app.swipedCardId.splice(i,1);
+        }        
+    }    
+}
+
+setInterval(handleUserSwipes,1000);
 
 
 
