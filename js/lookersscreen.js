@@ -2,18 +2,6 @@ var lookersscreen = {
     userFrames : Array(),
     loadLookersScreen : function(appObj){
         var _this = this;
-        /*var userFrames = this.getUserFrames(appObj);
-        if('success' in userFrames){
-            _this.userFrames = userFrames.success;
-            cardHtml = this.getCardHtml(appObj);
-        }else{
-            if(res.error == 'Unauthroized'){
-                appObj.showPopup('Your session has been expired','alert-danger','Error!');
-                appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
-                appObj.mobileScreen.setMobileonField(appObj);
-                appObj.mobileScreen.bindClicks(appObj);
-            }
-        }*/
         var htmlStr = '<div class="container">';
         htmlStr += '<div class="row">';
         htmlStr += '<div class="col-md-12">';
@@ -32,7 +20,7 @@ var lookersscreen = {
         htmlStr += '<div class="demo__card-cont">';
 
         /********** card html*******************/
-        //htmlStr += cardHtml;
+
         /********** card html*******************/
         htmlStr += '</div>';
         htmlStr += '<div class="demo-like">';
@@ -80,25 +68,78 @@ var lookersscreen = {
         });
     },
 
-    renderCards : function(){
 
+    getCardHtml : function(startkey,lastkey,appObj,isdisplay=false,reverse=false){
+        var _this = this;
+        var cardHtml = '';
+        var style = 'style=display:none';
+        if(isdisplay){
+            style = 'style=display:block';
+        }
+        if(reverse){
+            for(var i=lastkey; i >= startkey; i--){
+                cardHtml += '<div class="demo__card" id="'+i+'" '+style+'>';
+                cardHtml += '<div class="demo__card__top cyan">';
+                cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" alt=""></div>';
+                cardHtml += '</div>';
+                cardHtml += '<div class="demo__card__choice m--reject"></div>';
+                cardHtml += '<div class="demo__card__choice m--like"></div>';
+                cardHtml += '<div class="demo__card__drag"></div>';
+                cardHtml += '</div>';
+            }
+
+        }else{
+            for(var i=startkey; i<=lastkey; i++){
+                cardHtml += '<div class="demo__card" id="'+i+'" '+style+'>';
+                cardHtml += '<div class="demo__card__top cyan">';
+                cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" alt=""></div>';
+                cardHtml += '</div>';
+                cardHtml += '<div class="demo__card__choice m--reject"></div>';
+                cardHtml += '<div class="demo__card__choice m--like"></div>';
+                cardHtml += '<div class="demo__card__drag"></div>';
+                cardHtml += '</div>';
+            }
+        }      
+        return cardHtml;
+    },
+
+    getUserFrames : function(appObj){
+        var requestUrl = common.apiUrl+'/userframes?mobile='+appObj.getUserMobile()+'&dittoid='+appObj.getDittoId();
+        res = common.sendRequest(requestUrl);
+        return res;
+    },
+
+    renderCards : function(appObj){
+        var _this = this;
+        var userFrames = _this.getUserFrames(appObj);
+        if('success' in userFrames){
+            _this.userFrames = userFrames.success;
+            var frameLen = _this.userFrames.length; 
+            common.enableLoader(); 
+            $('.demo__card-cont').html(_this.getCardHtml(0,0,appObj,true,true));
+            $('.demo__card').first().before(_this.getCardHtml(1,(appObj.cardcountinlookrscreen - 1),appObj,true,true));  
+            for(var i=4; i<=(frameLen - 1); i++){
+                $('.demo__card').first().before(_this.getCardHtml(i,i,appObj));
+            }  
+            _this.setFrameNameandLikeCount(appObj,0);                            
+        }else{
+            if(res.error == 'Unauthroized'){
+                appObj.showPopup('Your session has been expired','alert-danger','Error!');
+                appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
+                appObj.mobileScreen.setMobileonField(appObj);
+                appObj.mobileScreen.bindClicks(appObj);
+            }
+        }
     },
 
     bindClicks : function(appObj){
         var _this = this;
         $('.wrapper').addClass('ditto-wrapper');
         // Set Swipe Cards
-        _this.renderCards();
-
-
-
-
-        //_this.bindSwap(appObj);
-        //for(var i=0; i<appObj.cardcountinlookrscreen;i++){
-         //   $('#'+i).show();
-        //}
-        //_this.bindCardCLick(appObj);
-        // Bind setting CLick
+        _this.renderCards(appObj);
+        _this.bindSwap(appObj);
+        _this.bindCardCLick(appObj);
+        // Set Swipe Cards
         $('#settings').click(function(){
             $('.wrapper').removeClass('ditto-wrapper');
             appObj.mainDom.innerHTML = appObj.settingScreen.loadSettingScreen(appObj);
@@ -133,106 +174,30 @@ var lookersscreen = {
             });
         })
     },
-
-    getUserFrames : function(appObj){
-        var requestUrl = common.apiUrl+'/userframes?mobile='+appObj.getUserMobile()+'&dittoid='+appObj.getDittoId();
-        res = common.sendRequest(requestUrl);
-        return res;
-    },
-
-    getCardHtml : function(appObj){
-        var _this = this;
-        var cardHtml = '';
-        var frameLen = _this.userFrames.length;
-        common.enableLoader();
-        for(var i = (frameLen - 1); i>=0; i--){
-            cardHtml += '<div class="demo__card" id="'+i+'" style=display:none>';
-            cardHtml += '<div class="demo__card__top cyan">';
-            cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" alt=""></div>';
-            cardHtml += '</div>';
-            cardHtml += '<div class="demo__card__choice m--reject"></div>';
-            cardHtml += '<div class="demo__card__choice m--like"></div>';
-            cardHtml += '<div class="demo__card__drag"></div>';
-            cardHtml += '</div>';
-        }
-        common.disableLoader();
-        return cardHtml;
-
-
-
-
-        /*if(frameLen > 0){
-            if(frameLen == 1){
-                cardHtml += '<div class="demo__card" id="'+(frameLen - 1)+'">';
-                cardHtml += '<div class="demo__card__top cyan">';
-                cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[frameLen - 1].sku+'" alt=""></div>';
-                cardHtml += '</div>';
-                cardHtml += '<div class="demo__card__choice m--reject"></div>';
-                cardHtml += '<div class="demo__card__choice m--like"></div>';
-                cardHtml += '<div class="demo__card__drag"></div>';
-                cardHtml += '</div>';
-            }else{
-                for(var i = appObj.cardcountinlookrscreen; i>0; i--){
-                    cardHtml += '<div class="demo__card" id="'+i+'">';
-                    cardHtml += '<div class="demo__card__top cyan">';
-                    cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" alt=""></div>';
-                    cardHtml += '</div>';
-                    cardHtml += '<div class="demo__card__choice m--reject"></div>';
-                    cardHtml += '<div class="demo__card__choice m--like"></div>';
-                    cardHtml += '<div class="demo__card__drag"></div>';
-                    cardHtml += '</div>';
-                }
-            }
-        }else{
-            cardHtml += '<div class="demo__card">';
-            cardHtml += '<div class="demo__card__top cyan">';
-            cardHtml += '<div class="demo__card__img"><img src="images/profile1.jpg" alt=""></div>';
-            cardHtml += '</div>';
-            cardHtml += '<div class="demo__card__choice m--reject"></div>';
-            cardHtml += '<div class="demo__card__choice m--like"></div>';
-            cardHtml += '<div class="demo__card__drag"></div>';
-            cardHtml += '</div>';
-            cardHtml += '<div class="demo__card">';
-            cardHtml += '<div class="demo__card__top cyan">';
-            cardHtml += '<div class="demo__card__img"><img src="images/profile1.jpg" alt=""></div>';
-            cardHtml += '</div>';
-            cardHtml += '<div class="demo__card__choice m--reject"></div>';
-            cardHtml += '<div class="demo__card__choice m--like"></div>';
-            cardHtml += '<div class="demo__card__drag"></div>';
-            cardHtml += '</div>';
-        }
-        return cardHtml;*/
-    },
-
     setFrameNameandLikeCount : function(appObj,key){
-        var _this = this;
-        var nameStr = appObj.lookersScreen.userFrames[key].brand+' '+appObj.lookersScreen.userFrames[key].size;
-        $('#framename').html(nameStr.substr(0, 25));
+        var _this = this;        
+        $('#framename').html(appObj.lookersScreen.userFrames[key].description);
         $('.like-post').html('<i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+appObj.lookersScreen.userFrames[key].like_count);
     },
 
     swipeCard : function(appObj,key,swipeDirection){
         var _this = this;
         $('#'+key).remove();
-        var newCardKey = parseInt(key) + (appObj.cardcountinlookrscreen+1);
+        var newCardKey = parseInt(key) + (appObj.cardcountinlookrscreen);
         $('#'+newCardKey).show();
         if(newCardKey < _this.userFrames.length){
             _this.setFrameNameandLikeCount(appObj,parseInt(newCardKey));
         }else{
             _this.setFrameNameandLikeCount(appObj,parseInt(key));
         }
-        /* if(newCardKey < _this.userFrames.length){
-            var cardHtml = '<div class="demo__card" id="'+ newCardKey +'">';
-            cardHtml += '<div class="demo__card__top cyan">';
-            cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[newCardKey].sku+'" alt=""></div>';
-            cardHtml += '</div>';
-            cardHtml += '<div class="demo__card__choice m--reject"></div>';
-            cardHtml += '<div class="demo__card__choice m--like"></div>';
-            cardHtml += '<div class="demo__card__drag"></div>';
-            cardHtml += '</div>';
-            $('.demo__card').first().before(cardHtml);
-            _this.setFrameNameandLikeCount(appObj,parseInt(newCardKey));
+
+        var swipesObject = {};
+        swipesObject.sku = _this.userFrames[key].sku;
+        swipesObject.direction = swipeDirection;
+        if(swipeDirection == 'right'){
+            swipesObject.status = 'Like';
         }else{
+<<<<<<< HEAD
             _this.setFrameNameandLikeCount(appObj,parseInt(key));
         }
 
@@ -240,11 +205,18 @@ var lookersscreen = {
         _this.bindCardCLick(appObj);*/
         // First set the user swipe
         var requestUrl = common.apiUrl+'/userswapes?mobile='+appObj.getUserMobile();
+=======
+            swipesObject.status = 'Dislike';
+        }
+        app.swipedCardId.push(swipesObject);
+        //swipesObject.status = _this.userFrames[key].sku;
+        
+        /*var requestUrl = common.apiUrl+'/userswapes?mobile='+appObj.getUserMobile();
+>>>>>>> 2a304591d0e0a68d73ace21f7a321fb28f549621
         requestUrl +='&sku='+_this.userFrames[key].sku;
         requestUrl +='&swaptype='+swipeDirection;
-        requestUrl +='&dittoid='+appObj.getDittoId();
-        console.log(requestUrl);
-        //res = common.sendRequest(requestUrl,'POST',false);
+        requestUrl +='&dittoid='+appObj.getDittoId();        
+        res = common.sendRequest(requestUrl,'POST',false);
 
         // Now manage like and dislike count
         if('success' in res){
@@ -265,7 +237,6 @@ var lookersscreen = {
                 appObj.mobileScreen.setMobileonField(appObj);
                 appObj.mobileScreen.bindClicks(appObj);
             }
-        }
-
+        }*/
     }
 }
