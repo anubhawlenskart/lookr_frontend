@@ -2,7 +2,7 @@ var lookersscreen = {
     userFrames : Array(),
     loadLookersScreen : function(appObj){
         var _this = this;
-        var userFrames = this.getUserFrames(appObj);
+        /*var userFrames = this.getUserFrames(appObj);
         if('success' in userFrames){
             _this.userFrames = userFrames.success;
             cardHtml = this.getCardHtml(appObj);
@@ -13,7 +13,7 @@ var lookersscreen = {
                 appObj.mobileScreen.setMobileonField(appObj);
                 appObj.mobileScreen.bindClicks(appObj);
             }
-        }
+        }*/
         var htmlStr = '<div class="container">';
         htmlStr += '<div class="row">';
         htmlStr += '<div class="col-md-12">';
@@ -32,11 +32,11 @@ var lookersscreen = {
         htmlStr += '<div class="demo__card-cont">';
 
         /********** card html*******************/
-        htmlStr += cardHtml;
+        //htmlStr += cardHtml;
         /********** card html*******************/
         htmlStr += '</div>';
         htmlStr += '<div class="demo-like">';
-        htmlStr += '<p class="demo__card__name"><span class="post-name" id="framename">Hungry cat </span><span class="like-post"><i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> 1234</span></p>';
+        htmlStr += '<p class="demo__card__name"><span class="post-name" id="framename"> </span><span class="like-post"><i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> </span></p>';
         htmlStr += '<div class="like-dislike"><span class="dislike-button"><i class="fa fa-thumbs-down"></i></span> <span class="like-button"><i class="fa fa-thumbs-up"></i></span></div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
@@ -80,11 +80,24 @@ var lookersscreen = {
         });
     },
 
+    renderCards : function(){
+
+    },
+
     bindClicks : function(appObj){
         var _this = this;
         $('.wrapper').addClass('ditto-wrapper');
-        _this.bindSwap(appObj);
-        _this.bindCardCLick(appObj);
+        // Set Swipe Cards
+        _this.renderCards();
+
+
+
+
+        //_this.bindSwap(appObj);
+        //for(var i=0; i<appObj.cardcountinlookrscreen;i++){
+         //   $('#'+i).show();
+        //}
+        //_this.bindCardCLick(appObj);
         // Bind setting CLick
         $('#settings').click(function(){
             $('.wrapper').removeClass('ditto-wrapper');
@@ -131,7 +144,24 @@ var lookersscreen = {
         var _this = this;
         var cardHtml = '';
         var frameLen = _this.userFrames.length;
-        if(frameLen > 0){
+        common.enableLoader();
+        for(var i = (frameLen - 1); i>=0; i--){
+            cardHtml += '<div class="demo__card" id="'+i+'" style=display:none>';
+            cardHtml += '<div class="demo__card__top cyan">';
+            cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" alt=""></div>';
+            cardHtml += '</div>';
+            cardHtml += '<div class="demo__card__choice m--reject"></div>';
+            cardHtml += '<div class="demo__card__choice m--like"></div>';
+            cardHtml += '<div class="demo__card__drag"></div>';
+            cardHtml += '</div>';
+        }
+        common.disableLoader();
+        return cardHtml;
+
+
+
+
+        /*if(frameLen > 0){
             if(frameLen == 1){
                 cardHtml += '<div class="demo__card" id="'+(frameLen - 1)+'">';
                 cardHtml += '<div class="demo__card__top cyan">';
@@ -171,7 +201,7 @@ var lookersscreen = {
             cardHtml += '<div class="demo__card__drag"></div>';
             cardHtml += '</div>';
         }
-        return cardHtml;
+        return cardHtml;*/
     },
 
     setFrameNameandLikeCount : function(appObj,key){
@@ -184,9 +214,14 @@ var lookersscreen = {
     swipeCard : function(appObj,key,swipeDirection){
         var _this = this;
         $('#'+key).remove();
-        console.log((appObj.cardcountinlookrscreen+1));
         var newCardKey = parseInt(key) + (appObj.cardcountinlookrscreen+1);
+        $('#'+newCardKey).show();
         if(newCardKey < _this.userFrames.length){
+            _this.setFrameNameandLikeCount(appObj,parseInt(newCardKey));
+        }else{
+            _this.setFrameNameandLikeCount(appObj,parseInt(key));
+        }
+        /* if(newCardKey < _this.userFrames.length){
             var cardHtml = '<div class="demo__card" id="'+ newCardKey +'">';
             cardHtml += '<div class="demo__card__top cyan">';
             cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[newCardKey].sku+'" alt=""></div>';
@@ -202,13 +237,14 @@ var lookersscreen = {
         }        
         
         
-        _this.bindCardCLick(appObj);
+        _this.bindCardCLick(appObj);*/
         // First set the user swipe
         var requestUrl = common.apiUrl+'/userswapes?mobile='+appObj.getUserMobile();
         requestUrl +='&sku='+_this.userFrames[key].sku;
         requestUrl +='&swaptype='+swipeDirection;
         requestUrl +='&dittoid='+appObj.getDittoId();
-        res = common.sendRequest(requestUrl,'POST',false);
+        console.log(requestUrl);
+        //res = common.sendRequest(requestUrl,'POST',false);
 
         // Now manage like and dislike count
         if('success' in res){
