@@ -48,6 +48,7 @@ var app = {
     },
 
     afterAuthScreen : function(){
+        var _this = this;
         if(this.getUserMobile() != ''){            
             // First check User has already ditto or not
             var requestUrl = common.apiUrl+'/getuserditto?mobile='+this.getUserMobile();
@@ -56,13 +57,8 @@ var app = {
                 if('dittoid' in res.success){
                     this.setDittoId(res.success.dittoid); 
                     common.createCookie('eyewish-ditto',res.success.dittoid);
-                    app.mainDom.innerHTML = app.lookersScreen.loadLookersScreen(app);
-                    //$.getScript( 'js/swipe.js', function() {
-                        //console.log('swipe script loaded');
-                    //});
+                    app.mainDom.innerHTML = app.lookersScreen.loadLookersScreen(app);                    
                     app.lookersScreen.bindClicks(app);
-                    //app.lookersScreen.setFrameNameandLikeCount(app,1);
-                   
                 }else{
                     app.mainDom.innerHTML = app.otherProfileScreen.loadProfileScreen(app);
                     app.otherProfileScreen.bindClicks();
@@ -76,8 +72,8 @@ var app = {
                 }else{
                     app.mainDom.innerHTML = app.otherProfileScreen.loadProfileScreen(app);                                        
                     app.otherProfileScreen.bindClicks(app);
-                    app.mainDom.innerHTML = app.dittoScreen.loadDittoScreen(app);                                        
-                    app.dittoScreen.bindClicks(app);
+                    /*app.mainDom.innerHTML = app.dittoScreen.loadDittoScreen(app);                                        
+                    app.dittoScreen.bindClicks(app);*/
                 }
             }  
             return res;
