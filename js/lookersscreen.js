@@ -47,19 +47,19 @@ var lookersscreen = {
     bindSwap : function(appObj){
         $(document).on("mousedown touchstart", ".demo__card:not(.inactive)", function(e) {
             if (animating) return;
-        
+
             $card = $(this);
             $cardReject = $(".demo__card__choice.m--reject", $card);
             $cardLike = $(".demo__card__choice.m--like", $card);
             var startX =  e.pageX || e.originalEvent.touches[0].pageX;
-        
+
             $(document).on("mousemove touchmove", function(e) {
               var x = e.pageX || e.originalEvent.touches[0].pageX;
               pullDeltaX = (x - startX);
               if (!pullDeltaX) return;
               pullChange();
             });
-        
+
             $(document).on("mouseup touchend", function() {
               $(document).off("mousemove touchmove mouseup touchend");
               if (!pullDeltaX) return; // prevents from rapid click events
@@ -99,7 +99,7 @@ var lookersscreen = {
                 cardHtml += '<div class="demo__card__drag"></div>';
                 cardHtml += '</div>';
             }
-        }      
+        }
         return cardHtml;
     },
 
@@ -114,14 +114,14 @@ var lookersscreen = {
         var userFrames = _this.getUserFrames(appObj);
         if('success' in userFrames){
             _this.userFrames = userFrames.success;
-            var frameLen = _this.userFrames.length; 
-            common.enableLoader(); 
+            var frameLen = _this.userFrames.length;
+            common.enableLoader();
             $('.demo__card-cont').html(_this.getCardHtml(0,0,appObj,true,true));
-            $('.demo__card').first().before(_this.getCardHtml(1,(appObj.cardcountinlookrscreen - 1),appObj,true,true));  
+            $('.demo__card').first().before(_this.getCardHtml(1,(appObj.cardcountinlookrscreen - 1),appObj,true,true));
             for(var i=4; i<=(frameLen - 1); i++){
                 $('.demo__card').first().before(_this.getCardHtml(i,i,appObj));
-            }  
-            _this.setFrameNameandLikeCount(appObj,0);                            
+            }
+            _this.setFrameNameandLikeCount(appObj,0);
         }else{
             if(res.error == 'Unauthroized'){
                 appObj.showPopup('Your session has been expired','alert-danger','Error!');
@@ -175,8 +175,8 @@ var lookersscreen = {
         })
     },
     setFrameNameandLikeCount : function(appObj,key){
-        var _this = this;        
-        $('#framename').html(appObj.lookersScreen.userFrames[key].description);
+        var _this = this;
+        $('#framename').html(appObj.lookersScreen.userFrames[key].description.substr(0, 50));
         $('.like-post').html('<i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+appObj.lookersScreen.userFrames[key].like_count);
     },
 
@@ -200,33 +200,5 @@ var lookersscreen = {
             swipesObject.status = 'Dislike';
         }
         app.swipedCardId.push(swipesObject);
-        //swipesObject.status = _this.userFrames[key].sku;
-        
-        /*var requestUrl = common.apiUrl+'/userswapes?mobile='+appObj.getUserMobile();
-        requestUrl +='&sku='+_this.userFrames[key].sku;
-        requestUrl +='&swaptype='+swipeDirection;
-        requestUrl +='&dittoid='+appObj.getDittoId();        
-        res = common.sendRequest(requestUrl,'POST',false);
-
-        // Now manage like and dislike count
-        if('success' in res){
-            var status = '';
-            if(swipeDirection == 'right'){
-                status = 'Like';
-            }else{
-                status = 'Dislike';
-            }
-            var requestUrl = common.apiUrl+'/likedislikeproduct?mobile='+appObj.getUserMobile();
-            requestUrl +='&sku='+_this.userFrames[key].sku;
-            requestUrl +='&status='+status;
-            res = common.sendRequest(requestUrl,'POST',false);
-        }else{
-            if(res.error == 'Unauthroized'){
-                appObj.showPopup('Your session has been expired','alert-danger','Error!');
-                appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
-                appObj.mobileScreen.setMobileonField(appObj);
-                appObj.mobileScreen.bindClicks(appObj);
-            }
-        }*/
     }
 }
