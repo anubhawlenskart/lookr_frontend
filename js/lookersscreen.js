@@ -59,19 +59,19 @@ var lookersscreen = {
     bindSwap : function(appObj){
         $(document).on("mousedown touchstart", ".demo__card:not(.inactive)", function(e) {
             if (animating) return;
-        
+
             $card = $(this);
             $cardReject = $(".demo__card__choice.m--reject", $card);
             $cardLike = $(".demo__card__choice.m--like", $card);
             var startX =  e.pageX || e.originalEvent.touches[0].pageX;
-        
+
             $(document).on("mousemove touchmove", function(e) {
               var x = e.pageX || e.originalEvent.touches[0].pageX;
               pullDeltaX = (x - startX);
               if (!pullDeltaX) return;
               pullChange();
             });
-        
+
             $(document).on("mouseup touchend", function() {
               $(document).off("mousemove touchmove mouseup touchend");
               if (!pullDeltaX) return; // prevents from rapid click events
@@ -234,9 +234,9 @@ var lookersscreen = {
             _this.setFrameNameandLikeCount(appObj,parseInt(newCardKey));
         }else{
             _this.setFrameNameandLikeCount(appObj,parseInt(key));
-        }        
-        
-        
+        }
+
+
         _this.bindCardCLick(appObj);*/
         // First set the user swipe
         var requestUrl = common.apiUrl+'/userswapes?mobile='+appObj.getUserMobile();
