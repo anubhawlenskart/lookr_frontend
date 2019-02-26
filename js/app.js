@@ -61,7 +61,7 @@ var app = {
                         //console.log('swipe script loaded');
                     //});
                     app.lookersScreen.bindClicks(app);
-                    app.lookersScreen.setFrameNameandLikeCount(app,1);
+                    //app.lookersScreen.setFrameNameandLikeCount(app,1);
                    
                 }else{
                     app.mainDom.innerHTML = app.otherProfileScreen.loadProfileScreen(app);
