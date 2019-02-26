@@ -969,6 +969,7 @@ color: rgb( 233, 70, 123);
 .demo__card__name span.post-name{
 font-family: 'rajdhanibold';
 font-size: 18px;
+width: 80%;
 }
 .demo__card__btm {
 height: 11.5rem;
