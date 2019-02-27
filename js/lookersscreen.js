@@ -176,7 +176,7 @@ var lookersscreen = {
     },
     setFrameNameandLikeCount : function(appObj,key){
         var _this = this;
-        $('#framename').html(appObj.lookersScreen.userFrames[key].description.substr(0, 50)+' ...');
+        $('#framename').html(appObj.lookersScreen.userFrames[key].description.substr(0, 45)+' ...');
         $('.like-post').html('<i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+appObj.lookersScreen.userFrames[key].like_count);
     },
 

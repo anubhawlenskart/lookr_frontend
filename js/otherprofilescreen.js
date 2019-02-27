@@ -1,10 +1,10 @@
 var otherprofilescreen = {
 
-    
+
     loadProfileScreen : function(appObj){
         var requestUrl = common.apiUrl+'/getuserprofile?mobile='+appObj.getUserMobile();
         res = common.sendRequest(requestUrl);
-        
+
         var nameValue = '';
         var malechecked = 'checked="checked"';
         var femalechecked = '';
@@ -69,14 +69,14 @@ var otherprofilescreen = {
                 }
             }
         }else{
-            if(res.error == 'Unauthroized'){               
+            if(res.error == 'Unauthroized'){
                 appObj.showPopup('Your session has been expired','alert-danger','Error!');
                 appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                 appObj.mobileScreen.setMobileonField(appObj);
                 appObj.mobileScreen.bindClicks(appObj);
             }
         }
-        var htmlStr = '<div class="container">';  
+        var htmlStr = '<div class="container">';
         htmlStr += '<div class="row">';
         htmlStr += '<div class="col-md-12">';
         htmlStr += '<span class="back" id="otherprofilebackbtn"></span>';
@@ -87,7 +87,7 @@ var otherprofilescreen = {
         htmlStr += '<div class="input-box">';
         htmlStr += '<div class="row otp-section">';
         htmlStr += '<div class="col-md-12 name">';
-        htmlStr += '<input type="text" name="username" id="username" value="'+nameValue+'" placeholder="Name (Optional)" class="form-control">';
+        htmlStr += '<input type="text" name="username" id="username" value="" placeholder="Name (Optional)" class="form-control">';
         htmlStr += '</div>';
         htmlStr += '<div class="col-md-12">';
         htmlStr += '<h2>Gender</h2>';
@@ -134,25 +134,31 @@ var otherprofilescreen = {
         htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
-        htmlStr += '<div class="buttons">';
-        htmlStr += '<div class="row">';
-        htmlStr += '<div class="col-md-12"><span>This information will help us show relevent content for you.</span></div>';
-        htmlStr += '</div>';
-        htmlStr += '<button class="btn" id="profilenextBtn">Next</button>';
         htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
-        htmlStr += '</div>';    
         htmlStr += '</div>';
         return htmlStr;
     },
 
+    renderotpNextBtn : function(){
+        var htm= '<div class="buttons" id="otpscreenbtn">';
+        htm += '<div class="row">';
+        htm += '<div class="col-md-12"><span>This information will help us show relevent content for you.</span></div>';
+        htm += '</div>';
+        htm += '<button class="btn" id="profilenextBtn">Next</button>';
+        htm += '</div>';
+        $('main').after(htm);
+    },
+
     bindClicks:function(appObj){
+      var _this = this;
+      _this.renderotpNextBtn();
         $(".gender label").click(function () {
             $(".gender label").removeClass("active");
              $(this).addClass("active");
         });
-        
+
         $(".age-group label").click(function () {
             $(".age-group label").removeClass("active");
              $(this).addClass("active");
@@ -162,9 +168,10 @@ var otherprofilescreen = {
             appObj.afterAuthScreen();
         });
 
-        
+
         $('#profilenextBtn').click(function(){
-            var requestUrl = common.apiUrl+'/updateprofile?mobile='+appObj.getUserMobile();            
+            $('#otpscreenbtn').hide();
+            var requestUrl = common.apiUrl+'/updateprofile?mobile='+appObj.getUserMobile();
             var name = $('#username').val();
             var gender = $("input[name='gender']:checked").val();
             var age = $("input[name='age']:checked").val();
@@ -179,13 +186,13 @@ var otherprofilescreen = {
             if(age != ''){
                 requestUrl += '&agegroup='+encodeURIComponent(window.btoa(age));
             }
-            res = common.sendRequest(requestUrl); 
-            
+            res = common.sendRequest(requestUrl);
+
             if ('success' in res){
                 appObj.mainDom.innerHTML = appObj.dittoScreen.loadDittoScreen();
                 appObj.dittoScreen.bindClicks(appObj);
             }else{
-                if(res.error == 'Unauthroized'){               
+                if(res.error == 'Unauthroized'){
                     appObj.showPopup('Your session has been expired','alert-danger','Error!');
                     appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                     appObj.mobileScreen.setMobileonField(appObj);

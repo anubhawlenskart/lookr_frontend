@@ -136,7 +136,7 @@ background-color: inherit;
 border: none;
 border-bottom: 1px solid #fff;
 }
-.settings-page + .modal .modal-content{
+.modal .modal-content{
 margin: auto;
 background: none;
 border:none;
@@ -517,6 +517,7 @@ text-transform: uppercase;
 .other-info .buttons.update{
 position: static;
 margin-top: 30px;
+padding: 0px;
 }
 .other-info .buttons.update i{
 float: right;
@@ -549,7 +550,13 @@ font-size: 22px;
 text-align: left;
 }
 .edit-wrapper .age-group,.other-info .age-group {
-margin: 15px 0 0 0;
+margin: 25px 0 0 0;
+}
+.settings-page .other-info .age-group{
+ margin: 7px 0 0 0;
+}
+.settings-page .settings .select-item{
+  margin-bottom: -10px;
 }
 .edit-wrapper .main-content{
 min-height: inherit;
@@ -674,7 +681,7 @@ margin-top: 22px;
 .profile-section .edit{
 float: right;
 color:rgb(85, 186, 199);
-font-size: 12px;
+font-size: 15px;
 }
 .profile-img img{
 border-radius: 10px;
@@ -727,7 +734,7 @@ margin: 5px 0;
 display: block;
 font-size: 14px;
 color: rgba(74, 74, 74);
-margin: 6px 0 16px;
+margin: 2px 0 16px;
 }
 .profile-des strong{
 font-family: 'rajdhanibold';
@@ -969,7 +976,7 @@ color: rgb( 233, 70, 123);
 .demo__card__name span.post-name{
 font-family: 'rajdhanibold';
 font-size: 18px;
-width: 80%;
+width: 76%;
 }
 .demo__card__btm {
 height: 11.5rem;
@@ -1579,6 +1586,9 @@ height: 29rem;
 @media only screen and (max-width: 767px) {
 .empty {
   padding: 48% 20px 0 20px;
+}
+.wishlist-img .arrow-up{
+  line-height: 30px;
 }
 .empty p{
   font-size: 14px;

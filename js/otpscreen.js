@@ -46,9 +46,9 @@ var otpscreen = {
         var _this = this;
         $('#nextBtn').parent().remove();
         _this.renderotpNextBtn();
-        $('#otpnextBtn').click(function(){ 
+        $('#otpnextBtn').click(function(){
             if(!$( "#otpnextBtn" ).hasClass( "disable" )){
-                var otp = $('#otp-1').val()+$('#otp-2').val()+$('#otp-3').val()+$('#otp-4').val();            
+                var otp = $('#otp-1').val()+$('#otp-2').val()+$('#otp-3').val()+$('#otp-4').val();
                 var submitOtp = appObj.otpScreen.SubmitNext(appObj.getUserMobile() , otp);
                 if (!submitOtp['successy']){
                     $('#otpnextBtn').remove();
@@ -72,7 +72,7 @@ var otpscreen = {
         // Blur event
         var numericButtonUnicode = [48,49,50,51,52,53,54,55,56,57];
         $('.otp-cls').keyup(function(e){
-            var unicode = e.charCode? e.charCode : e.keyCode;           
+            var unicode = e.charCode? e.charCode : e.keyCode;
             if(numericButtonUnicode.indexOf(unicode) != -1){
                 var idattr = $(this).attr('id');
                 var split = idattr.split('-');
@@ -83,7 +83,7 @@ var otpscreen = {
                 if(otp.length == 4){
                     $('#otpnextBtn').removeClass('disable');
                 }
-            }            
+            }
         });
       },
 
