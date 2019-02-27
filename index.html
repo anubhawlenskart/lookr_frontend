@@ -30,7 +30,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css?v={6}" type="text/css">
         <!-- Application CSS -->
-        <link rel="stylesheet" type="text/css" href="style.css?v={15}">
+        <link rel="stylesheet" type="text/css" href="style.css?v={16}">
         <!-- Ditto CSS -->
         <link rel="stylesheet" type="text/css" href="css/ditto.css?v={7}">
         <!-- Slick slider CSS -->
@@ -48,6 +48,17 @@
         <meta name="msapplication-TileColor" content="#2F3BA2">
 
     </head>
+    <script type="text/javascript">
+      if ('serviceWorker' in navigator) {
+         console.log("Will the service worker register?");
+         navigator.serviceWorker.register('sw.js')
+           .then(function(reg){
+             console.log("Yes, it did.");
+          }).catch(function(err) {
+             console.log("No it didn't. This happened:", err)
+         });
+      }
+     </script>
     <body>
         <div id="preloader"><span></span></div>
         <div class="wrapper">
@@ -69,21 +80,21 @@
         <!-- Popup Div-->
         <!-- Uncomment the line below when ready to test with fake data -->
         <script src="https://bsdk.api.ditto.com/lenskart/3.2.0/api.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="js/swipe.js?v={10}"></script>
-        <script src="js/common.js?v={10}"></script>
-        <script src="js/lookersscreen.js?v={30}"></script>
-        <script src="js/dittoscreen.js?v={60}"></script>
-        <script src="js/otpscreen.js?v={64}"></script>
-        <script src="js/mobilescreen.js?v={64}"></script>
-        <script src="js/otherprofilescreen.js?v={69}"></script>
-        <script src="js/framedetailsscreen.js?v={73}"></script>
-        <script src="js/setting.js?v={10}"></script>
-        <script src="js/wishlist.js?v={11}"></script>
-        <script src="js/editprofile.js?v={11}"></script>
-        <script src="js/custom.js?v={12}"></script>
-        <script src="js/toggle.js?v={13}"></script>
-        <script src="js/app.js?v={10}"></script>
-        <script src="js/bootstrap.min.js?v={8}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>        
+        <script src="js/swipe.js?v={11}"></script>
+        <script src="js/common.js?v={11}"></script>
+        <script src="js/lookersscreen.js?v={31}"></script>
+        <script src="js/dittoscreen.js?v={61}"></script>
+        <script src="js/otpscreen.js?v={66}"></script>
+        <script src="js/mobilescreen.js?v={67}"></script>
+        <script src="js/otherprofilescreen.js?v={70}"></script>
+        <script src="js/framedetailsscreen.js?v={74}"></script>
+        <script src="js/setting.js?v={75}"></script>
+        <script src="js/wishlist.js?v={76}"></script>
+        <script src="js/editprofile.js?v={12}"></script>
+        <script src="js/custom.js?v={13}"></script>
+        <script src="js/toggle.js?v={14}"></script>
+        <script src="js/app.js?v={12}"></script>
+        <script src="js/bootstrap.min.js?v={9}"></script>        
     </body>
 </html>

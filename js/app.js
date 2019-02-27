@@ -104,18 +104,20 @@ window.addEventListener('load', e => {
     app.setUserMobile(common.readCookie('eyewish-mobile'));
     app.setDittoId(common.readCookie('eyewish-ditto'));
     app.loadScreen();
-    /*if('serviceWorker' in navigator){
+    if('serviceWorker' in navigator){
         try{
             navigator.serviceWorker.register('sw.js');
             console.log('Sw registered');
         }catch(error){
             console.log('Sw registeration failed');
         }
-    }*/
+    }
 });
 
 
 function handleUserSwipes(){
+    console.log(app);
+    console.log('Swipecards length in handler'+ app.swipedCardId.length);
     if(app.swipedCardId.length > 0){
         for(var i = 0; i<= (app.swipedCardId.length - 1);i++){
             var requestUrl = common.apiUrl+'/userswapes?mobile='+app.getUserMobile();
@@ -123,7 +125,7 @@ function handleUserSwipes(){
             requestUrl +='&swaptype='+app.swipedCardId[i].direction;
             requestUrl +='&dittoid='+app.getDittoId();        
             res = common.sendRequest(requestUrl,'POST',false,true);
-            
+
             var requestUrl = common.apiUrl+'/likedislikeproduct?mobile='+app.getUserMobile();
             requestUrl +='&sku='+app.swipedCardId[i].sku;
             requestUrl +='&status='+app.swipedCardId[i].status;
@@ -140,7 +142,7 @@ function handleUserSwipes(){
     }    
 }
 
-setInterval(handleUserSwipes,1000);
+setInterval(handleUserSwipes,3000);
 
 
 
