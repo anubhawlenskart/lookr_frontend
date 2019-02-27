@@ -5,7 +5,7 @@ var editprofile = {
         var requestUrl = common.apiUrl+'/getuserprofile?mobile='+appObj.getUserMobile();
         res = common.sendRequest(requestUrl);
 
-        
+
         var nameValue = '';
         var mobileValue = '';
         var malechecked = 'checked="checked"';
@@ -75,7 +75,7 @@ var editprofile = {
                 }
             }
         }else{
-            if(res.error == 'Unauthroized'){               
+            if(res.error == 'Unauthroized'){
                 appObj.showPopup('Your session has been expired','alert-danger','Error!');
                 appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                 appObj.mobileScreen.setMobileonField(appObj);
@@ -101,7 +101,7 @@ var editprofile = {
         htmlStr +='<div class="row otp-section">';
         htmlStr +='<div class="col-md-12 name">';
         htmlStr +='<label>Name</label>';
-        htmlStr +='<input type="text" name="username" id="username" value="'+nameValue+'" class="form-control">';
+        htmlStr +='<input type="text" name="username" id="username" value="" placeholder="Name (Optional)" class="form-control">';
         htmlStr +='</div>';
         /*htmlStr +='<div class="col-md-12 mobile">';
         htmlStr +='<label>Phone Number</label>';
@@ -159,13 +159,13 @@ var editprofile = {
         htmlStr +='</div>';
         htmlStr +='</div>';
         htmlStr +='</div>';
-        htmlStr += '</div>';        
+        htmlStr += '</div>';
         return htmlStr;
     },
 
 
     bindClicks : function(appObj){
-        $('.wrapper').addClass('edit-wrapper');        
+        $('.wrapper').addClass('edit-wrapper');
         // bind click for lookr
         $('#dittoprofile').click(function(){
             $('.wrapper').removeClass('edit-wrapper');
@@ -199,7 +199,7 @@ var editprofile = {
             $(".gender label").removeClass("active");
              $(this).addClass("active");
         });
-        
+
         $(".age-group label").click(function () {
             $(".age-group label").removeClass("active");
              $(this).addClass("active");
@@ -207,7 +207,7 @@ var editprofile = {
 
         // Bind Save Click button
         $('#savebtn').click(function(){
-            var requestUrl = common.apiUrl+'/updateprofile?mobile='+appObj.getUserMobile();            
+            var requestUrl = common.apiUrl+'/updateprofile?mobile='+appObj.getUserMobile();
             var name = $('#username').val();
             var gender = $("input[name='gender']:checked").val();
             var age = $("input[name='age']:checked").val();
@@ -222,13 +222,13 @@ var editprofile = {
             if(age != ''){
                 requestUrl += '&agegroup='+encodeURIComponent(window.btoa(age));
             }
-            res = common.sendRequest(requestUrl); 
-            
-            if ('success' in res){               
-                appObj.showPopup('Profile has been updated','alert-success','Success!');                
+            res = common.sendRequest(requestUrl);
+
+            if ('success' in res){
+                appObj.showPopup('Profile has been updated','alert-success','Success!');
                 appObj.mainDom.innerHTML = this.loadProfileScreen(appObj);
             }else{
-                if(res.error == 'Unauthroized'){               
+                if(res.error == 'Unauthroized'){
                     appObj.showPopup('Your session has been expired','alert-danger','Error!');
                     appObj.mainDom.innerHTML = appObj.mobileScreen.loadMobileScreen();
                     appObj.mobileScreen.setMobileonField(appObj);
