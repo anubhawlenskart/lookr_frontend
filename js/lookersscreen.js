@@ -24,7 +24,6 @@ var lookersscreen = {
         /********** card html*******************/
         htmlStr += '</div>';
         htmlStr += '<div class="demo-like">';
-        htmlStr += '<p class="demo__card__name"><span class="post-name" id="framename"> </span><span class="like-post"><i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> </span></p>';
         htmlStr += '<div class="like-dislike"><span class="dislike-button"><i class="fa fa-thumbs-down"></i></span> <span class="like-button"><i class="fa fa-thumbs-up"></i></span></div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
@@ -82,6 +81,7 @@ var lookersscreen = {
                 cardHtml += '<div class="demo__card__top cyan">';
                 cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" alt=""></div>';
                 cardHtml += '</div>';
+                cardHtml += '<p class="demo__card__name"><span class="post-name" id="framename">'+_this.userFrames[i].description.substr(0, 40)+' ...'+'</span><span class="like-post"><i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+_this.userFrames[i].like_count+'</span></p>';
                 cardHtml += '<div class="demo__card__choice m--reject"></div>';
                 cardHtml += '<div class="demo__card__choice m--like"></div>';
                 cardHtml += '<div class="demo__card__drag"></div>';
@@ -94,6 +94,7 @@ var lookersscreen = {
                 cardHtml += '<div class="demo__card__top cyan">';
                 cardHtml += '<div class="demo__card__img"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" alt=""></div>';
                 cardHtml += '</div>';
+                cardHtml += '<p class="demo__card__name"><span class="post-name" id="framename">'+_this.userFrames[i].description.substr(0, 40)+' ...'+'</span><span class="like-post"><i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+_this.userFrames[i].like_count+'</span></p>';
                 cardHtml += '<div class="demo__card__choice m--reject"></div>';
                 cardHtml += '<div class="demo__card__choice m--like"></div>';
                 cardHtml += '<div class="demo__card__drag"></div>';
@@ -121,7 +122,7 @@ var lookersscreen = {
             for(var i=4; i<=(frameLen - 1); i++){
                 $('.demo__card').first().before(_this.getCardHtml(i,i,appObj));
             }
-            _this.setFrameNameandLikeCount(appObj,0);
+            //_this.setFrameNameandLikeCount(appObj,0);
         }else{
             if(res.error == 'Unauthroized'){
                 appObj.showPopup('Your session has been expired','alert-danger','Error!');
@@ -176,7 +177,7 @@ var lookersscreen = {
     },
     setFrameNameandLikeCount : function(appObj,key){
         var _this = this;
-        $('#framename').html(appObj.lookersScreen.userFrames[key].description.substr(0, 45)+' ...');
+        $('#framename').html(appObj.lookersScreen.userFrames[key].description.substr(0, 40)+' ...');
         $('.like-post').html('<i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+appObj.lookersScreen.userFrames[key].like_count);
     },
 
