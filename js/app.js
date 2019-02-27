@@ -52,6 +52,7 @@ var app = {
         if(this.getUserMobile() != ''){            
             // First check User has already ditto or not
             var requestUrl = common.apiUrl+'/getuserditto?mobile='+this.getUserMobile();
+            app.mainDom.innerHTML =  '';
             res = common.sendRequest(requestUrl);
             if ('success' in res){
                 if('dittoid' in res.success){
@@ -121,14 +122,19 @@ function handleUserSwipes(){
             requestUrl +='&sku='+app.swipedCardId[i].sku;
             requestUrl +='&swaptype='+app.swipedCardId[i].direction;
             requestUrl +='&dittoid='+app.getDittoId();        
-            res = common.sendRequest(requestUrl,'POST',false);
+            res = common.sendRequest(requestUrl,'POST',false,true);
+            
+            var requestUrl = common.apiUrl+'/likedislikeproduct?mobile='+app.getUserMobile();
+            requestUrl +='&sku='+app.swipedCardId[i].sku;
+            requestUrl +='&status='+app.swipedCardId[i].status;
+            res = common.sendRequest(requestUrl,'POST',false,true);
 
-            if('success' in res){
+            /*if('success' in res){
                 var requestUrl = common.apiUrl+'/likedislikeproduct?mobile='+app.getUserMobile();
                 requestUrl +='&sku='+app.swipedCardId[i].sku;
                 requestUrl +='&status='+app.swipedCardId[i].status;
                 res = common.sendRequest(requestUrl,'POST',false);
-            }
+            }*/
             app.swipedCardId.splice(i,1);
         }        
     }    
