@@ -16,7 +16,7 @@ var common = {
         });
     },
 
-    sendRequest : function(url,method = 'POST',isloadertrue=true){
+    sendRequest : function(url,method = 'POST',isloadertrue=true,isasync=false){
         var _this = this;
         if(isloadertrue){
             _this.enableLoader();
@@ -25,7 +25,7 @@ var common = {
         $.ajax({
             type: method,
             url: url,
-            async:false,
+            async:isasync,
             headers: {
                 'Content-Type':'application/json',
                 'Access-Control-Allow-Origin':true,
