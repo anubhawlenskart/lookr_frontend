@@ -99,18 +99,12 @@ var lookersscreen = {
         $('.like-post').html('<i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+appObj.lookersScreen.userFrames[key].like_count);
     },
 
-    swipeCard : function(appObj,key,swipeDirection){
+    swipeCard : function(key,swipeDirection){
         var _this = this;
-        $('#'+key).remove();
-        var newCardKey = parseInt(key) + (appObj.cardcountinlookrscreen);
-        $('#'+newCardKey).show();
-        if(newCardKey < _this.userFrames.length){
-            _this.setFrameNameandLikeCount(appObj,parseInt(newCardKey));
-        }else{
-            _this.setFrameNameandLikeCount(appObj,parseInt(key));
-        }
-
         var swipesObject = {};
+        console.log(_this.userFrames);
+        console.log(key);
+        console.log(_this.userFrames[key].sku);
         swipesObject.sku = _this.userFrames[key].sku;
         swipesObject.direction = swipeDirection;
         if(swipeDirection == 'right'){

@@ -199,9 +199,9 @@ var setting = {
         // bind click for lookr
         $('#dittoprofile').click(function(){
             $('.wrapper').removeClass('settings-page');
-            appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
-            appObj.lookersScreen.bindClicks(appObj);
-            appObj.lookersScreen.setFrameNameandLikeCount(appObj,appObj.lookersScreen.userFrames.length);
+            appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj); 
+            stackedCards();                  
+            appObj.lookersScreen.bindClicks(app);
         });
 
         // Wishlist click

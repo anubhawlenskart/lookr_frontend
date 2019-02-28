@@ -123,9 +123,9 @@ var wishlist = {
         // Bind click for lookr
         $('#dittoprofile').click(function(){
             $('.wrapper').removeClass('wishlist-wrapper');
-            appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
-            appObj.lookersScreen.bindClicks(appObj);
-            appObj.lookersScreen.setFrameNameandLikeCount(appObj,appObj.lookersScreen.userFrames.length);
+            appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj); 
+            stackedCards();                  
+            appObj.lookersScreen.bindClicks(app);
         });
 
         // Bind Frames only filter click
