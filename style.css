@@ -910,14 +910,6 @@ margin-bottom: 10px;
  width: 69%;
  color: #fff;
 }
-.card-content .shape-color i{
- width: 28px;
- height: 28px;
- border-radius: 50%;
- background: #000;
- display: inline-block;
- top: 2px;
-}
 .info i{
   width: 20px;
   height: 20px;
@@ -963,10 +955,10 @@ width: 100%;
 height:calc(100vh - 144px);
 }
 .stage{
-  height:calc(100vh - 280px);
+  height:calc(100vh - 200px);
 }
 .card-content{
-  height:calc(100vh - 300px);
+  height:calc(100vh - 240px);
   padding-bottom: 56px;
 }
 .demo__card {
@@ -1225,13 +1217,17 @@ left: 6px;
 width: 29px;
 display: inline-block;
 }
-.frame-container .color i{
-width: 12px;
-height: 12px;
-border-radius: 50%;
-background: #000;
-display: inline-block;
-top: 2px;
+.card-des i{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #000;
+  display: inline-block;
+  top: 2px;
+}
+.loading {
+background: transparent url('images/image_loader.gif') center no-repeat;
+background-size: 80px;
 }
 .demo-like {
   position: fixed;
@@ -1243,121 +1239,121 @@ top: 2px;
   max-width: 590px;
   z-index: 99999;
 }
-.frame-container .color i.gunmetal{
+.card-des i.gunmetal{
   background: #FBC403;
 }
-.frame-container .color i.black-blue{
+.card-des i.black-blue{
 background: #003366;
 }
-.frame-container .color i.black-golden{
+.card-des i.black-golden{
 background: #0A0A0A;
 }
-.frame-container .color i.black-gunmetal{
+.card-des i.black-gunmetal{
 background: #FBC403;
 }
-.frame-container .color i.black-purple{
+.card-des i.black-purple{
 background: #003366;
 }
-.frame-container .color i.black-red{
+.card-des i.black-red{
 background: #FFDD03;
 }
-.frame-container .color i.black-silver{
+.card-des i.black-silver{
 background: #003366;
 }
-.frame-container .color i.black-transparent{
+.card-des i.black-transparent{
 background: #FFDD03;
 }
-.frame-container .color i.blue{
+.card-des i.blue{
 background: #003366;
 }
-.frame-container .color i.blue-gunmetal{
+.card-des i.blue-gunmetal{
 background: #FFDD03;
 }
-.frame-container .color i.blue-transparent{
+.card-des i.blue-transparent{
 background: #003366;
 }
-.frame-container .color i.brown{
+.card-des i.brown{
 background: #006900;
 }
-.frame-container .color i.brown-tortoise{
+.card-des i.brown-tortoise{
 background: #003366;
 }
-.frame-container .color i.cream{
+.card-des i.cream{
 background: #006900;
 }
-.frame-container .color i.golden{
+.card-des i.golden{
 background: #003366;
 }
-.frame-container .color i.golden-black{
+.card-des i.golden-black{
 background: #006900;
 }
-.frame-container .color i.golden-brown{
+.card-des i.golden-brown{
 background: #003366;
 }
-.frame-container .color i.golden-brown-transparent{
+.card-des i.golden-brown-transparent{
 background: #FFC530;
 }
-.frame-container .color i.golden-grey{
+.card-des i.golden-grey{
 background: #003366;
 }
-.frame-container .color i.golden-pink{
+.card-des i.golden-pink{
 background: #FFC530;
 }
-.frame-container .color i.grey-transparent{
+.card-des i.grey-transparent{
 background: #003366;
 }
-.frame-container .color i.gunmetal{
+.card-des i.gunmetal{
 background: #FFC530;
 }
-.frame-container .color i.gunmetal-green-transparent{
+.card-des i.gunmetal-green-transparent{
 background: #003366;
 }
-.frame-container .color i.maroon{
+.card-des i.maroon{
 background: #003366;
 }
-.frame-container .color i.maroon-transparent{
+.card-des i.maroon-transparent{
 background: #003366;
 }
-.frame-container .color i.matte-black{
+.card-des i.matte-black{
 background: #003366;
 }
-.frame-container .color i.matte-black-gunmetal{
+.card-des i.matte-black-gunmetal{
 background: #FF945E;
 }
-.frame-container .color i.matte-blue{
+.card-des i.matte-blue{
 background: #003366;
 }
-.frame-container .color i.matte-brown{
+.card-des i.matte-brown{
 background: #003366;
 }
-.frame-container .color i.matte-grey-transparent{
+.card-des i.matte-grey-transparent{
 background: #003366;
 }
-.frame-container .color i.pink{
+.card-des i.pink{
 background: #EE8EE2;
 }
-.frame-container .color i.pink-transparent{
+.card-des i.pink-transparent{
 background: #EE8EE2;
 }
-.frame-container .color i.silver{
+.card-des i.silver{
 background: #003366;
 }
-.frame-container .color i.sky-blue{
+.card-des i.sky-blue{
 background: #3E87C6;
 }
-.frame-container .color i.tortoise{
+.card-des i.tortoise{
 background: #003366;
 }
-.frame-container .color i.tortoise-blue-transparent{
+.card-des i.tortoise-blue-transparent{
 background: #3E87C6;
 }
-.frame-container .color i.tortoise-brown{
+.card-des i.tortoise-brown{
 background: #003366;
 }
-.frame-container .color i.transparent-golden{
+.card-des i.transparent-golden{
 background: #FF945E;
 }
-.frame-container .color i.transparent-gunmetal{
+.card-des i.transparent-gunmetal{
 background: #003366;
 }
 .arrow-down,.arrow-up{
@@ -1816,14 +1812,4 @@ height: 64%;
   padding: 0 15px;
   margin: 0 0 0 21px
 }
-}
-
-
-
-
-
-
-
-.loading {
-  background: transparent url('images/image_loader.gif') center no-repeat;
 }
