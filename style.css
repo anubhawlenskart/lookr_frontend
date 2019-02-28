@@ -267,7 +267,6 @@ bottom: 20px;
 left: 0px;
 width: 100%;
 right: 0px;
-max-width: 600px;
 }
 .main-content .buttons-static{
   position: static;
@@ -564,7 +563,7 @@ margin: 25px 0 0 0;
 }
 .edit-wrapper .main-content{
 min-height: inherit;
-padding: 36px 0 0 0;
+padding: 36px 15px 0 15px;
 }
 .edit-wrapper .checkmark{
 border:1px solid rgba(74, 74, 74,0.3);
@@ -591,6 +590,9 @@ display: none;
 position: static;
 padding:28px 0 2px 0;
 margin-bottom: 16px;
+background-image: none;
+color: rgba(74, 74, 74, 0.8);
+display: block;
 }
 .wishlist-page .demo__card__name span.post-name{
 text-transform: uppercase;
@@ -812,7 +814,7 @@ padding: 0 8px 16px;
 }
 .header-section ul li{
 display: inline-block;
-padding: 0 8%;
+width: 30%;
 }
 .header-section li a{
 color: rgba(255, 255, 255, 0.5);
@@ -1105,7 +1107,7 @@ border: 1px solid rgb(151, 151, 151,0.1);
 .single-details img{
 width: 100%;
 object-fit:cover;
-height: 363px;
+height: 80vh;
 }
 .single-details.active{
 display: none;
@@ -1114,6 +1116,13 @@ display: none;
 margin-top: 20px;
 padding: 0px 0 10px;
 overflow: hidden;
+margin-top: 20px;
+padding: 0px 0 10px;
+overflow: hidden;
+display: block;
+position: static;
+background-image: none;
+color: rgba(74, 74, 74, 0.8);
 }
 .details-wrapper .demo__card__name span.post-name{
 float: left;
@@ -1469,6 +1478,37 @@ value{
 height: 29rem;
 }
 }
+@media only screen and (min-width: 768px) and (max-width: 1506px) {
+.details-page #single-slider{
+ padding: 0px;
+}
+.ditto-page .demo__card img {
+  height: calc(100vh - 205px);
+}
+.demo-like{
+  bottom: 110px;
+}
+.ditto-page .demo__card__name span.post-name {
+  font-size: 42px;
+  line-height: 58px;
+}
+.ditto-page  .demo__card__name{
+  padding: 33px;
+}
+.ditto-page .demo__card__name span.like-post i {
+  font-size: 40px !important;
+}
+.ditto-page .demo__card__name span.like-post{
+  font-size: 36px;
+}
+.like-dislike i{
+  width: 150px;
+  height: 150px;
+  font-size: 70px;
+  line-height: 150px;
+}
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1366px) {
   .wrapper{
   max-width: 1366px;
@@ -1501,7 +1541,6 @@ height: 29rem;
 }
 .row.edit-profile {
   margin: 25px auto;
-  max-width: 630px;
 }
 .edit-wrapper .age-group, .other-info .age-group{
   margin: 15px 0 0 0;
@@ -1580,6 +1619,9 @@ height: 29rem;
 @media only screen and (max-width: 767px) {
 .empty {
   padding: 48% 20px 0 20px;
+}
+.edit-wrapper .main-content{
+  padding: 35px 0 0 0;
 }
 .wishlist-img .arrow-up{
   line-height: 30px;
@@ -1674,9 +1716,6 @@ top: 35%;
 }
 .like-dislike span{
 padding: 0 18px;
-}
-.header-section ul li{
-padding: 0 6%;
 }
 .ditto-wrapper::before {
 height: 64%;
