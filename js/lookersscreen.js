@@ -81,36 +81,17 @@ var lookersscreen = {
         _this.bindCardCLick(appObj);        
         // Set Swipe Cards
         $('#settings').click(function(){
+            $('body').removeAttr('class');
             appObj.mainDom.innerHTML = appObj.settingScreen.loadSettingScreen(appObj);
             appObj.settingScreen.bindClicks(appObj);
         });
 
         // Wishlist click
         $('#wishlist').click(function(){
+            $('body').removeAttr('class');
             appObj.mainDom.innerHTML = appObj.wishListScreen.wishListScreen(appObj);
             appObj.wishListScreen.bindClicks(appObj);
-        })
-
-        // Bind Like and Dislike button click
-        $('.dislike-button').click(function(e){
-            $card = $('.demo__card').last();
-            $card.find('.demo__card__choice.m--reject').css({opacity : '0.48'});
-            var cardId = $($card).attr('id');
-            $card.addClass('rotate-right').delay(700).fadeOut(function(){
-                $card.remove();
-                _this.swipeCard(appObj,cardId,'left');
-            });
-        })
-
-        $('.like-button').click(function(e){
-            $card = $('.demo__card').last();
-            $card.find('.demo__card__choice.m--like').css({opacity : '0.48'});
-            var cardId = $($card).attr('id');
-            $card.addClass('rotate-left').delay(700).fadeOut(function(){
-                $card.remove();
-                _this.swipeCard(appObj,cardId,'right')
-            });
-        })
+        });
     },
     setFrameNameandLikeCount : function(appObj,key){
         var _this = this;
