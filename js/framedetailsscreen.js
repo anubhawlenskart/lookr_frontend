@@ -73,8 +73,9 @@ var framedetailsscreen = {
 
         $('#backscreen').click(function(){
             $('.wrapper').removeClass('details-wrapper');
-            appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
-            appObj.lookersScreen.bindClicks(appObj);
+            appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj); 
+            stackedCards();                  
+            appObj.lookersScreen.bindClicks(app);
         });
 
         $('#backscreenfromslider').click(function(){

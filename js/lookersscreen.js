@@ -62,11 +62,6 @@ var lookersscreen = {
         });
     },
 
-    bindSwap : function(appObj){
-
-    },
-
-
     getUserFrames : function(appObj){
         var requestUrl = common.apiUrl+'/userframes?mobile='+appObj.getUserMobile()+'&dittoid='+appObj.getDittoId();
         res = common.sendRequest(requestUrl);
@@ -91,19 +86,11 @@ var lookersscreen = {
             appObj.mainDom.innerHTML = appObj.wishListScreen.wishListScreen(appObj);
             appObj.wishListScreen.bindClicks(appObj);
         });
-    },
-    setFrameNameandLikeCount : function(appObj,key){
-        var _this = this;
-        $('#framename').html(appObj.lookersScreen.userFrames[key].description.substr(0, 40)+' ...');
-        $('.like-post').html('<i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+appObj.lookersScreen.userFrames[key].like_count);
-    },
+    },   
 
     swipeCard : function(key,swipeDirection){
         var _this = this;
         var swipesObject = {};
-        console.log(_this.userFrames);
-        console.log(key);
-        console.log(_this.userFrames[key].sku);
         swipesObject.sku = _this.userFrames[key].sku;
         swipesObject.direction = swipeDirection;
         if(swipeDirection == 'right'){
