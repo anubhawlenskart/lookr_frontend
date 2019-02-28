@@ -58,8 +58,11 @@ var app = {
                 if('dittoid' in res.success){
                     this.setDittoId(res.success.dittoid); 
                     common.createCookie('eyewish-ditto',res.success.dittoid);
-                    app.mainDom.innerHTML = app.lookersScreen.loadLookersScreen(app);                    
-                    app.lookersScreen.bindClicks(app);
+                    app.mainDom.innerHTML = app.lookersScreen.loadLookersScreen(app);
+                    $.getScript( "js/swipe.js", function() {
+                       
+                    });                   
+                    //app.lookersScreen.bindClicks(app);
                 }else{
                     app.mainDom.innerHTML = app.otherProfileScreen.loadProfileScreen(app);
                     app.otherProfileScreen.bindClicks();
@@ -104,32 +107,32 @@ window.addEventListener('load', e => {
     app.setUserMobile(common.readCookie('eyewish-mobile'));
     app.setDittoId(common.readCookie('eyewish-ditto'));
     app.loadScreen();
-    if('serviceWorker' in navigator){
+    /*if('serviceWorker' in navigator){
         try{
             navigator.serviceWorker.register('sw.js');
             console.log('Sw registered');
         }catch(error){
             console.log('Sw registeration failed');
         }
-    }
+    }*/
 });
 
 
-function handleUserSwipes(){
-    console.log(app);
-    console.log('Swipecards length in handler'+ app.swipedCardId.length);
+function handleUserSwipes(){    
     if(app.swipedCardId.length > 0){
         for(var i = 0; i<= (app.swipedCardId.length - 1);i++){
-            var requestUrl = common.apiUrl+'/userswapes?mobile='+app.getUserMobile();
-            requestUrl +='&sku='+app.swipedCardId[i].sku;
-            requestUrl +='&swaptype='+app.swipedCardId[i].direction;
-            requestUrl +='&dittoid='+app.getDittoId();        
-            res = common.sendRequest(requestUrl,'POST',false,true);
+            var requestUrl1 = '';
+            var requestUrl = '';
+            requestUrl1 = common.apiUrl+'/userswapes?mobile='+app.getUserMobile();
+            requestUrl1 +='&sku='+app.swipedCardId[i].sku;
+            requestUrl1 +='&swaptype='+app.swipedCardId[i].direction;
+            requestUrl1 +='&dittoid='+app.getDittoId();        
+            common.sendRequest(requestUrl1,'POST',false,true);
 
-            var requestUrl = common.apiUrl+'/likedislikeproduct?mobile='+app.getUserMobile();
+            requestUrl = common.apiUrl+'/likedislikeproduct?mobile='+app.getUserMobile();
             requestUrl +='&sku='+app.swipedCardId[i].sku;
             requestUrl +='&status='+app.swipedCardId[i].status;
-            res = common.sendRequest(requestUrl,'POST',false,true);
+            common.sendRequest(requestUrl,'POST',false,true);
 
             /*if('success' in res){
                 var requestUrl = common.apiUrl+'/likedislikeproduct?mobile='+app.getUserMobile();

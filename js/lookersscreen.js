@@ -2,7 +2,7 @@ var lookersscreen = {
     userFrames : Array(),
     loadLookersScreen : function(appObj){
         var _this = this;
-        var htmlStr = '<div class="container">';
+        /*var htmlStr = '<div class="container">';
         htmlStr += '<div class="row">';
         htmlStr += '<div class="col-md-12">';
 
@@ -19,9 +19,7 @@ var lookersscreen = {
         htmlStr += '<div class="demo__content">';
         htmlStr += '<div class="demo__card-cont">';
 
-        /********** card html*******************/
-
-        /********** card html*******************/
+       
         htmlStr += '</div>';
         htmlStr += '<div class="demo-like">';
         htmlStr += '<div class="like-dislike"><span class="dislike-button"><i class="fa fa-thumbs-down"></i></span> <span class="like-button"><i class="fa fa-thumbs-up"></i></span></div>';
@@ -30,7 +28,53 @@ var lookersscreen = {
         htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
+        htmlStr += '</div>';*/
+
+        var htmlStr = '';
+        htmlStr += '<div class="stage">';
+        htmlStr += '<div class="title">What Kind of Traveler Are You?</div>';
+        htmlStr += '<div id="stacked-cards-block" class="stackedcards stackedcards--animatable init">';
+        htmlStr += '<div class="stackedcards-container">';
+        
+        /////////// Card html
+        
+        
+
+        var _this = this;
+        var userFrames = _this.getUserFrames(appObj);
+
+        if('success' in userFrames){
+            _this.userFrames = userFrames.success;
+            var frameLen = _this.userFrames.length;
+            common.enableLoader();
+            $('.demo__card-cont').html(_this.getCardHtml(0,0,appObj,true,true));
+            $('.demo__card').first().before(_this.getCardHtml(1,(appObj.cardcountinlookrscreen - 1),appObj,true,true));
+            
+            for(var i=0; i<=(frameLen - 1); i++){
+                htmlStr += '<div class="card">';
+                htmlStr += '<div class="card-content">';
+                htmlStr += '<div class="card-image"><img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" width="50%" height="50%"/></div>';
+                htmlStr += '<div class="card-titles">';
+                htmlStr += '<h1>Adventure <br/> and Outdoor</h1>';
+                htmlStr += '<h3>10 Destinations</h3>';
+                htmlStr += '</div>';
+                htmlStr += '</div>';
+                htmlStr += '</div>'; 
+            }
+
+        }
+        ///////////////Card Html
+        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay top"><img src="https://image.ibb.co/m1ykYS/rank_army_star_2_3x.png"  width="auto" height="auto"/></div>';
+        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><img src="https://image.ibb.co/dCuESn/Path_3x.png" width="auto" height="auto"/></div>';
+        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left"><img src="https://image.ibb.co/heTxf7/20_status_close_3x.png" width="auto" height="auto"/></div>';
         htmlStr += '</div>';
+        htmlStr += '<div class="global-actions">';
+        htmlStr += '<div class="left-action"><img src="https://image.ibb.co/heTxf7/20_status_close_3x.png" width="26" height="26"/></div>';
+        htmlStr += '<div class="top-action"><img src="https://image.ibb.co/m1ykYS/rank_army_star_2_3x.png" width="18" height="16"/></div>';
+        htmlStr += '<div class="right-action"><img src="https://image.ibb.co/dCuESn/Path_3x.png" width="30" height="28"/></div>';
+        htmlStr += '</div>';
+        htmlStr += '</div>';
+        htmlStr += '<div class="final-state hidden"><h2>Got it! We received your preferences! <br/> To submit again, press F5.</h2></div>';
         return htmlStr;
     },
 
@@ -137,9 +181,9 @@ var lookersscreen = {
         var _this = this;
         $('.wrapper').addClass('ditto-wrapper');
         // Set Swipe Cards
-        _this.renderCards(appObj);
-        _this.bindSwap(appObj);
-        _this.bindCardCLick(appObj);
+        //_this.renderCards(appObj);
+        //_this.bindSwap(appObj);
+        //_this.bindCardCLick(appObj);
         // Set Swipe Cards
         $('#settings').click(function(){
             $('.wrapper').removeClass('ditto-wrapper');
