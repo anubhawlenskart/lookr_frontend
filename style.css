@@ -906,20 +906,57 @@ margin: auto;
 border-radius: 50%;
 margin-bottom: 10px;
 }
+.card-content .demo__card__name span.post-name{
+ width: 69%;
+ color: #fff;
+}
+.card-content .shape-color i{
+ width: 28px;
+ height: 28px;
+ border-radius: 50%;
+ background: #000;
+ display: inline-block;
+ top: 2px;
+}
+.info i{
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background: url(images/info.svg) left top no-repeat;
+}
+.card-des span.info{
+  float:right;
+  margin: 4px 0 0;
+  opacity: 0.5;
+}
+.card-des{
+  overflow: hidden;
+}
+.card-des span{
+  float: left;
+}
+.card-shape,.card-size{
+  background: rgb(85, 186, 199,0.1);
+  display: inline-block;
+  padding: 6px 10px;
+  color:#0F3B41;
+  margin: 0 0px 0 10px;
+  border-radius: 5px;
+  font-weight: 700;
+}
+.card-des{
+  padding:17px 16px 7px;
+}
+.card-content .demo__card__name span.like-post{
+color: rgb( 255, 255, 255,0.5);
+}
 .like-dislike span{
 display: inline-block;
 text-align: center;
 padding: 0 30px;
 font-family: 'rajdhanisemibold';
 }
-.dislike-button i{
-background: rgba(227, 89, 106,0.2);
-color: rgba(227, 89, 106);
-}
-.like-button i{
-background: rgba(127, 194, 65,0.2);
-color: rgb(127, 194, 65);
-}
+
 .demo__card-cont {
 position: relative;
 width: 100%;
@@ -1012,7 +1049,7 @@ padding: 0 15px;
 float: right;
 }
 .demo__card__name span.like-post i{
-color: rgb( 233, 70, 123);
+color: rgb( 255, 255, 255,0.5);
 }
 .demo__card__name span.post-name{
 font-family: 'rajdhanibold';
@@ -1781,5 +1818,10 @@ height: 64%;
 
 
 .loading {
+<<<<<<< HEAD
   background: transparent url('images/image_loader.gif') center no-repeat;
 }
+=======
+  background: transparent url('http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif') center no-repeat;
+}
+>>>>>>> e1f3de40ebc4bc8f03497da39edc52db1ea8faba

@@ -15,10 +15,9 @@ var lookersscreen = {
         htmlStr += '</ul>';
         htmlStr += '</header>';
         htmlStr += '<div class="stage">';
-        htmlStr += '<div class="title"></div>';
         htmlStr += '<div id="stacked-cards-block" class="stackedcards stackedcards--animatable init">';
         htmlStr += '<div class="stackedcards-container">';
-        
+
         /////////// Card html
         var _this = this;
         var userFrames = _this.getUserFrames(appObj);
@@ -31,22 +30,22 @@ var lookersscreen = {
                 htmlStr += '<div class="card-content">';
                 htmlStr += '<div class="card-image"><img class="loading" src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" width="50%" height="50%"/></div>';
                 htmlStr += '<div class="card-titles">';
-                htmlStr += '<h1>Adventure <br/> and Outdoor</h1>';
-                htmlStr += '<h3>10 Destinations</h3>';
+                htmlStr += '<p class="demo__card__name"><span class="post-name">Hungry cat </span><span class="like-post"><i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> 1234</span></p>';
+                  htmlStr += '<div class="card-des"><span class="shape-color"><i></i></span><span class="card-shape">Clubmaster</span><span class="card-size">Clubmaster</span><span class="info"></span></div>';
                 htmlStr += '</div>';
                 htmlStr += '</div>';
-                htmlStr += '</div>'; 
+                htmlStr += '</div>';
             }
         }
         ///////////////Card Html
         htmlStr += '<div class="stackedcards--animatable stackedcards-overlay top"><img src="https://image.ibb.co/m1ykYS/rank_army_star_2_3x.png"  width="auto" height="auto"/></div>';
-        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><img src="https://image.ibb.co/dCuESn/Path_3x.png" width="auto" height="auto"/></div>';
-        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left"><img src="https://image.ibb.co/heTxf7/20_status_close_3x.png" width="auto" height="auto"/></div>';
+        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><i>Good</i></div>';
+        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left"><i>Bad</i></div>';
         htmlStr += '</div>';
         htmlStr += '<div class="global-actions">';
-        htmlStr += '<div class="left-action"><img src="https://image.ibb.co/heTxf7/20_status_close_3x.png" width="26" height="26"/></div>';
-        htmlStr += '<div class="top-action"><img src="https://image.ibb.co/m1ykYS/rank_army_star_2_3x.png" width="18" height="16"/></div>';
-        htmlStr += '<div class="right-action"><img src="https://image.ibb.co/dCuESn/Path_3x.png" width="30" height="28"/></div>';
+        htmlStr += '<div class="left-action"></div>';
+        htmlStr += '<div class="top-action"></div>';
+        htmlStr += '<div class="right-action"></div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '<div class="final-state hidden"><h2>Got it! We received your preferences! <br/> To submit again, press F5.</h2></div>';
@@ -64,21 +63,21 @@ var lookersscreen = {
     },
 
     bindSwap : function(appObj){
-        
+
     },
 
-    
+
     getUserFrames : function(appObj){
         var requestUrl = common.apiUrl+'/userframes?mobile='+appObj.getUserMobile()+'&dittoid='+appObj.getDittoId();
         res = common.sendRequest(requestUrl);
         return res;
     },
 
-    
+
     bindClicks : function(appObj){
         var _this = this;
-        
-        _this.bindCardCLick(appObj);        
+
+        _this.bindCardCLick(appObj);
         // Set Swipe Cards
         $('#settings').click(function(){
             $('body').removeAttr('class');
