@@ -31,8 +31,19 @@ var lookersscreen = {
         htmlStr += '</div>';*/
 
         var htmlStr = '';
+        htmlStr += '<div class="container">';
+        htmlStr += '<div class="row">';
+        htmlStr += '<div class="col-md-12">';
+
+        htmlStr += '<header class="header-section">';
+        htmlStr += '<ul class="">';
+        htmlStr += '<li id="settings"><a href="#"><i class="fa fa-gear" style="font-size:30px"></i></a></li>';
+        htmlStr += '<li class="active ditto-profile" id="dittoprofile"><a href="#">&nbsp;</a></li>';
+        htmlStr += '<li class="like" id="wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true" style="font-size:28px"></i></a></li>';
+        htmlStr += '</ul>';
+        htmlStr += '</header>';
         htmlStr += '<div class="stage">';
-        htmlStr += '<div class="title">What Kind of Traveler Are You?</div>';
+        htmlStr += '<div class="title"></div>';
         htmlStr += '<div id="stacked-cards-block" class="stackedcards stackedcards--animatable init">';
         htmlStr += '<div class="stackedcards-container">';
         
@@ -75,6 +86,7 @@ var lookersscreen = {
         htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '<div class="final-state hidden"><h2>Got it! We received your preferences! <br/> To submit again, press F5.</h2></div>';
+        htmlStr += '</div></div></div>';
         return htmlStr;
     },
 
