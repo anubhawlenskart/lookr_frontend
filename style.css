@@ -260,6 +260,19 @@ color: rgba(255,255,255,0.5);
 .input-box input:-moz-placeholder {
 color: rgba(255,255,255,0.5);
 }
+
+.edit-wrapper .input-box input::-webkit-input-placeholder {
+color: rgba(0,0,0,0.3);
+}
+.edit-wrapper .input-box input::-moz-placeholder {
+color: rgba(0,0,0,0.3);
+}
+.edit-wrapper .input-box input:-ms-input-placeholder {
+color: rgba(0,0,0,0.3);
+}
+.edit-wrapper .input-box input:-moz-placeholder {
+color: rgba(255,255,255,0.3);
+}
 .buttons{
 margin: auto;
 position: absolute;
@@ -1107,7 +1120,6 @@ border: 1px solid rgb(151, 151, 151,0.1);
 .single-details img{
 width: 100%;
 object-fit:cover;
-height: 80vh;
 }
 .single-details.active{
 display: none;
@@ -1478,9 +1490,19 @@ value{
 height: 29rem;
 }
 }
-@media only screen and (min-width: 768px) and (max-width: 1506px) {
+@media only screen and (min-width: 848px) and (max-width: 1506px) and (orientation:portrait){
 .details-page #single-slider{
  padding: 0px;
+}
+.details-page .single-details img{
+  height: 70vh;
+}
+.details-page #single-slider{
+  height: 67.5vh;
+  padding-top: 25%;
+}
+.details-page .slick-dots{
+  bottom: 60px;
 }
 .ditto-page .demo__card img {
   height: calc(100vh - 205px);
@@ -1617,6 +1639,16 @@ height: 29rem;
 }
 }
 @media only screen and (max-width: 767px) {
+.details-page .single-details img{
+  height: 55vh;
+}
+.details-page #single-slider{
+  height: 52.3vh;
+  padding-top: 15%;
+}
+.details-page .slick-dots{
+  bottom: 40px;
+}
 .empty {
   padding: 48% 20px 0 20px;
 }
@@ -1658,7 +1690,16 @@ flex: 0 0 70%;
 max-width: 70%;
 }
 .wishlist-page .col-md-6 img{
+height: 175px;
+}
+.wishlist-page #single-product .col-md-6 img{
 height: auto;
+}
+.wishlist-page .wish-title{
+  width: 89%;
+}
+.wishlist-page .input-arrow{
+  right: 0px;
 }
 .achievements .col-md-4{
 -ms-flex: 0 0 33.333333%;
