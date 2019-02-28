@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="90px" height="90px" viewBox="0 0 90 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>dislike</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M55.0478425,45.0561163 L61.0428783,51.051152 C63.8020173,53.810291 63.8020173,58.2837393 61.0428783,61.0428783 C58.2837393,63.8020173 53.810291,63.8020173 51.051152,61.0428783 L45.0561163,55.0478425 L39.0610805,61.0428783 C36.3019415,63.8020173 31.8284933,63.8020173 29.0693543,61.0428783 C26.3102152,58.2837393 26.3102152,53.810291 29.0693543,51.051152 L35.06439,45.0561163 L29.0693543,39.0610805 C26.3102152,36.3019415 26.3102152,31.8284933 29.0693543,29.0693543 C31.8284933,26.3102152 36.3019415,26.3102152 39.0610805,29.0693543 L45.0561163,35.06439 L51.051152,29.0693543 C53.810291,26.3102152 58.2837393,26.3102152 61.0428783,29.0693543 C63.8020173,31.8284933 63.8020173,36.3019415 61.0428783,39.0610805 L55.0478425,45.0561163 Z" id="path-1"></path>
+        <filter x="-24.9%" y="-16.6%" width="149.8%" height="149.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.198535839 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Changes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="5.1-Frame-card-28-jan-Copy" transform="translate(0.000000, -577.000000)">
+            <g id="Group-2" transform="translate(0.000000, 577.000000)">
+                <g id="dislike">
+                    <path d="M45,0 L45,0 C69.8528137,-4.56538782e-15 90,20.1471863 90,45 L90,90 L45,90 C20.1471863,90 3.04359188e-15,69.8528137 0,45 L0,45 C-3.04359188e-15,20.1471863 20.1471863,4.56538782e-15 45,0 Z" id="Rectangle" fill="#FFFFFF" transform="translate(45.000000, 45.000000) scale(-1, 1) translate(-45.000000, -45.000000) "></path>
+                    <g id="Combined-Shape" fill-rule="nonzero">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#E04F5F" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
