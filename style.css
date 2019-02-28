@@ -962,6 +962,13 @@ position: relative;
 width: 100%;
 height:calc(100vh - 144px);
 }
+.stage{
+  height:calc(100vh - 280px);
+}
+.card-content{
+  height:calc(100vh - 300px);
+  padding-bottom: 56px;
+}
 .demo__card {
 z-index: 2;
 position: absolute;
