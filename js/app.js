@@ -58,19 +58,11 @@ var app = {
                 if('dittoid' in res.success){
                     this.setDittoId(res.success.dittoid); 
                     common.createCookie('eyewish-ditto',res.success.dittoid);
-                    //app.mainDom.innerHTML = app.lookersScreen.loadLookersScreen(app);
-                    common.enableLoader();
-                    $('main').html(app.lookersScreen.loadLookersScreen(app)).promise().done(function(){
-                        common.disableLoader();
-                    });
-
-
-
-
+                    app.mainDom.innerHTML = app.lookersScreen.loadLookersScreen(app); 
                     $.getScript( "js/swipe.js", function() {
                        
                     });                   
-                    //app.lookersScreen.bindClicks(app);
+                    app.lookersScreen.bindClicks(app);
                 }else{
                     app.mainDom.innerHTML = app.otherProfileScreen.loadProfileScreen(app);
                     app.otherProfileScreen.bindClicks();
