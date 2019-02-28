@@ -910,7 +910,7 @@ margin-bottom: 10px;
  width: 69%;
  color: #fff;
 }
-.info i{
+.card-des .info i{
   width: 20px;
   height: 20px;
   display: inline-block;
@@ -1792,6 +1792,12 @@ height: 65%;
   padding: 14% 0 0 0;
   min-height: calc(69vh);
   height: 394px;
+}
+.stage{
+  height:calc(100vh - 190px);
+}
+.card-content{
+  height:calc(100vh - 230px);
 }
 .arrow-down {
 top: 35%;
