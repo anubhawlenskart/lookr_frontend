@@ -77,18 +77,16 @@ var lookersscreen = {
     
     bindClicks : function(appObj){
         var _this = this;
-        $('.wrapper').addClass('ditto-wrapper');
+        
         _this.bindCardCLick(appObj);        
         // Set Swipe Cards
         $('#settings').click(function(){
-            $('.wrapper').removeClass('ditto-wrapper');
             appObj.mainDom.innerHTML = appObj.settingScreen.loadSettingScreen(appObj);
             appObj.settingScreen.bindClicks(appObj);
         });
 
         // Wishlist click
         $('#wishlist').click(function(){
-            $('.wrapper').removeClass('ditto-wrapper');
             appObj.mainDom.innerHTML = appObj.wishListScreen.wishListScreen(appObj);
             appObj.wishListScreen.bindClicks(appObj);
         })
