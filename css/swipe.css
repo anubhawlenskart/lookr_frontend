@@ -69,11 +69,28 @@
  }
 
  .card-titles {
-   position: absolute;
-   bottom: 0;
-   padding: 40px 30px;
+   /* position: absolute;
+   bottom: 0; */
+   padding: 0px;
+   background: #fff;
+   position: relative;
  }
-
+.card-titles h1{
+  color: #000;
+}
+.card-titles h3{
+  color: #000;
+}
+.card-content .demo__card__name {
+  background-image: none;
+  color: #000;
+  padding: 0;
+  overflow: hidden;
+  top: auto;
+  bottom: 70px;
+  display: block;
+  margin: 0px -11px;
+}
  .card-footer {
    display: -webkit-box;
    display: -ms-flexbox;
@@ -279,9 +296,31 @@ body {
  .stackedcards-overlay.top,
  .stackedcards-overlay.right,
  .stackedcards-overlay.left {
-     background: #fff;
+     font-size: 30px;
+     color: #fff;
+ }
+ .stackedcards-overlay.left{
+  background: rgba(227, 89, 106,0.5);
+ }
+ .stackedcards-overlay.right{
+  background: rgba(127, 194, 65,0.5);
  }
 
+.stackedcards-overlay.right i{
+  border:3px solid rgba(127, 194, 65);
+  color: rgb(127, 194, 65);
+   font-style: normal;
+   padding: 5px 10px;
+   border-radius: 10px;
+ }
+.stackedcards-overlay.left i{
+  border:3px solid rgba(227, 89, 106);
+  color: rgba(227, 89, 106);
+  font-style: normal;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 10px;
+ }
  .stackedcards-overlay.left:empty,
  .stackedcards-overlay.right:empty,
  .stackedcards-overlay.top:empty {
@@ -310,6 +349,7 @@ body {
      background: #fff; /* set card background background */
     box-shadow: 0 6px 12px 0 rgba(0,0,0,0.30);
     height: 100%;
+    display: block;
  }
 
  .stackedcards .stackedcards-container > :nth-child(1) {
