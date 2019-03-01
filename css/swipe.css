@@ -300,26 +300,27 @@ body {
      color: #fff;
  }
  .stackedcards-overlay.left{
-  background: rgba(227, 89, 106,0.5);
+  background: rgba(227, 89, 106,0.8);
  }
  .stackedcards-overlay.right{
-  background: rgba(127, 194, 65,0.5);
+  background: rgba(127, 194, 65,0.8);
  }
 
 .stackedcards-overlay.right i{
-  border:3px solid rgba(127, 194, 65);
-  color: rgb(127, 194, 65);
-   font-style: normal;
-   padding: 5px 10px;
-   border-radius: 10px;
+  border:3px solid #fff;
+  color:#fff;
+  font-style: normal;
+  padding: 5px 20px;
+  border-radius: 10px;
+  font-weight: bold;
  }
 .stackedcards-overlay.left i{
-  border:3px solid rgba(227, 89, 106);
-  color: rgba(227, 89, 106);
+  border:3px solid #fff;
+  color:#fff;
   font-style: normal;
-  display: inline-block;
-  padding: 5px 10px;
+  padding: 5px 20px;
   border-radius: 10px;
+  font-weight: bold;
  }
  .stackedcards-overlay.left:empty,
  .stackedcards-overlay.right:empty,
