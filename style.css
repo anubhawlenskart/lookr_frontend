@@ -948,6 +948,18 @@ height:calc(100vh - 144px);
 .stage{
   height:calc(100vh - 200px);
 }
+.empty + .stage {
+    height:auto;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+.empty + .stage .stackedcards.init{
+  opacity: 0.5;
+}
+.empty + .stage .stackedcards .stackedcards-container > :nth-child(1){
+  background: none;
+}
 .card-content{
   height:calc(100vh - 240px);
   padding-bottom: 56px;
@@ -1177,9 +1189,7 @@ left: 0%;
 z-index: 99999;
 top: 0%;
 }
-.dittoscreen{
-  text-align: center;
-}
+
 #preloader span {
 width: 100px;
 background: url(images/loader.gif) center center no-repeat;
@@ -1584,6 +1594,65 @@ z-index: 10;
 }
 .wrapper.home {
   background: url(images/footer-shape.png) right bottom/243px no-repeat, url(images/splash.png) center top/cover no-repeat;
+}
+.dittoscreen {
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  bottom: 0;
+  width: 100%;
+}
+.ditto-des {
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 0 5%;
+}
+.ditto-des h2{
+  font-size: 30px;
+  padding-top: 30px;
+}
+.dittoscreen-img{
+  border-radius: 0 0 50% 50%;
+  width: 150vw;
+  margin-left: -25vw;
+  overflow: hidden;
+}
+.dittoscreen-img img{
+  height: 60vh;
+}
+.ditto-des ul{
+  padding: 0px;
+  list-style: none;
+  text-align: left;
+}
+.ditto-des ul li{
+  margin-top: 10px;
+}
+.ditto-des ul li span{
+ border: 1px solid #fff;
+ border-radius: 50%;
+ width: 30px;
+ height: 30px;
+ display: inline-block;
+ margin-right: 20px;
+ line-height: 30px;
+ text-align: center;
+ color: #fff;
+}
+.ditto-des ul li dfn{
+  color: #fff;
+  font-style: normal;
+}
+.get-start span{
+  display: block;
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 10px 0;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #55BAC7;
 }
 /* ) content css end here */
 @media only screen and (min-width: 2700px) {
