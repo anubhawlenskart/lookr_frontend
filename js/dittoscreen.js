@@ -53,12 +53,9 @@ var dittoscreen = {
             var requestUrl = common.apiUrl+'/setditto?mobile='+appObj.getUserMobile()+'&dittoid='+callbackObject.dittoId;
             res = common.sendRequest(requestUrl);
             if ('success' in res){
-              appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
-              appObj.lookersScreen.bindClicks(appObj);
-              appObj.lookersScreen.setFrameNameandLikeCount(appObj,appObj.lookersScreen.userFrames.length);
-              $.getScript( 'js/swipe.js', function() {
-                  //console.log('swipe script loaded');
-              });
+              appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj); 
+              stackedCards();                  
+              appObj.lookersScreen.bindClicks(app);
             }else{
                 if(res.error == 'Unauthroized'){
                     appObj.showPopup('Your session has been expired','alert-danger','Error!');
