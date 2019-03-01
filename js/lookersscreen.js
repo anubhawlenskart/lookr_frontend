@@ -85,10 +85,6 @@ var lookersscreen = {
                     htmlStr += '</div>';
                     htmlStr += '</div>';
                     htmlStr += '</div>';
-
-
-
-
                 }
                 htmlStr += '<div class="stackedcards--animatable stackedcards-overlay top"><img src="https://image.ibb.co/m1ykYS/rank_army_star_2_3x.png"  width="auto" height="auto"/></div>';
                 htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><i>COOL</i></div>';
@@ -136,7 +132,6 @@ var lookersscreen = {
 
     bindClicks : function(appObj){
         var _this = this;
-
         _this.bindCardCLick(appObj);
         // Set Swipe Cards
         $('#settings').click(function(){
@@ -153,8 +148,9 @@ var lookersscreen = {
         });
     },
 
-    swipeCard : function(key,swipeDirection){
+    swipeCard : function(appObj,key,swipeDirection){
         var _this = this;
+        _this.bindCardCLick(appObj);
         var swipesObject = {};
         swipesObject.sku = _this.userFrames[key].sku;
         swipesObject.direction = swipeDirection;

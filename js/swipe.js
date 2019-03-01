@@ -236,7 +236,7 @@ function stackedCards () {
       changeBackground();
       changeStages();
       setActiveHidden();
-      app.lookersScreen.swipeCard(cardId,'left');
+      app.lookersScreen.swipeCard(app,cardId,'left');
 		};
 		
 		//Swipe active card to right.
