@@ -1558,7 +1558,9 @@ z-index: 10;
 }
 .empty {
   text-align: center;
-  padding: 18% 20px 0 20px;
+  padding:12% 20px 10% 20px;
+  border-radius: 10px;
+  background: #FFFFFF;
 }
 .empty p{
   font-size: 18px;
@@ -1754,9 +1756,6 @@ height: 29rem;
 }
 .details-page .slick-dots{
   bottom: 40px;
-}
-.empty {
-  padding: 48% 20px 0 20px;
 }
 .edit-wrapper .main-content{
   padding: 35px 0 0 0;
