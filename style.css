@@ -61,7 +61,7 @@ font-family: 'rajdhanibold';
 text-transform: uppercase;
 }
 .wrapper{
-background-image: linear-gradient(-135deg, #55BAC7 0%, #7FC241 100%);
+background: rgb(85, 186, 199);
 max-width: 1366px;
 margin: 0 auto;
 min-height: 100%;
@@ -824,8 +824,8 @@ padding: 0 8px 16px;
   margin: 0 -7px;
 }
 .header-section ul li{
-float: left;
-width: 30%;
+display: inline-block;
+width: 24%;
 }
 .header-section li a{
 color: rgba(255, 255, 255);
@@ -834,7 +834,7 @@ height: 48px;
 line-height: 44px;
 display: inline-block;
 opacity: 0.5;
-border-radius: 5px;
+border-radius: 10px;
 }
 
 .header-section li a:hover{
@@ -1038,10 +1038,13 @@ float: right;
 .demo__card__name span.like-post i{
 color: rgb( 255, 255, 255,0.5);
 }
+.stage .demo__card__name span.like-post i{
+  opacity: 0.5;
+}
 .demo__card__name span.post-name{
 font-family: 'rajdhanibold';
 font-size: 18px;
-width: 66%;
+width: 54%;
 }
 .demo__card__btm {
 height: 11.5rem;
