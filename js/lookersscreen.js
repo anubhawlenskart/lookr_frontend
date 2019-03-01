@@ -39,8 +39,8 @@ var lookersscreen = {
         }
         ///////////////Card Html
         htmlStr += '<div class="stackedcards--animatable stackedcards-overlay top"><img src="https://image.ibb.co/m1ykYS/rank_army_star_2_3x.png"  width="auto" height="auto"/></div>';
-        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><i>Good</i></div>';
-        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left"><i>Bad</i></div>';
+        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><i>COOL</i></div>';
+        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left"><i>NOPE</i></div>';
         htmlStr += '</div>';
         htmlStr += '<div class="global-actions">';
         htmlStr += '<div class="left-action"></div>';
@@ -86,7 +86,7 @@ var lookersscreen = {
             appObj.mainDom.innerHTML = appObj.wishListScreen.wishListScreen(appObj);
             appObj.wishListScreen.bindClicks(appObj);
         });
-    },   
+    },
 
     swipeCard : function(key,swipeDirection){
         var _this = this;
