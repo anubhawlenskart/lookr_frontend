@@ -463,6 +463,9 @@ background: rgb(252 253 255);
 .main-content.wishlist-page.wishlist-empty{
   border: none;
 }
+.main-content.wishlist-page.border-none{
+  border: none;
+}
 .settings-page .header-section,.wishlist-wrapper .header-section,.edit-wrapper .header-section,.wrapper.ditto-wrapper .header-section{
 margin: 0 -15px;
 background: rgb(85, 186, 199);
@@ -1040,6 +1043,56 @@ color: rgb( 255, 255, 255,0.5);
 }
 .stage .demo__card__name span.like-post i{
   opacity: 0.5;
+  position: relative;
+  top: -2px;
+  margin-right: 3px;
+}
+#lookr-popup ul{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+#lookr-popup li {
+  margin: 0px 0 40px;
+  overflow: hidden;
+}
+#lookr-popup li i{
+  float: left;
+  margin-right: 20px;
+}
+#lookr-popup li strong{
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.got-it{
+  text-align: center;
+}
+.got-it span{
+  line-height: 35px;
+  font-size: 14px;
+  border-radius: 10px;
+  background: rgb(85, 186, 199);
+  padding: 0px 36px;
+  color: #fff;
+  text-transform: uppercase;
+  display: inline-block;
+}
+#lookr-popup li p{
+  color: rgb(74, 74, 74);
+  font-size: 13px;
+  line-height: 23px;
+  margin: 6px 0 0 0;
+  float: left;
+  width: 70%;
+}
+#lookr-popup .modal-body{
+  padding: 10px 0 0;
+}
+#lookr-popup .modal-dialog .modal-content{
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 80%;
 }
 .demo__card__name span.post-name{
 font-family: 'rajdhanibold';
@@ -1347,7 +1400,10 @@ background: #FF945E;
 .card-des i.transparent-gunmetal{
 background: #003366;
 }
-/* .card-image:before{
+.card-image{
+  position: relative;
+}
+.card-image:before{
   position: absolute;
   left: 0;
   width: 100%;
@@ -1356,7 +1412,7 @@ background: #003366;
   content: "";
   background-image: linear-gradient(-180deg,rgba(0,0,0,0.00) 73%,rgba(0,0,0,0.79) 100%);
   border-radius: 10px;
-} */
+}
 .arrow-down,.arrow-up{
 position: absolute;
 left:15px;
@@ -1510,7 +1566,8 @@ z-index: 10;
   line-height: normal;
 }
 .wishlist-page .empty{
-  padding-top: 16%;
+  padding-top: 6%;
+  margin: auto;
 }
 .logo{
   text-align: center;
@@ -1708,12 +1765,17 @@ height: 29rem;
   line-height: 30px;
 }
 .empty p{
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 10%;
   line-height: 20px;
 }
 .wishlist-page .empty{
-  padding-top: 26%;
+  padding-top: 20%;
+  margin: auto;
+}
+.empty-img{
+  padding-left: 10%;
+  padding-right: 10%;
 }
 .buttons{
   padding: 0 15px;
