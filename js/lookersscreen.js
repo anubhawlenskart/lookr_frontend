@@ -31,7 +31,7 @@ var lookersscreen = {
                 htmlStr += '<div class="card-image"><img class="loading" src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" width="50%" height="50%"/></div>';
                 htmlStr += '<div class="card-titles">';
                 htmlStr += '<p class="demo__card__name"><span class="post-name">'+_this.userFrames[i].brand+' </span><span class="like-post"><i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+_this.userFrames[i].like_count+' </span></p>';
-                  htmlStr += '<div class="card-des"><span class="shape-color"><i class="'+_this.userFrames[i].color+'"></i></span><span class="card-shape">'+_this.userFrames[i].shape+' </span><span class="card-size">'+_this.userFrames[i].size+' </span><span class="info"><i></i></span></div>';
+                  htmlStr += '<div class="card-des"><span class="shape-color"><i class="'+_this.userFrames[i].color.toLowerCase()+'"></i></span><span class="card-shape">'+_this.userFrames[i].shape+' </span><span class="card-size">'+_this.userFrames[i].size+' </span><span class="info"><i></i></span></div>';
                 htmlStr += '</div>';
                 htmlStr += '</div>';
                 htmlStr += '</div>';
