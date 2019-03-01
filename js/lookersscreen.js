@@ -51,6 +51,9 @@ var lookersscreen = {
         htmlStr += '</a></li>';
         htmlStr += '</ul>';
         htmlStr += '</header>';
+        htmlStr += '<div class="stage">';
+        htmlStr += '<div id="stacked-cards-block" class="stackedcards stackedcards--animatable init">';
+        htmlStr += '<div class="stackedcards-container">';
         
 
         /////////// Card html
@@ -61,14 +64,12 @@ var lookersscreen = {
             _this.userFrames = userFrames.success;
             var frameLen = _this.userFrames.length;
             if(frameLen > 0){
-                for(var i=0; i<=(frameLen - 1); i++){
+                for(var i=0; i<=(frameLen - 1); i++){                    
                     htmlStr += '<div class="card" id="'+i+'">';
                     htmlStr += '<div class="card-content">';
                     htmlStr += '<div class="card-image"><img class="loading" src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" width="50%" height="50%"/></div>';
                     htmlStr += '<div class="card-titles">';
-                    htmlStr += '<p class="demo__card__name">';
-                    htmlStr += '<span class="post-name">'+_this.userFrames[i].brand+' </span>';
-                    htmlStr += '<span class="like-post">';
+                    htmlStr += '<p class="demo__card__name"><span class="post-name">'+_this.userFrames[i].brand+' </span><span class="like-post">';
                     htmlStr += '<i>';
                     htmlStr += '<svg width="16px" height="16px" viewBox="0 0 24 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">';
                     htmlStr += '<g id="Changes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">';
@@ -79,11 +80,20 @@ var lookersscreen = {
                     htmlStr += '</g>';
                     htmlStr += '</g>';
                     htmlStr += '</svg>';
-
                     htmlStr += '</i> '+_this.userFrames[i].like_count+' </span></p>';
                     htmlStr += '<div class="card-des"><span class="shape-color"><i class="'+_this.userFrames[i].color.toLowerCase()+'"></i></span><span class="card-shape">'+_this.userFrames[i].shape+' </span><span class="card-size">'+_this.userFrames[i].size+' </span><span class="info"><i></i></span></div>';
                     htmlStr += '</div>';
+                    htmlStr += '</div>';
+                    htmlStr += '</div>';
+
+
+
+
                 }
+                htmlStr += '<div class="stackedcards--animatable stackedcards-overlay top"><img src="https://image.ibb.co/m1ykYS/rank_army_star_2_3x.png"  width="auto" height="auto"/></div>';
+                htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><i>COOL</i></div>';
+                htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left"><i>NOPE</i></div>';
+                htmlStr += '</div>';
             }else{
                 htmlStr += '<div class="empty">';
                 htmlStr += '<div class="empty-img">';
