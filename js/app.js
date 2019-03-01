@@ -15,6 +15,7 @@ var app = {
     editprofileScreen : editprofile,
     wishListScreen : wishlist,
     settingScreen : setting,
+    threeDtry : threedtry,
     cardcountinlookrscreen : 4,
     swipedCardId : [],
 
