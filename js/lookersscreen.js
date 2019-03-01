@@ -1,5 +1,6 @@
 var lookersscreen = {
     userFrames : Array(),
+    swipedFrameIndex : Array(),
     needtoshowpopup : false,
     loadLookersScreen : function(appObj){
         var _this = this;
@@ -119,21 +120,25 @@ var lookersscreen = {
         return res;
     },
 
+    emptyScreenMessage : function(appObj,msg){
+        var str = '<div class="empty">';
+        str += '<div class="empty-img">';
+        str += '<img src="images/empty.png" alt="" title="">';
+        str += '</div>';
+        str += msg;
+        str += '</div>';
+        $('header').after(str);
+        $('.stage').remove();
+    },
+
 
     bindClicks : function(appObj){
         var _this = this;
         if(_this.userFrames.length == 0){
-            var str = '<div class="empty">';
-            str += '<div class="empty-img">';
-            str += '<img src="images/empty.png" alt="" title="">';
-            str += '</div>';
-            str += '<p> <strong>Congratulation!</strong></br> You have exhausted all the looks for today.</br>';
-            str += 'Try again later for more.</p>';
-            str += '<p> <strong>OOPS!</strong></br>We have limited products for your filters.</br>';
-            str += 'Please clear the filters and try again.</p>';
-            str += '</div>';
-            $('header').after(str);
-            //$('.stage').remove();
+            var msgtoshow = '';
+            msgtoshow += '<p> <strong>OOPS!</strong></br>We have limited products for your filters.</br>';
+            msgtoshow += 'Please clear the filters and try again.</p>';
+            _this.emptyScreenMessage(appObj,msgtoshow);
         }else{
             _this.bindCardCLick(appObj);
         }
@@ -171,5 +176,11 @@ var lookersscreen = {
             swipesObject.status = 'Dislike';
         }
         app.swipedCardId.push(swipesObject);
+        _this.swipedFrameIndex.push(_this.userFrames[key].sku);
+        if(_this.userFrames.length == _this.swipedFrameIndex.length){
+            var ms ='<p> <strong>Congratulation!</strong></br>You have exhausted all the looks for today.';
+            ms +='Try again later for more.</p>';
+            _this.emptyScreenMessage(appObj,ms);
+        }
     }
 }
