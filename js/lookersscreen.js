@@ -66,16 +66,24 @@ var lookersscreen = {
                     htmlStr += '<div class="card-content">';
                     htmlStr += '<div class="card-image"><img class="loading" src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" width="50%" height="50%"/></div>';
                     htmlStr += '<div class="card-titles">';
-                    htmlStr += '<p class="demo__card__name"><span class="post-name">'+_this.userFrames[i].brand+' </span><span class="like-post"><i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+_this.userFrames[i].like_count+' </span></p>';
+                    htmlStr += '<p class="demo__card__name">';
+                    htmlStr += '<span class="post-name">'+_this.userFrames[i].brand+' </span>';
+                    htmlStr += '<span class="like-post">';
+                    htmlStr += '<i>';
+                    htmlStr += '<svg width="16px" height="16px" viewBox="0 0 24 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">';
+                    htmlStr += '<g id="Changes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">';
+                    htmlStr += '<g id="5.1-Frame-card-28-jan-Copy" transform="translate(-243.000000, -61.000000)" fill="#FFFFFF" fill-rule="nonzero">';
+                    htmlStr += '<g id="Group-7" transform="translate(110.000000, 46.000000)">';
+                    htmlStr += '<path d="M155.063342,17.0914579 C152.284839,14.3028474 147.779702,14.3028474 145.001199,17.0914579 L144.998883,17.0914579 C142.22022,14.3028474 137.715163,14.3028474 134.93666,17.0914579 C132.157997,19.8800684 132.558656,24.0503232 134.93666,27.189914 C137.45503,30.514691 142.053106,36 144.998883,36 L145.001199,36 C147.947056,36 152.544972,30.514691 155.063342,27.189914 C157.441426,24.0504033 157.841926,19.8801485 155.063342,17.0914579 Z" id="wishlist"></path>';
+                    htmlStr += '</g>';
+                    htmlStr += '</g>';
+                    htmlStr += '</g>';
+                    htmlStr += '</svg>';
+
+                    htmlStr += '</i> '+_this.userFrames[i].like_count+' </span></p>';
                     htmlStr += '<div class="card-des"><span class="shape-color"><i class="'+_this.userFrames[i].color.toLowerCase()+'"></i></span><span class="card-shape">'+_this.userFrames[i].shape+' </span><span class="card-size">'+_this.userFrames[i].size+' </span><span class="info"><i></i></span></div>';
                     htmlStr += '</div>';
-                    htmlStr += '</div>';
-                    htmlStr += '</div>';
                 }
-                htmlStr += '<div class="stackedcards--animatable stackedcards-overlay top"><img src="https://image.ibb.co/m1ykYS/rank_army_star_2_3x.png"  width="auto" height="auto"/></div>';
-                htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><i>COOL</i></div>';
-                htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left"><i>NOPE</i></div>';
-                htmlStr += '</div>';
             }else{
                 htmlStr += '<div class="empty">';
                 htmlStr += '<div class="empty-img">';
