@@ -65,7 +65,7 @@ var lookersscreen = {
             var frameLen = _this.userFrames.length;
             if(frameLen > 0){
                 for(var i=0; i<=(frameLen - 1); i++){                    
-                    htmlStr += '<div class="card" id="'+i+'">';
+                    htmlStr += '<div class="card" id="'+i+'" onclick="'+_this.bindCardCLick()+'">';
                     htmlStr += '<div class="card-content">';
                     htmlStr += '<div class="card-image"><img class="loading" src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" width="50%" height="50%"/></div>';
                     htmlStr += '<div class="card-titles">';
@@ -136,7 +136,6 @@ var lookersscreen = {
 
     bindClicks : function(appObj){
         var _this = this;
-
         _this.bindCardCLick(appObj);
         // Set Swipe Cards
         $('#settings').click(function(){
@@ -153,8 +152,9 @@ var lookersscreen = {
         });
     },
 
-    swipeCard : function(key,swipeDirection){
+    swipeCard : function(appObj,key,swipeDirection){
         var _this = this;
+        _this.bindCardCLick(appObj);
         var swipesObject = {};
         swipesObject.sku = _this.userFrames[key].sku;
         swipesObject.direction = swipeDirection;

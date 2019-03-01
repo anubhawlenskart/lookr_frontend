@@ -165,6 +165,7 @@ var wishlist = {
         if(_this.framesObj.length == 0){
             $('#framefilter').hide();
             $('.toggleTrueFalse').hide();
+            $('.wishlist-page').addClass('border-none');
         }
         // Bind setting CLick
         $('#settings').click(function(){
@@ -193,7 +194,6 @@ var wishlist = {
                 $(".slider-wrapper").fadeIn();
             }
         });
-
         // Bind close icon click
         $('.arrow-up i').click(function(e){
             var requestUrl = common.apiUrl+'/clearwishlist?mobile='+appObj.getUserMobile();

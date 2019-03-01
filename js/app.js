@@ -147,7 +147,7 @@ function handleUserSwipes(){
     }    
 }
 
-setInterval(handleUserSwipes,3000);
+setInterval(handleUserSwipes,1000);
 
 
 
