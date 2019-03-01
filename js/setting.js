@@ -238,7 +238,9 @@ var setting = {
         $('#dittoprofile').click(function(){
             $('.wrapper').removeClass('settings-page');
             appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
-            stackedCards();
+            if(appObj.lookersScreen.userFrames.length > 0){
+                stackedCards();
+            }
             appObj.lookersScreen.bindClicks(app);
         });
 

@@ -121,8 +121,7 @@ var lookersscreen = {
 
     bindClicks : function(appObj){
         var _this = this;
-
-
+        console.log(_this.userFrames.length);
         if(_this.userFrames.length == 0){
             var str = '<div class="empty">';
             str += '<div class="empty-img">';
@@ -133,7 +132,8 @@ var lookersscreen = {
             str += '<p> OOPS! We have limited products for your filters.';
             str += 'Please clear the filters and try again.</p>';
             str += '</div>';
-            $('.stage').before(str);
+            $('header').after(str);
+            $('.stage').remove();
         }else{
             _this.bindCardCLick(appObj);
         }

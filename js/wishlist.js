@@ -178,8 +178,10 @@ var wishlist = {
         $('#dittoprofile').click(function(){
             $('.wrapper').removeClass('wishlist-wrapper');
             appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
-            stackedCards();
-            appObj.lookersScreen.bindClicks(app);
+            if(appObj.lookersScreen.userFrames.length > 0){
+                stackedCards();
+            }            
+            appObj.lookersScreen.bindClicks(appObj);
         });
 
         // Bind Frames only filter click
