@@ -238,10 +238,6 @@ border-bottom: 16px solid  rgba(239, 123, 92);
 .modal-backdrop.show {
 opacity: .8;
 }
-.header-section ul li.ditto-profile{
-position: relative;
-top: -8px;
-}
 .modal-content .achievements-circle span{
 font-size: 22px;
 }
@@ -469,7 +465,7 @@ background: rgb(252 253 255);
 }
 .settings-page .header-section,.wishlist-wrapper .header-section,.edit-wrapper .header-section,.wrapper.ditto-wrapper .header-section{
 margin: 0 -15px;
-background-image: linear-gradient(-135deg, #55BAC7 0%, #7FC241 100%);
+background: rgb(85, 186, 199);
 padding: 30px 0;
 border-radius:0 0 10px 10px;
 position: relative;
@@ -816,6 +812,7 @@ padding: 28px 0 0 0;
 padding: 0px;
 list-style: none;
 text-align: center;
+overflow: hidden;
 }
 .wishlist-wrapper .header-section ul{
   margin: 0px;
@@ -827,28 +824,25 @@ padding: 0 8px 16px;
   margin: 0 -7px;
 }
 .header-section ul li{
-display: inline-block;
+float: left;
 width: 30%;
 }
 .header-section li a{
-color: rgba(255, 255, 255, 0.5);
-border-radius: 50%;
-width: 50px;
-height: 50px;
-line-height: 50px;
+color: rgba(255, 255, 255);
+width: 48px;
+height: 48px;
+line-height: 44px;
 display: inline-block;
+opacity: 0.5;
+border-radius: 5px;
 }
-.header-section li a i{
-line-height: 50px;
-}
+
 .header-section li a:hover{
 text-decoration: none;
 }
 .header-section li.active a{
-background: rgba(255, 255, 255, 1);
-color:rgb(85, 186, 199);
-display: inline-block;
-box-shadow: 0 15px 20px 0 rgba(0,0,0,0.10);
+background: rgba(255, 255, 255, 0.3);
+opacity: 1;
 }
 .demo__card img{
    object-fit:cover;
@@ -859,12 +853,6 @@ background: transparent;
 }
 .settings .select-item::-webkit-scrollbar-thumb {
   display: none;
-}
-.header-section li.ditto-profile a{
-background: url(images/ditto.png) center 24px no-repeat;
-}
-.header-section li.active.ditto-profile a{
-background:#fff url(images/ditto-active.png) center 20px no-repeat;
 }
 .header-section li.like.active a{
 color: rgba(233, 70, 123);
@@ -1053,7 +1041,7 @@ color: rgb( 255, 255, 255,0.5);
 .demo__card__name span.post-name{
 font-family: 'rajdhanibold';
 font-size: 18px;
-width: 76%;
+width: 66%;
 }
 .demo__card__btm {
 height: 11.5rem;
