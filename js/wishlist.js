@@ -201,6 +201,8 @@ var wishlist = {
             res = common.sendRequest(requestUrl,'POST',false);
             if('success' in res){
                 $(this).parent().parent().parent().remove();
+                appObj.mainDom.innerHTML = _this.wishListScreen(appObj);
+                _this.bindClicks(appObj);
             }else{
                 if(res.error == 'Unauthroized'){
                     appObj.showPopup('Your session has been expired','alert-danger','Error!');

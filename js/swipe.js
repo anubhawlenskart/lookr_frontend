@@ -257,7 +257,7 @@ function stackedCards () {
       changeBackground();
       changeStages();
       setActiveHidden();
-      app.lookersScreen.swipeCard(carId,'right');
+      app.lookersScreen.swipeCard(app,carId,'right');
 		};
 		
 		//Swipe active card to top.

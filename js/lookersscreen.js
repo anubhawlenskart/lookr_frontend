@@ -62,7 +62,7 @@ var lookersscreen = {
 
         if('success' in userFrames){
             _this.userFrames = userFrames.success;
-            var frameLen = _this.userFrames.length;
+            var frameLen = _this.userFrames.length;            
             if(frameLen > 0){
                 for(var i=0; i<=(frameLen - 1); i++){                    
                     htmlStr += '<div class="card" id="'+i+'" onclick="'+_this.bindCardCLick()+'">';
@@ -85,26 +85,12 @@ var lookersscreen = {
                     htmlStr += '</div>';
                     htmlStr += '</div>';
                     htmlStr += '</div>';
-
-
-
-
                 }
                 htmlStr += '<div class="stackedcards--animatable stackedcards-overlay top"><img src="https://image.ibb.co/m1ykYS/rank_army_star_2_3x.png"  width="auto" height="auto"/></div>';
                 htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><i>COOL</i></div>';
                 htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left"><i>NOPE</i></div>';
                 htmlStr += '</div>';
-            }else{
-                htmlStr += '<div class="empty">';
-                htmlStr += '<div class="empty-img">';
-                htmlStr += '<img src="images/empty.png" alt="" title="">';
-                htmlStr += '</div>';
-                htmlStr += '<p> Congratulation! You have exhausted all the looks for today.';
-                htmlStr += 'Try again later for more.</p>';
-                htmlStr += '<p> OOPS! We have limited products for your filters.';
-                htmlStr += 'Please clear the filters and try again.</p>';
-                htmlStr += '</div>';
-            }            
+            }         
         }
         ///////////////Card Html       
         htmlStr += '<div class="global-actions">';
@@ -113,7 +99,6 @@ var lookersscreen = {
         htmlStr += '<div class="right-action"></div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
-        htmlStr += '<div class="final-state hidden"><h2>Got it! We received your preferences! <br/> To submit again, press F5.</h2></div>';
         htmlStr += '</div></div></div>';
         return htmlStr;
     },
@@ -136,7 +121,22 @@ var lookersscreen = {
 
     bindClicks : function(appObj){
         var _this = this;
-        _this.bindCardCLick(appObj);
+
+
+        if(_this.userFrames.length == 0){
+            var str = '<div class="empty">';
+            str += '<div class="empty-img">';
+            str += '<img src="images/empty.png" alt="" title="">';
+            str += '</div>';
+            str += '<p> Congratulation! You have exhausted all the looks for today.';
+            str += 'Try again later for more.</p>';
+            str += '<p> OOPS! We have limited products for your filters.';
+            str += 'Please clear the filters and try again.</p>';
+            str += '</div>';
+            $('.stage').before(str);
+        }else{
+            _this.bindCardCLick(appObj);
+        }
         // Set Swipe Cards
         $('#settings').click(function(){
             $('body').removeAttr('class');
