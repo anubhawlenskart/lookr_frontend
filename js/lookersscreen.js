@@ -1,5 +1,6 @@
 var lookersscreen = {
     userFrames : Array(),
+    needtoshowpopup : false,
     loadLookersScreen : function(appObj){
         var _this = this;
         var htmlStr = '';
@@ -121,19 +122,18 @@ var lookersscreen = {
 
     bindClicks : function(appObj){
         var _this = this;
-        console.log(_this.userFrames.length);
         if(_this.userFrames.length == 0){
             var str = '<div class="empty">';
             str += '<div class="empty-img">';
             str += '<img src="images/empty.png" alt="" title="">';
             str += '</div>';
-            str += '<p> Congratulation! You have exhausted all the looks for today.';
+            str += '<p> <strong>Congratulation!</strong></br> You have exhausted all the looks for today.</br>';
             str += 'Try again later for more.</p>';
-            str += '<p> OOPS! We have limited products for your filters.';
+            str += '<p> <strong>OOPS!</strong></br>We have limited products for your filters.</br>';
             str += 'Please clear the filters and try again.</p>';
             str += '</div>';
             $('header').after(str);
-            $('.stage').remove();
+            //$('.stage').remove();
         }else{
             _this.bindCardCLick(appObj);
         }
@@ -149,6 +149,13 @@ var lookersscreen = {
             $('body').removeAttr('class');
             appObj.mainDom.innerHTML = appObj.wishListScreen.wishListScreen(appObj);
             appObj.wishListScreen.bindClicks(appObj);
+        });
+        if(_this.needtoshowpopup){
+            $('#lookr-popup').modal('show');
+            _this.needtoshowpopup = false;
+        }        
+        $('.got-it').click(function(){
+            $('#lookr-popup').modal('hide');
         });
     },
 
