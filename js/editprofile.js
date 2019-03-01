@@ -229,10 +229,8 @@ var editprofile = {
         // Go to Ditto Screen
         $('#gotoditto').click(function(){
             $('.wrapper').removeClass('edit-wrapper');
-            console.log(appObj.threeDtry.loadScreen(appObj));
             appObj.mainDom.innerHTML = appObj.threeDtry.loadScreen(appObj);
-            //appObj.mainDom.innerHTML = appObj.dittoScreen.loadDittoScreen(appObj);
-            //appObj.dittoScreen.bindClicks(appObj);
+            appObj.threeDtry.bindClicks(appObj);
         });
 
         $(".gender label").click(function () {

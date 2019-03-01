@@ -68,8 +68,10 @@ var app = {
                     //}           
                     app.lookersScreen.bindClicks(app);
                 }else{
-                    app.mainDom.innerHTML = app.otherProfileScreen.loadProfileScreen(app);
-                    app.otherProfileScreen.bindClicks();
+                    //app.mainDom.innerHTML = app.otherProfileScreen.loadProfileScreen(app);
+                    //app.otherProfileScreen.bindClicks();
+                    appObj.mainDom.innerHTML = appObj.threeDtry.loadScreen(appObj);
+                    appObj.threeDtry.bindClicks(appObj);
                 }
             }else{
                 if(res.error == 'Unauthroized'){
