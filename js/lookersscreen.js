@@ -54,7 +54,7 @@ var lookersscreen = {
         htmlStr += '<div class="stage">';
         htmlStr += '<div id="stacked-cards-block" class="stackedcards stackedcards--animatable init">';
         htmlStr += '<div class="stackedcards-container">';
-        
+
 
         /////////// Card html
         var _this = this;
@@ -64,7 +64,7 @@ var lookersscreen = {
             _this.userFrames = userFrames.success;
             var frameLen = _this.userFrames.length;
             if(frameLen > 0){
-                for(var i=0; i<=(frameLen - 1); i++){                    
+                for(var i=0; i<=(frameLen - 1); i++){
                     htmlStr += '<div class="card" id="'+i+'">';
                     htmlStr += '<div class="card-content">';
                     htmlStr += '<div class="card-image"><img class="loading" src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" width="50%" height="50%"/></div>';
@@ -104,9 +104,9 @@ var lookersscreen = {
                 htmlStr += '<p> OOPS! We have limited products for your filters.';
                 htmlStr += 'Please clear the filters and try again.</p>';
                 htmlStr += '</div>';
-            }            
+            }
         }
-        ///////////////Card Html       
+        ///////////////Card Html
         htmlStr += '<div class="global-actions">';
         htmlStr += '<div class="left-action"></div>';
         htmlStr += '<div class="top-action"></div>';

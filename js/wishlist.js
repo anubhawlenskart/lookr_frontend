@@ -22,7 +22,7 @@ var wishlist = {
         var responseList = Array();
         _this.framesObj = this.getUserWishList(appObj);
         var framesonlyHtm = '';
-        var dittoHtm = '';        
+        var dittoHtm = '';
         if(_this.framesObj.length > 0){
             _this.framesObj.forEach(function(element,index) {
                 framesonlyHtm += '<div class="col-md-6">';
@@ -30,23 +30,23 @@ var wishlist = {
                 framesonlyHtm += '<img src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+element.sku+'" alt="">  <span class="arrow-up"><i class="fa">&times;</i></span>';
                 framesonlyHtm += '<span class="wish-title">'+element.brand+' '+element.size+' <span class="input-arrow" ></span></span>';
                 framesonlyHtm += '</div>';
-                framesonlyHtm += '</div>';    
+                framesonlyHtm += '</div>';
                 dittoHtm += '<div class="col-md-6">  <div class="wishlist-img" sku="'+element.sku+'">';
                 dittoHtm += '<img src="'+element.image+'" alt="">  <span class="arrow-up"><i class="fa">&times;</i></span>';
                 dittoHtm += '<span class="wish-title">'+element.brand+' '+element.size+' <span class="input-arrow"><i class="fa fa-arrow-right"></i></span></span>';
                 dittoHtm += '</div></div>';
-    
+
             });
         }else{
             framesonlyHtm +='<div class="empty">';
             framesonlyHtm +='<div class="empty-img">';
-            framesonlyHtm +='<img src="images/wishlist-empty.png" alt="" title="">';
+            framesonlyHtm +='<img src="images/wishlist-blank.svg" alt="" title="">';
             framesonlyHtm +='</div>';
             framesonlyHtm +='<p> Nobody likes Blank sheets. <br>Why don’t you start swiping and make your wishlist.</p>';
             framesonlyHtm +='</div>';
             dittoHtm = framesonlyHtm;
         }
-        
+
         responseList['dittoHtml'] = framesonlyHtm;
         responseList['framesHtml'] = dittoHtm;
         return responseList;
@@ -176,8 +176,8 @@ var wishlist = {
         // Bind click for lookr
         $('#dittoprofile').click(function(){
             $('.wrapper').removeClass('wishlist-wrapper');
-            appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj); 
-            stackedCards();                  
+            appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
+            stackedCards();
             appObj.lookersScreen.bindClicks(app);
         });
 
