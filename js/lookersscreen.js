@@ -51,9 +51,7 @@ var lookersscreen = {
         htmlStr += '</a></li>';
         htmlStr += '</ul>';
         htmlStr += '</header>';
-        htmlStr += '<div class="stage">';
-        htmlStr += '<div id="stacked-cards-block" class="stackedcards stackedcards--animatable init">';
-        htmlStr += '<div class="stackedcards-container">';
+        
 
         /////////// Card html
         var _this = this;
@@ -62,23 +60,35 @@ var lookersscreen = {
         if('success' in userFrames){
             _this.userFrames = userFrames.success;
             var frameLen = _this.userFrames.length;
-            for(var i=0; i<=(frameLen - 1); i++){
-                htmlStr += '<div class="card" id="'+i+'">';
-                htmlStr += '<div class="card-content">';
-                htmlStr += '<div class="card-image"><img class="loading" src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" width="50%" height="50%"/></div>';
-                htmlStr += '<div class="card-titles">';
-                htmlStr += '<p class="demo__card__name"><span class="post-name">'+_this.userFrames[i].brand+' </span><span class="like-post"><i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+_this.userFrames[i].like_count+' </span></p>';
-                  htmlStr += '<div class="card-des"><span class="shape-color"><i class="'+_this.userFrames[i].color.toLowerCase()+'"></i></span><span class="card-shape">'+_this.userFrames[i].shape+' </span><span class="card-size">'+_this.userFrames[i].size+' </span><span class="info"><i></i></span></div>';
+            if(frameLen > 0){
+                for(var i=0; i<=(frameLen - 1); i++){
+                    htmlStr += '<div class="card" id="'+i+'">';
+                    htmlStr += '<div class="card-content">';
+                    htmlStr += '<div class="card-image"><img class="loading" src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" width="50%" height="50%"/></div>';
+                    htmlStr += '<div class="card-titles">';
+                    htmlStr += '<p class="demo__card__name"><span class="post-name">'+_this.userFrames[i].brand+' </span><span class="like-post"><i class="fa fa-heart" aria-hidden="true" style="font-size:18px"></i> '+_this.userFrames[i].like_count+' </span></p>';
+                    htmlStr += '<div class="card-des"><span class="shape-color"><i class="'+_this.userFrames[i].color.toLowerCase()+'"></i></span><span class="card-shape">'+_this.userFrames[i].shape+' </span><span class="card-size">'+_this.userFrames[i].size+' </span><span class="info"><i></i></span></div>';
+                    htmlStr += '</div>';
+                    htmlStr += '</div>';
+                    htmlStr += '</div>';
+                }
+                htmlStr += '<div class="stackedcards--animatable stackedcards-overlay top"><img src="https://image.ibb.co/m1ykYS/rank_army_star_2_3x.png"  width="auto" height="auto"/></div>';
+                htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><i>COOL</i></div>';
+                htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left"><i>NOPE</i></div>';
                 htmlStr += '</div>';
+            }else{
+                htmlStr += '<div class="empty">';
+                htmlStr += '<div class="empty-img">';
+                htmlStr += '<img src="images/empty.png" alt="" title="">';
                 htmlStr += '</div>';
+                htmlStr += '<p> Congratulation! You have exhausted all the looks for today.';
+                htmlStr += 'Try again later for more.</p>';
+                htmlStr += '<p> OOPS! We have limited products for your filters.';
+                htmlStr += 'Please clear the filters and try again.</p>';
                 htmlStr += '</div>';
-            }
+            }            
         }
-        ///////////////Card Html
-        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay top"><img src="https://image.ibb.co/m1ykYS/rank_army_star_2_3x.png"  width="auto" height="auto"/></div>';
-        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><i>COOL</i></div>';
-        htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left"><i>NOPE</i></div>';
-        htmlStr += '</div>';
+        ///////////////Card Html       
         htmlStr += '<div class="global-actions">';
         htmlStr += '<div class="left-action"></div>';
         htmlStr += '<div class="top-action"></div>';
