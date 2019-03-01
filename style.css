@@ -1093,6 +1093,7 @@ color: rgb( 255, 255, 255,0.5);
   padding: 20px;
   margin: 0 auto;
   max-width: 80%;
+  background: #fff;
 }
 .demo__card__name span.post-name{
 font-family: 'rajdhanibold';
@@ -1176,7 +1177,9 @@ left: 0%;
 z-index: 99999;
 top: 0%;
 }
-
+.dittoscreen{
+  text-align: center;
+}
 #preloader span {
 width: 100px;
 background: url(images/loader.gif) center center no-repeat;
@@ -1677,7 +1680,6 @@ height: 29rem;
 }
 .back {
   display: block;
-  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
