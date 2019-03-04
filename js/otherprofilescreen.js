@@ -4,7 +4,6 @@ var otherprofilescreen = {
     loadProfileScreen : function(appObj){
         var requestUrl = common.apiUrl+'/getuserprofile?mobile='+appObj.getUserMobile();
         res = common.sendRequest(requestUrl);
-
         var nameValue = '';
         var malechecked = 'checked="checked"';
         var femalechecked = '';
@@ -87,7 +86,7 @@ var otherprofilescreen = {
         htmlStr += '<div class="input-box">';
         htmlStr += '<div class="row otp-section">';
         htmlStr += '<div class="col-md-12 name">';
-        htmlStr += '<input type="text" name="username" id="username" value="" placeholder="Name (Optional)" class="form-control">';
+        htmlStr += '<input type="text" name="username" id="username" placeholder="Name (Optional)" class="form-control" value="'+nameValue+'">';
         htmlStr += '</div>';
         htmlStr += '<div class="col-md-12">';
         htmlStr += '<h2>Gender</h2>';
@@ -189,8 +188,10 @@ var otherprofilescreen = {
             res = common.sendRequest(requestUrl);
 
             if ('success' in res){
-                appObj.mainDom.innerHTML = appObj.dittoScreen.loadDittoScreen();
-                appObj.dittoScreen.bindClicks(appObj);
+                //appObj.mainDom.innerHTML = appObj.dittoScreen.loadScreen();
+                //appObj.dittoScreen.bindClicks(appObj);
+                appObj.mainDom.innerHTML = appObj.threeDtry.loadScreen(appObj);
+                appObj.threeDtry.bindClicks(appObj);
             }else{
                 if(res.error == 'Unauthroized'){
                     appObj.showPopup('Your session has been expired','alert-danger','Error!');
