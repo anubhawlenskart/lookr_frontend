@@ -4,8 +4,6 @@ var editprofile = {
 
         var requestUrl = common.apiUrl+'/getuserprofile?mobile='+appObj.getUserMobile();
         res = common.sendRequest(requestUrl);
-
-
         var nameValue = '';
         var mobileValue = '';
         var malechecked = 'checked="checked"';
@@ -139,7 +137,7 @@ var editprofile = {
         htmlStr +='<div class="row otp-section">';
         htmlStr +='<div class="col-md-12 name">';
         htmlStr +='<label>Name</label>';
-        htmlStr +='<input type="text" name="username" id="username" value="" placeholder="Name (Optional)" class="form-control">';
+        htmlStr +='<input type="text" name="username" id="username" placeholder="Name (Optional)" class="form-control" value="'+nameValue+'">';
         htmlStr +='</div>';
         /*htmlStr +='<div class="col-md-12 mobile">';
         htmlStr +='<label>Phone Number</label>';
@@ -206,10 +204,12 @@ var editprofile = {
         $('.wrapper').addClass('edit-wrapper');
         // bind click for lookr
         $('#dittoprofile').click(function(){
-            $('.wrapper').removeClass('edit-wrapper');
+            $('.wrapper').removeClass('edit-wrapper'); 
             appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
+            if(appObj.lookersScreen.userFrames.length > 0){
+                stackedCards();
+            }            
             appObj.lookersScreen.bindClicks(appObj);
-            appObj.lookersScreen.setFrameNameandLikeCount(appObj,appObj.lookersScreen.userFrames.length);
         });
 
         // Wishlist click

@@ -1,5 +1,6 @@
 var dittoscreen = {
-    loadDittoScreen : function(){
+  
+  loadScreen : function(){
         var _this = this;
         var htmlStr = '<div class="container">';
         htmlStr += '<div class="row">';

@@ -126,7 +126,7 @@ background: none;
 background: url(images/arrowBack.png) right center no-repeat;
 position: absolute;
 right: 0px;
-width: 16px;
+width: 32px;
 height: 50px;
 top: 0px;
 }
@@ -1653,6 +1653,230 @@ z-index: 10;
   font-size: 20px;
   text-transform: uppercase;
   color: #55BAC7;
+}
+div#filter-popup {
+    background:rgb(252, 253, 255);
+    padding-right: 0 !important;
+}
+.filter-header .col-md-6 + .col-md-6{
+ text-align: right;
+}
+#filter-popup .modal-footer .col-md-6{
+ float: left;
+ width: 48.6%;
+}
+#filter-popup .modal-footer .col-md-6:first-child::before {
+  position: absolute;
+  right: 0px;
+  height: 20px;
+  width: 1px;
+  background:rgb(218, 218, 218);
+  content: "";
+}
+#filter-popup .main-content.other-info.settings{
+  padding: 0px 0 50px;
+  border: none;
+  margin-top: 51px;
+
+}
+.settings .row.filter .row.filter-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 16px 0px;
+  background:rgb(252, 253, 255);
+  border-bottom: 1px solid rgb(151, 151, 151,0.1);
+  z-index: 999;
+}
+.settings-page #filter-popup .modal-body {
+    margin: auto;
+    padding: 0 15px;
+    width: 100%;
+}
+#filter-popup .settings h2 {
+  font-size: 16px;
+}
+#filter-popup .settings .row.filter{
+ margin-top: 0px;
+ padding-top: 0px;
+}
+.settings .row.filter .row.filter-buttons .col-md-6:first-child{
+  padding-left: 0px;
+}
+.settings .row.filter .row.filter-buttons .col-md-6:last-child{
+  padding-right: 0px;
+}
+.settings .row.filter .row.filter-buttons .col-md-6{
+  padding: 0 10px;
+}
+#filter-popup .modal .modal-content{
+  margin: 0px;
+}
+.filter .close-btn{
+  color: rgb(74, 74, 74);
+  background: #ddd;
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  opacity: 1;
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+}
+#filter-popup .settings .filter-header h2 {
+  margin: 0px;
+  line-height: 37px;
+  font-size: 22px;
+}
+.filter .close-btn span{
+  font-family: initial;
+}
+.settings-page #filter-popup .modal-footer{
+ background: rgb(235, 246, 249);
+ position: fixed;
+ bottom: 0px;
+ left: 0px;
+ width: 100%;
+ margin: 0px;
+ padding: 20px;
+}
+.settings-page #filter-popup .modal-footer span{
+  color: rgb(74, 74, 74);
+  font-family: 'rajdhanisemibold';
+  font-size: 20px;
+}
+.settings-page #filter-popup .modal-footer span.apply{
+  color: rgb(85, 186, 199);
+  font-family: 'rajdhanibold';
+}
+.settings .row.filter .row.filter-buttons{
+  margin: 10px 0px 15px;
+  padding-top: 40px;
+  padding-bottom: 12px;
+}
+#filter-popup .settings .row {
+  margin: 0px;
+  padding-bottom: 13px;
+}
+#filter-popup .settings .row.frame-shape,#filter-popup .settings .row.brand{
+  border-bottom: 1px solid rgb(151, 151, 151,0.1);
+  margin-bottom: 20px;
+}
+#filter-popup .settings .row.frame-shape:last-child{
+  border-bottom: none;
+}
+#filter-popup .settings .row.frame-color{
+  padding-top: 20px;
+}
+.settings-page #filter-popup .settings .select-item{
+  margin: 0 -5px;
+  flex-wrap: wrap;
+  overflow: hidden;
+  padding-bottom: 18px;
+}
+#filter-popup .select-item .col-md-3{
+ margin: 0 0 15px 0;
+}
+#filter-popup .select-item .col-md-3{
+  width: 33%;
+}
+ .settings-page #filter-popup label{
+  display: block;
+  text-align: center;
+  padding: 8px 11px 8px 11px;
+}
+.settings-page #filter-popup .frame-color label{
+ width: 28px;
+ height: 28px;
+ padding: 0px;
+ border-radius: 50%;
+}
+.settings-page #filter-popup .frame-color label.color1 {
+background: rgba(0, 0, 0);
+}
+.settings-page #filter-popup .frame-color label.color2{
+background: rgba(224, 32, 32);
+}
+.settings-page #filter-popup .frame-color label.color3 {
+background: rgba(250, 100, 0);
+}
+.settings-page #filter-popup .frame-color label.color4 {
+background: rgba(109, 212, 0);
+}
+.settings-page #filter-popup .frame-color label.color5{
+background: rgba(68, 215, 182);
+}
+.settings-page #filter-popup .frame-color label.color6 {
+background: rgba(50, 197, 255);
+}
+.settings-page #filter-popup .frame-color label.color7 {
+background: rgba(98, 54, 255);
+}
+.settings-page #filter-popup .frame-color label.color8 {
+background: rgba(182, 32, 224);
+}
+.settings-page #filter-popup .frame-color label.color9 {
+background: rgba(109, 114, 120);
+}
+.settings-page #filter-popup .frame-color label.color10{
+background: rgba(255, 255, 255);
+}
+.settings-page #filter-popup .frame-color label.color11 {
+background: rgba(85, 186, 199);
+}
+.settings-page #filter-popup .frame-color label.active{
+  box-shadow: none;
+  border: 1px solid rgba(155, 155, 155, 0.3);
+}
+.settings-page #filter-popup .frame-color label.active::before{
+  content: '';
+  display: block;
+  width: 8px;
+  height: 13px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 6px;
+  left: 8px;
+}
+.settings-page #filter-popup .frame-color label.color10.active:before{
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+}
+.settings-page #filter-popup label i{
+  margin-bottom: 10px;
+  margin-top: 8px;
+  display: block;
+}
+#filter-popup .frame-color .select-item .col-md-3{
+  width: 28px;
+  padding: 0 8px;
+  margin: 0 20px 12px 0;
+}
+.settings-page #filter-popup .other-info label.active path{
+ fill: #55BAC7;
+}
+#filter-popup .modal-dialog{
+  margin: 0;
+  max-width: none;
+}
+.filter-buttons span{
+  border: 1px solid rgb(155, 155, 155,0.3);
+  border-radius: 4px;
+  width: 100%;
+  line-height: 36px;
+  text-align: center;
+  display: inline-block;
+  color: rgb(74, 74, 74);
+  font-size: 18px;
+}
+.filter-buttons span.active{
+  color: rgba(85, 186, 199);
+  box-shadow: 0 15px 20px 0 rgba(0,0,0,0.10);
+  border: none;
 }
 /* ) content css end here */
 @media only screen and (min-width: 2700px) {

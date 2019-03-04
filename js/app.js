@@ -18,6 +18,7 @@ var app = {
     threeDtry : threedtry,
     cardcountinlookrscreen : 4,
     swipedCardId : [],
+    showSplash : true,
 
     setAuthToken : function(token){
         common.authToken = token;
@@ -61,48 +62,60 @@ var app = {
                     common.createCookie('eyewish-ditto',res.success.dittoid);
                     app.mainDom.innerHTML = app.lookersScreen.loadLookersScreen(app); 
                     app.lookersScreen.needtoshowpopup = true;
-                    //if(app.lookersScreen.userFrames.length > 0){
-                        $.getScript( "js/swipe.js", function() {
-                       
-                        }); 
-                    //}           
+                    $.getScript( "js/swipe.js", function() {}); 
                     app.lookersScreen.bindClicks(app);
                 }else{
-                    //app.mainDom.innerHTML = app.otherProfileScreen.loadProfileScreen(app);
-                    //app.otherProfileScreen.bindClicks();
                     appObj.mainDom.innerHTML = appObj.threeDtry.loadScreen(appObj);
                     appObj.threeDtry.bindClicks(appObj);
                 }
             }else{
                 if(res.error == 'Unauthroized'){
                     _this.showPopup('Your session has been expired','alert-danger','Error!');
-                    app.mainDom.innerHTML = app.mobileScreen.loadMobileScreen();
+                    app.mainDom.innerHTML = app.mobileScreen.loadScreen();
                     app.mobileScreen.setMobileonField(app);
                     app.mobileScreen.bindClicks(app);
                 }else{
                     app.mainDom.innerHTML = app.otherProfileScreen.loadProfileScreen(app);                                        
                     app.otherProfileScreen.bindClicks(app);
-                    /*app.mainDom.innerHTML = app.dittoScreen.loadDittoScreen(app);                                        
-                    app.dittoScreen.bindClicks(app);*/
                 }
             }  
             return res;
         }else{
-            app.mainDom.innerHTML = app.mobileScreen.loadMobileScreen();
+            app.mainDom.innerHTML = app.mobileScreen.loadScreen();
             app.mobileScreen.setMobileonField(app);
             app.mobileScreen.bindClicks(app);
         }
+    },
+
+    spashHtml : function(){
+        var htm = '<header id="header">';
+        htm += '<div class="container">';
+        htm += '<div class="logo"><img src="images/logo.png" alt="" title=""></div></div>';
+        htm += '</header>';
+        return htm;
     },
 
     loadScreen : function(){
         if(app.getAuthToken() != null){
             app.afterAuthScreen();
         }else{
-            /*  Mobile Screen Loading flow */
-            app.mainDom.innerHTML = app.mobileScreen.loadMobileScreen();
-            app.mobileScreen.setMobileonField(app);
-            app.mobileScreen.bindClicks(app);
-            /*  Mobile Screen Loading flow */
+            if(app.showSplash){        
+                $('.wrapper').addClass('home');  
+                $('#content').before(app.spashHtml());      
+                setTimeout(function() {
+                    $('.wrapper').removeClass('home');
+                    $('#header').remove();
+                    app.showSplash = false;
+                    app.loadScreen();
+               }, 2000);
+            }else{
+                /*  Mobile Screen Loading flow */
+                app.mainDom.innerHTML = app.mobileScreen.loadScreen();
+                app.mobileScreen.setMobileonField(app);
+                app.mobileScreen.bindClicks(app);
+                /*  Mobile Screen Loading flow */
+            }
+            
         }
     }
 }
