@@ -80,6 +80,9 @@ var editprofile = {
                 appObj.mobileScreen.bindClicks(appObj);
             }
         }
+        if(nameValue == null){
+            nameValue = '';
+        }
         var htmlStr = '<div class="container">';
         htmlStr +='<div class="row">';
         htmlStr +='<div class="col-md-12">';

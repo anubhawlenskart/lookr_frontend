@@ -1,7 +1,8 @@
 var common = {
     rootElement : document.querySelector('main'),
     dittoId : '',
-    apiUrl : 'https://labs.lenskart.com/tinder/api',
+    //apiUrl : 'https://labs.lenskart.com/tinder/api',
+    apiUrl : 'http://localhost/lookr_backend/api',
     userMobile : '',
     cookieexpiryday : 1,
     authToken : '',
