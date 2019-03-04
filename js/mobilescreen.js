@@ -1,6 +1,6 @@
 var mobilescreen = {
 
-    loadMobileScreen : function(){
+    loadScreen : function(){
         var htmlStr = '<div class="container">';
         htmlStr += '<div class="row">';
         htmlStr += '<div class="col-md-12">';
@@ -15,7 +15,6 @@ var mobilescreen = {
         htmlStr += '<span class="input-arrow"></span>';
         htmlStr += '</div>';
         htmlStr += '</div>';
-
         htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
@@ -39,8 +38,24 @@ var mobilescreen = {
                     if (!clickRes.success.isexist){
                         var registerResponse = appObj.mobileScreen.registerUser(appObj.getUserMobile());
                     }
-                    appObj.mainDom.innerHTML = appObj.otpScreen.loadOtpScreen();
-                    appObj.otpScreen.bindClicks(appObj);
+                    // Hack for now before sms integration we are disabling otp screen
+                    var otp = '1111';
+                    var submitOtp = appObj.otpScreen.SubmitNext(appObj.getUserMobile() , otp);
+                    if (!submitOtp['successy']){
+                        $('#otpnextBtn').remove();
+                        /**************  Set required Cookies *************/
+                        common.createCookie('eyewish-token' , submitOtp.success.token , common.cookieexpiryday);
+                        common.createCookie('eyewish-mobile' , appObj.getUserMobile() , common.cookieexpiryday);
+                        /**************  Set required Cookies *************/
+                        //appObj.setAuthToken(submitOtp.success.token);
+                        appObj.setDittoId(submitOtp.success.dittoId)
+                        appObj.afterAuthScreen();
+                        $('#nextBtn').parent().remove();
+                    }
+                    // Hack for now before sms integration we are disabling otp screen
+                    
+                    //appObj.mainDom.innerHTML = appObj.otpScreen.loadOtpScreen();
+                    //appObj.otpScreen.bindClicks(appObj);
                 }
             }else{
                 $(mobField).addClass('error');

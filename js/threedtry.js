@@ -23,7 +23,7 @@ var threedtry = {
     bindClicks : function(appObj){
         var _this = this;
         $('#get3dtry').click(function(){
-            appObj.mainDom.innerHTML = appObj.dittoScreen.loadDittoScreen(appObj);
+            appObj.mainDom.innerHTML = appObj.dittoScreen.loadScreen(appObj);
             appObj.dittoScreen.bindClicks(appObj);
         });
     }
