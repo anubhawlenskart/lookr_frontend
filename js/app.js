@@ -99,11 +99,12 @@ var app = {
         if(app.getAuthToken() != null){
             app.afterAuthScreen();
         }else{
-            if(app.showSplash){        
+            if(app.showSplash){   
+                $('#preloader').hide();     
                 $('.wrapper').addClass('home');  
                 $('#content').before(app.spashHtml());      
                 setTimeout(function() {
-                    $('.wrapper').removeClass('home');
+                    $('.wrapper').removeClass('home');                    
                     $('#header').remove();
                     app.showSplash = false;
                     app.loadScreen();

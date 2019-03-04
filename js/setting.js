@@ -290,7 +290,9 @@ var setting = {
             var requestUrl = common.apiUrl+'/clearfilter?mobile='+appObj.getUserMobile();
             var res = common.sendRequest(requestUrl);
             if ('success' in res){
-                _this.loadSettingScreen(appObj);
+                appObj.mainDom.innerHTML = '';
+                appObj.mainDom.innerHTML = appObj.settingScreen.loadSettingScreen(appObj);
+                appObj.settingScreen.bindClicks(appObj);
                 appObj.showPopup(res.success,'alert-success','Success!');
             }else{
                 if(res.error == 'Unauthroized'){

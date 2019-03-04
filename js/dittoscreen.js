@@ -55,6 +55,8 @@ var dittoscreen = {
             res = common.sendRequest(requestUrl);
             if ('success' in res){
               appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj); 
+              app.lookersScreen.needtoshowpopup = true;
+              $.getScript( "js/swipe.js", function() {});
               stackedCards();                  
               appObj.lookersScreen.bindClicks(app);
             }else{
