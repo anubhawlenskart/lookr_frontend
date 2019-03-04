@@ -18,6 +18,7 @@ var app = {
     threeDtry : threedtry,
     cardcountinlookrscreen : 4,
     swipedCardId : [],
+    showSplash : true,
 
     setAuthToken : function(token){
         common.authToken = token;
@@ -86,15 +87,35 @@ var app = {
         }
     },
 
+    spashHtml : function(){
+        var htm = '<header id="header">';
+        htm += '<div class="container">';
+        htm += '<div class="logo"><img src="images/logo.png" alt="" title=""></div></div>';
+        htm += '</header>';
+        return htm;
+    },
+
     loadScreen : function(){
         if(app.getAuthToken() != null){
             app.afterAuthScreen();
         }else{
-            /*  Mobile Screen Loading flow */
-            app.mainDom.innerHTML = app.mobileScreen.loadScreen();
-            app.mobileScreen.setMobileonField(app);
-            app.mobileScreen.bindClicks(app);
-            /*  Mobile Screen Loading flow */
+            if(app.showSplash){        
+                $('.wrapper').addClass('home');  
+                $('#content').before(app.spashHtml());      
+                setTimeout(function() {
+                    $('.wrapper').removeClass('home');
+                    $('#header').remove();
+                    app.showSplash = false;
+                    app.loadScreen();
+               }, 2000);
+            }else{
+                /*  Mobile Screen Loading flow */
+                app.mainDom.innerHTML = app.mobileScreen.loadScreen();
+                app.mobileScreen.setMobileonField(app);
+                app.mobileScreen.bindClicks(app);
+                /*  Mobile Screen Loading flow */
+            }
+            
         }
     }
 }
