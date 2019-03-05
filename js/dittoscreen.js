@@ -42,10 +42,12 @@ var dittoscreen = {
 
     createTryOnView : function(appObj,selector) {
       //$('.row').hide();
+      $('.other-info').hide();
       var dittoCreation = new ditto.api.DittoCreation(
         {
           selector: selector,
-          serverNetloc: "https://vto.ditto.api.ditto.com"
+          serverNetloc: "https://vto.ditto.api.ditto.com",
+          forceScale : false
         },
         {
           success: function(callbackObject) {

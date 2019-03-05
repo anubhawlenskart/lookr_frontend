@@ -1,8 +1,5 @@
-#creation {
-    height: 600px;
-  }
 
-  #ditto {
+#ditto {
     /* Size of the viewer can be changed. */
     overflow: hidden;
     width: 640px;
