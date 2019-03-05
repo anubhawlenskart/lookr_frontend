@@ -500,10 +500,11 @@ height: auto;
 min-height: inherit;
 }
 .edit-wrapper .back {
-background: url(images/back-arrow.png) left top no-repeat;
+background: url(images/back-arrow.svg) left top no-repeat;
 margin: 0px;
 float: left;
 width: 32px;
+background-size: 32px;
 }
 .profile-title{
 float: left;
