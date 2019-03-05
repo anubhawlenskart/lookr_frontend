@@ -61,7 +61,7 @@ var app = {
                     this.setDittoId(res.success.dittoid); 
                     common.createCookie('eyewish-ditto',res.success.dittoid);                    
                     app.mainDom.innerHTML = app.lookersScreen.loadLookersScreen(app); 
-                    app.lookersScreen.needtoshowpopup = true;
+                    //app.lookersScreen.needtoshowpopup = true;
                     $.getScript( "js/swipe.js", function() {}); 
                     app.lookersScreen.bindClicks(app);
                 }else{

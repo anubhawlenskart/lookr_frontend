@@ -35,21 +35,25 @@ var wishlist = {
                 dittoHtm += '<img src="'+element.image+'" alt="">  <span class="arrow-up"><i class="fa">&times;</i></span>';
                 dittoHtm += '<span class="wish-title">'+element.brand+' '+element.size+' <span class="input-arrow"><i class="fa fa-arrow-right"></i></span></span>';
                 dittoHtm += '</div></div>';
-
             });
-        }else{
-            framesonlyHtm +='<div class="empty">';
-            framesonlyHtm +='<div class="empty-img">';
-            framesonlyHtm +='<img src="images/wishlist-blank.svg" alt="" title="">';
-            framesonlyHtm +='</div>';
-            framesonlyHtm +='<p> Nobody likes Blank sheets. <br>Why don’t you start swiping and make your wishlist.</p>';
-            framesonlyHtm +='</div>';
+        }else{ 
+            framesonlyHtm =  _this.emptyHtml();          
             dittoHtm = framesonlyHtm;
         }
 
         responseList['dittoHtml'] = framesonlyHtm;
         responseList['framesHtml'] = dittoHtm;
         return responseList;
+    },
+
+    emptyHtml : function(){
+        var framesonlyHtm ='<div class="empty">';
+        framesonlyHtm +='<div class="empty-img">';
+        framesonlyHtm +='<img src="images/wishlist-blank.svg" alt="" title="">';
+        framesonlyHtm +='</div>';
+        framesonlyHtm +='<p> Nobody likes Blank sheets. <br>Why don’t you start swiping and make your wishlist.</p>';
+        framesonlyHtm +='</div>';
+        return framesonlyHtm;
     },
 
     wishListScreen : function(appObj){
@@ -201,11 +205,16 @@ var wishlist = {
             var requestUrl = common.apiUrl+'/clearwishlist?mobile='+appObj.getUserMobile();
             requestUrl +='&sku='+$(this).parent().parent().attr('sku');
             res = common.sendRequest(requestUrl,'POST',false);
-            if('success' in res){
+            if('success' in res){                
                 $(this).parent().parent().parent().fadeOut( "slow", function() {
+                    $(this).remove();
+                    if($('.single-details .col-md-6').length == 0){
+                        $('.single-details').html(_this.emptyHtml());
+                        $('#framefilter').hide();
+                        $('.toggleTrueFalse').hide();
+                        $('.wishlist-page').addClass('border-none');
+                    }
                 });
-                //appObj.mainDom.innerHTML = _this.wishListScreen(appObj);
-                //_this.bindClicks(appObj);
             }else{
                 if(res.error == 'Unauthroized'){
                     appObj.showPopup('Your session has been expired','alert-danger','Error!');

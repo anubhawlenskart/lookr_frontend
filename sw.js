@@ -51,7 +51,7 @@ async function networkFirst(req){
     const cache = await caches.open('eyewish-dynamic');
     try {
         const res = await fetch(req);
-        cache.put(req, res.clone());
+        cache.get(req, res.clone());
         return res;
     } catch (error) {
         return await cache.match(req);

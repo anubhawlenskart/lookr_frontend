@@ -1,7 +1,6 @@
 var lookersscreen = {
     userFrames : Array(),
     swipedFrameIndex : Array(),
-    needtoshowpopup : false,
     loadLookersScreen : function(appObj){
         var _this = this;
         var htmlStr = '';
@@ -156,10 +155,14 @@ var lookersscreen = {
             appObj.mainDom.innerHTML = appObj.wishListScreen.wishListScreen(appObj);
             appObj.wishListScreen.bindClicks(appObj);
         });
-        if(_this.needtoshowpopup){
+        
+        if(common.readCookie('lookr-demo') == null){
             $('#lookr-popup').modal('show');
-            _this.needtoshowpopup = false;
+            common.createCookie('lookr-demo',1)
+        }else{
+            $('#lookr-popup').modal('hide');
         }
+
         $('.got-it').click(function(){
             $('#lookr-popup').modal('hide');
         });

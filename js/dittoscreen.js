@@ -11,8 +11,8 @@ var dittoscreen = {
         htmlStr += '<div class="input-box">';
         htmlStr += '</div></div></div></div>';
         htmlStr += '<div id="creation"></div>';
-        htmlStr += '<div id="ditto"></div>';
-        htmlStr += '<div id="ditto-thumbnail"></div>';
+        //htmlStr += '<div id="ditto"></div>';
+       // htmlStr += '<div id="ditto-thumbnail"></div>';
         return htmlStr;
     },
 
@@ -42,10 +42,12 @@ var dittoscreen = {
 
     createTryOnView : function(appObj,selector) {
       //$('.row').hide();
+      $('.other-info').hide();
       var dittoCreation = new ditto.api.DittoCreation(
         {
           selector: selector,
-          serverNetloc: "https://vto.ditto.api.ditto.com"
+          serverNetloc: "https://vto.ditto.api.ditto.com",
+          disableScale : true
         },
         {
           success: function(callbackObject) {
