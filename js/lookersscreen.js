@@ -107,7 +107,9 @@ var lookersscreen = {
 
     bindCardCLick : function(appObj){
         var _this = this;
-        $('.card').click(function(){
+        $('.stackedcards-overlay').css("z-index", '');
+        $('.card').click(function(e){
+            console.log('Bind card click');
             $('.wrapper').removeClass('ditto-wrapper');
             appObj.mainDom.innerHTML = appObj.frameDetailScreen.loadDetailProfileScreen(appObj,_this.userFrames[$(this).attr('id')]);
             appObj.frameDetailScreen.bindClicks(appObj);

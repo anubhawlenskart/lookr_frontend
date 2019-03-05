@@ -11,8 +11,8 @@ var dittoscreen = {
         htmlStr += '<div class="input-box">';
         htmlStr += '</div></div></div></div>';
         htmlStr += '<div id="creation"></div>';
-        //htmlStr += '<div id="ditto"></div>';
-       // htmlStr += '<div id="ditto-thumbnail"></div>';
+        htmlStr += '<div id="ditto"></div>';
+        htmlStr += '<div id="ditto-thumbnail"></div>';
         return htmlStr;
     },
 
