@@ -37,10 +37,10 @@ var mobilescreen = {
                     var clickRes = _this.clickNext(appObj.getUserMobile());
                     if (!clickRes.success.isexist){
                         var registerResponse = appObj.mobileScreen.registerUser(appObj.getUserMobile());
-                    }
+                    }                   
                     // Hack for now before sms integration we are disabling otp screen
                     var otp = '1111';
-                    var submitOtp = appObj.otpScreen.SubmitNext(appObj.getUserMobile() , otp);
+                    var submitOtp = appObj.otpScreen.SubmitNext(appObj.getUserMobile() , otp);                   
                     if (!submitOtp['successy']){
                         $('#otpnextBtn').remove();
                         /**************  Set required Cookies *************/

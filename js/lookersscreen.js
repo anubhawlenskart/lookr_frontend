@@ -64,9 +64,11 @@ var lookersscreen = {
 
         if('success' in userFrames){
             _this.userFrames = userFrames.success;
-            var frameLen = _this.userFrames.length;            
+            var frameLen = _this.userFrames.length;   
+            console.log(frameLen);         
             if(frameLen > 0){
                 for(var i=0; i<=(frameLen - 1); i++){
+                //for(var i=0; i<=4; i++){
                     htmlStr += '<div class="card" id="'+i+'">';
                     htmlStr += '<div class="card-content">';
                     htmlStr += '<div class="card-image"><img class="loading" src="'+appObj.dittoVTUrl+appObj.getDittoId()+'&product_id='+_this.userFrames[i].sku+'" width="50%" height="50%"/></div>';
@@ -123,7 +125,7 @@ var lookersscreen = {
     emptyScreenMessage : function(appObj,msg){
         var str = '<div class="empty">';
         str += '<div class="empty-img">';
-        str += '<img src="images/empty.png" alt="" title="">';
+        str += '<img src="images/lookr-empty.svg" alt="" title="">';
         str += '</div>';
         str += msg;
         str += '</div>';

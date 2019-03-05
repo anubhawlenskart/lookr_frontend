@@ -4,7 +4,7 @@ var common = {
     apiUrl : 'https://labs.lenskart.com/tinder/api',
     //apiUrl : 'http://localhost/lookr_backend/api',
     userMobile : '',
-    cookieexpiryday : 1,
+    cookieexpiryday : 365,
     authToken : '',
     
     enableLoader : function(){
