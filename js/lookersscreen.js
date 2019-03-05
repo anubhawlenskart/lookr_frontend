@@ -64,12 +64,7 @@ var lookersscreen = {
 
         if('success' in userFrames){
             _this.userFrames = userFrames.success;
-<<<<<<< HEAD
-            var frameLen = _this.userFrames.length;   
-            console.log(frameLen);         
-=======
-            var frameLen = _this.userFrames.length;
->>>>>>> 6778d95d40be5467fd186133e5dff3148cb682ba
+            var frameLen = _this.userFrames.length; 
             if(frameLen > 0){
                 for(var i=0; i<=(frameLen - 1); i++){
                 //for(var i=0; i<=4; i++){
