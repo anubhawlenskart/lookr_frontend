@@ -64,8 +64,12 @@ var lookersscreen = {
 
         if('success' in userFrames){
             _this.userFrames = userFrames.success;
+<<<<<<< HEAD
             var frameLen = _this.userFrames.length;   
             console.log(frameLen);         
+=======
+            var frameLen = _this.userFrames.length;
+>>>>>>> 6778d95d40be5467fd186133e5dff3148cb682ba
             if(frameLen > 0){
                 for(var i=0; i<=(frameLen - 1); i++){
                 //for(var i=0; i<=4; i++){
@@ -94,7 +98,7 @@ var lookersscreen = {
                 htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><i>COOL</i></div>';
                 htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left"><i>NOPE</i></div>';
                 htmlStr += '</div>';
-            }         
+            }
         }
         ///////////////Card Html
         htmlStr += '<div class="global-actions">';
@@ -160,7 +164,7 @@ var lookersscreen = {
         if(_this.needtoshowpopup){
             $('#lookr-popup').modal('show');
             _this.needtoshowpopup = false;
-        }        
+        }
         $('.got-it').click(function(){
             $('#lookr-popup').modal('hide');
         });

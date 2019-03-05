@@ -61,7 +61,7 @@ font-family: 'rajdhanibold';
 text-transform: uppercase;
 }
 .wrapper{
-background: rgb(85, 186, 199);
+background: #55bac7;
 max-width: 1366px;
 margin: 0 auto;
 min-height: 100%;
@@ -175,7 +175,7 @@ height: 180px;
 }
 .settings-page .btn-primary{
 font-size: 18px;
-color: rgb(85, 186, 199);
+color: #55bac7;
 background: #fff;
 text-transform: uppercase;
 padding: 15px 30px;
@@ -282,13 +282,20 @@ right: 0px;
   position: static;
   padding: 16px 0 0;
 }
+iframe#creation-iframe {
+    height: 100%;
+}
+#creation {
+  height: calc(100vh - 102px);
+  padding-top: 30px;
+}
 .buttons .btn{
 width:100%;
-background: rgba(255, 255, 255);
+background:#fff;
 border-radius: 8px;
 padding: 14px 10px;
 font-size: 16px;
-color: rgb(85 186 199);
+color:#55bac7;
 font-family: 'rajdhanibold';
 text-transform: uppercase;
 cursor: pointer;
@@ -416,7 +423,7 @@ font-size: 30px;
 }
 .other-info input:checked ~ .checkmark {
 background-color: #fff;
-color: rgb(85, 186, 199);
+color: #55bac7;
 box-shadow: 0 15px 20px 0 rgba(0,0,0,0.10);
 }
 .checkmark:after {
@@ -432,7 +439,7 @@ width: 50%;
 display: block;
 }
 .other-info .checkmark:after {
-background: rgb(85, 186, 199);
+background: #55bac7;
 }
 .other-info label{
 margin: 0 0 0 0px;
@@ -450,7 +457,7 @@ color: #fff;
 }
 .age-group label.active{
 background: #fff;
-color:rgb(85, 186, 199);
+color:#55bac7;
 box-shadow: 0 15px 20px 0 rgba(0,0,0,0.10);
 
 }
@@ -458,7 +465,7 @@ box-shadow: 0 15px 20px 0 rgba(0,0,0,0.10);
 margin: 0px -15px;
 }
 .settings-page,.wishlist-wrapper,.edit-wrapper{
-background: rgb(252 253 255);
+background:#fcfdff;
 }
 .main-content.wishlist-page.wishlist-empty{
   border: none;
@@ -468,7 +475,7 @@ background: rgb(252 253 255);
 }
 .settings-page .header-section,.wishlist-wrapper .header-section,.edit-wrapper .header-section,.wrapper.ditto-wrapper .header-section{
 margin: 0 -15px;
-background: rgb(85, 186, 199);
+background: #55bac7;
 padding: 30px 0;
 border-radius:0 0 10px 10px;
 position: relative;
@@ -536,7 +543,7 @@ padding: 0px;
 }
 .other-info .buttons.update i{
 float: right;
-color:rgb(85, 186, 199);
+color:#55bac7;
 }
 #content .col-md-12.name label,#content .col-md-12.mobile label{
 padding:0px;
@@ -550,7 +557,7 @@ color: rgba(74, 74, 74);
 border: 1px solid rgb(151, 151, 151,0.3);
 }
 .edit-wrapper .other-info .age-group label.active{
-color:rgb(85, 186, 199);
+color:#55bac7;
 background: #fff;
 border:none;
 }
@@ -594,7 +601,7 @@ font-size: 15px;
 }
 .settings-page label.active{
 background: #fff;
-color:rgb(85, 186, 199);
+color:#55bac7;
 }
 .settings-page .checkmark {
 display: none;
@@ -702,7 +709,7 @@ margin-top: 22px;
 }
 .profile-section .edit{
 float: right;
-color:rgb(85, 186, 199);
+color:#55bac7;
 font-size: 15px;
 padding: 3px 14px;
 }
@@ -711,7 +718,7 @@ border-radius: 10px;
 }
 .settings h2{
 font-size: 16px;
-color: rgba(74, 74, 74);
+color:#4a4a4a;
 font-weight: 700;
 }
 .settings .row.filter{
@@ -778,7 +785,7 @@ flex: none;
 }
 .settings .apply {
 float: right;
-background: rgba(85, 186, 199);
+background:#55bac7;
 color: #fff;
 line-height: 30px;
 padding: 0 20px;
@@ -1085,7 +1092,7 @@ color: rgb( 255, 255, 255,0.5);
   line-height: 35px;
   font-size: 14px;
   border-radius: 10px;
-  background: rgb(85, 186, 199);
+  background: #55bac7;
   padding: 0px 36px;
   color: #fff;
   text-transform: uppercase;
@@ -1474,7 +1481,7 @@ flex: 0 0 16.666667%;
 max-width: 16.666667%;
 }
 .l-purchase p,.lenskart-container span,.lenskart-container p a{
-color: rgb(85, 186, 199);
+color: #55bac7;
 }
 .lenskart-container span{
 font-size: 13px;
@@ -1576,6 +1583,7 @@ z-index: 10;
   padding:12% 20px 10% 20px;
   border-radius: 10px;
   background: #FFFFFF;
+  height: calc(100vh - 113px);
 }
 .empty p{
   font-size: 18px;
@@ -1752,7 +1760,7 @@ div#filter-popup {
   font-size: 20px;
 }
 .settings-page #filter-popup .modal-footer span.apply{
-  color: rgb(85, 186, 199);
+  color: #55bac7;
   font-family: 'rajdhanibold';
 }
 .settings .row.filter .row.filter-buttons{

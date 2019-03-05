@@ -80,9 +80,10 @@ var editprofile = {
                 appObj.mobileScreen.bindClicks(appObj);
             }
         }
-        if(nameValue == null){
+        if(nameValue == 'null'){
             nameValue = '';
         }
+
         var htmlStr = '<div class="container">';
         htmlStr +='<div class="row">';
         htmlStr +='<div class="col-md-12">';
@@ -207,11 +208,11 @@ var editprofile = {
         $('.wrapper').addClass('edit-wrapper');
         // bind click for lookr
         $('#dittoprofile').click(function(){
-            $('.wrapper').removeClass('edit-wrapper'); 
+            $('.wrapper').removeClass('edit-wrapper');
             appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
             if(appObj.lookersScreen.userFrames.length > 0){
                 stackedCards();
-            }            
+            }
             appObj.lookersScreen.bindClicks(appObj);
         });
 
