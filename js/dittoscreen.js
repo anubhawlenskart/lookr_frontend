@@ -1,5 +1,5 @@
 var dittoscreen = {
-  
+
   loadScreen : function(){
         var _this = this;
         var htmlStr = '<div class="container">';
@@ -7,7 +7,7 @@ var dittoscreen = {
         htmlStr += '<div class="col-md-12">';
         htmlStr += '<span class="back" id="backbtn"></span>';
         htmlStr += '<div class="main-content other-info">';
-        htmlStr += '<h1>Ditto</h1>';
+        //htmlStr += '<h1>Ditto</h1>';
         htmlStr += '<div class="input-box">';
         htmlStr += '</div></div></div></div>';
         htmlStr += '<div id="creation"></div>';
@@ -41,7 +41,7 @@ var dittoscreen = {
     },
 
     createTryOnView : function(appObj,selector) {
-      $('.row').hide();
+      //$('.row').hide();
       var dittoCreation = new ditto.api.DittoCreation(
         {
           selector: selector,
@@ -54,10 +54,10 @@ var dittoscreen = {
             var requestUrl = common.apiUrl+'/setditto?mobile='+appObj.getUserMobile()+'&dittoid='+callbackObject.dittoId;
             res = common.sendRequest(requestUrl);
             if ('success' in res){
-              appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj); 
+              appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
               app.lookersScreen.needtoshowpopup = true;
               $.getScript( "js/swipe.js", function() {});
-              stackedCards();                  
+              stackedCards();
               appObj.lookersScreen.bindClicks(app);
             }else{
                 if(res.error == 'Unauthroized'){

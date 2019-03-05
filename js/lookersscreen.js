@@ -64,7 +64,7 @@ var lookersscreen = {
 
         if('success' in userFrames){
             _this.userFrames = userFrames.success;
-            var frameLen = _this.userFrames.length;            
+            var frameLen = _this.userFrames.length;
             if(frameLen > 0){
                 for(var i=0; i<=(frameLen - 1); i++){
                     htmlStr += '<div class="card" id="'+i+'">';
@@ -92,7 +92,7 @@ var lookersscreen = {
                 htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><i>COOL</i></div>';
                 htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left"><i>NOPE</i></div>';
                 htmlStr += '</div>';
-            }         
+            }
         }
         ///////////////Card Html
         htmlStr += '<div class="global-actions">';
@@ -123,7 +123,7 @@ var lookersscreen = {
     emptyScreenMessage : function(appObj,msg){
         var str = '<div class="empty">';
         str += '<div class="empty-img">';
-        str += '<img src="images/empty.png" alt="" title="">';
+        str += '<img src="images/lookr-empty.svg" alt="" title="">';
         str += '</div>';
         str += msg;
         str += '</div>';
@@ -158,7 +158,7 @@ var lookersscreen = {
         if(_this.needtoshowpopup){
             $('#lookr-popup').modal('show');
             _this.needtoshowpopup = false;
-        }        
+        }
         $('.got-it').click(function(){
             $('#lookr-popup').modal('hide');
         });
