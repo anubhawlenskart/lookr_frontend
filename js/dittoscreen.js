@@ -47,7 +47,11 @@ var dittoscreen = {
         {
           selector: selector,
           serverNetloc: "https://vto.ditto.api.ditto.com",
+<<<<<<< HEAD
           disableScale : true
+=======
+          forceScale : false
+>>>>>>> refs/remotes/origin/master
         },
         {
           success: function(callbackObject) {

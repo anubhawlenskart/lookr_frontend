@@ -286,8 +286,9 @@ iframe#creation-iframe {
     height: 100%;
 }
 #creation {
-  height: calc(100vh - 102px);
+  height: calc(100vh - 160px);
   padding-top: 30px;
+  margin: 0 -15px;
 }
 .buttons .btn{
 width:100%;
@@ -353,12 +354,13 @@ height: auto;
 cursor: auto;
 }
 .back{
-background: url(images/right.png) left top no-repeat;
+background: url(images/back-white.svg) left top no-repeat;
 display: inline-block;
 width: 32px;
 height: 32px;
 margin-top: 30px;
 cursor: pointer;
+background-size:32px;
 }
 .other-info .buttons span{
 font-size: 14px;
@@ -498,10 +500,11 @@ height: auto;
 min-height: inherit;
 }
 .edit-wrapper .back {
-background: url(images/back-arrow.png) left top no-repeat;
+background: url(images/back-arrow.svg) left top no-repeat;
 margin: 0px;
 float: left;
 width: 32px;
+background-size: 32px;
 }
 .profile-title{
 float: left;
@@ -538,12 +541,13 @@ text-transform: uppercase;
 }
 .other-info .buttons.update{
 position: static;
-margin-top: 30px;
+margin-top: 20px;
 padding: 0px;
 }
 .other-info .buttons.update i{
 float: right;
 color:#55bac7;
+padding: 10px;
 }
 #content .col-md-12.name label,#content .col-md-12.mobile label{
 padding:0px;
@@ -552,6 +556,8 @@ font-size: 16px;
 .other-info .buttons.update span{
 font-size: 20px;
 color: rgba(74, 74, 74);
+padding: 10px;
+display: inline-block;
 }
 .edit-wrapper .other-info .age-group label{
 border: 1px solid rgb(151, 151, 151,0.3);
@@ -688,9 +694,6 @@ position: relative;
 }
 .phone{
 position: relative;
-}
-#creation{
-  padding-top: 10%;
 }
 .main-content.other-info.settings,.main-content.wishlist-page {
 margin: -6px -15px 0;
@@ -1593,6 +1596,7 @@ z-index: 10;
 .wishlist-page .empty{
   padding-top: 6%;
   margin: auto;
+  height: calc(100vh - 175px);
 }
 .logo{
   text-align: center;
@@ -1607,9 +1611,9 @@ z-index: 10;
 }
 .dittoscreen {
   text-align: center;
-  position: fixed;
+  /* position: fixed;
   top: 0;
-  left: 0;
+  left: 0; */
   height: 100vh;
   bottom: 0;
   width: 100%;
@@ -1650,20 +1654,31 @@ z-index: 10;
  line-height: 30px;
  text-align: center;
  color: #fff;
+
 }
 .ditto-des ul li dfn{
   color: #fff;
   font-style: normal;
 }
+.get-start {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  width: 100%;
+}
 .get-start span{
-  display: inline-block;
-  background: #FFFFFF;
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-family: 'rajdhanisemibold';
-  font-size: 20px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 14px 10px;
+  font-size: 16px;
+  color: #55bac7;
+  font-family: 'rajdhanibold';
   text-transform: uppercase;
-  color: #55BAC7;
+  cursor: pointer;
+  height: 54px;
+  line-height: 28px;
+  display: block;
+   margin: 0 15px;
 }
 div#filter-popup {
     background:rgb(252, 253, 255);
@@ -2161,6 +2176,12 @@ top: 39%;
 .ditto-wrapper::before{
 height: 65%;
 }
+.get-start{
+  position: static;
+}
+.get-start span{
+  margin: 40px 0 0 0;
+}
 }
 
 @media only screen and (max-width: 359px) {
@@ -2168,6 +2189,9 @@ height: 65%;
   padding: 14% 0 0 0;
   min-height: calc(69vh);
   height: 394px;
+}
+.ditto-des ul li dfn{
+  font-size: 14px;
 }
 #lookr-popup li i{
   margin-right: 15px;
