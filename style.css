@@ -282,12 +282,8 @@ right: 0px;
   position: static;
   padding: 16px 0 0;
 }
-iframe#creation-iframe {
-    height: 100%;
-}
 #creation {
-  height: calc(100vh - 160px);
-  padding-top: 30px;
+  padding-top: 10px;
   margin: 0 -15px;
 }
 .buttons .btn{
@@ -361,6 +357,12 @@ height: 32px;
 margin-top: 30px;
 cursor: pointer;
 background-size:32px;
+}
+.ditto-back{
+  position: absolute;
+  margin-top: 15px;
+  top: 0px;
+  left: 10px;
 }
 .other-info .buttons span{
 font-size: 14px;

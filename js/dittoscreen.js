@@ -5,7 +5,7 @@ var dittoscreen = {
         var htmlStr = '<div class="container">';
         htmlStr += '<div class="row">';
         htmlStr += '<div class="col-md-12">';
-        htmlStr += '<span class="back" id="backbtn"></span>';
+        htmlStr += '<span class="back ditto-back" id="backbtn"></span>';
         htmlStr += '<div class="main-content other-info">';
         //htmlStr += '<h1>Ditto</h1>';
         htmlStr += '<div class="input-box">';
