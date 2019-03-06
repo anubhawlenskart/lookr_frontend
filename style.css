@@ -307,7 +307,7 @@ font-family: 'rajdhanisemibold';
 }
 .buttons .row{
 color: #fff;
-margin-bottom: 9px;
+margin-bottom: 0px;
 font-family: 'rajdhanibold';
 }
 .buttons a{
@@ -508,6 +508,9 @@ border: 1px solid rgb(151, 151, 151,0.1);
 padding-bottom: 20px;
 background: rgba(252, 253, 255);
 }
+.edit-wrapper{
+  padding-bottom: 0px;
+}
 .edit-wrapper .header-section ul{
 margin: 0px;
 }
@@ -558,7 +561,7 @@ text-transform: uppercase;
 }
 .other-info .buttons.update{
 position: static;
-margin-top: 20px;
+margin-top: 14px;
 padding: 0px;
 }
 .other-info .buttons.update i{
@@ -572,9 +575,18 @@ font-size: 16px;
 }
 .other-info .buttons.update span{
 font-size: 20px;
-color: rgba(74, 74, 74);
+color: #55BAC7;
 padding: 10px;
 display: inline-block;
+}
+.other-info .buttons.update .logout{
+padding: 8px 0;
+}
+.edit-profile-face .otp-section{
+  height: calc(100vh - 333px);
+}
+.other-info .buttons.update .logout span{
+  color: #4A4A4A;
 }
 .edit-wrapper .other-info .age-group label{
 border: 1px solid rgb(151, 151, 151,0.3);
@@ -596,7 +608,7 @@ font-size: 22px;
 text-align: left;
 }
 .edit-wrapper .age-group,.other-info .age-group {
-margin: 25px 0 0 0;
+margin: 17px 0 0 0;
 }
 .settings-page .other-info .age-group{
  margin: 7px 0 0 0;
@@ -1238,7 +1250,7 @@ padding: 0;
 width: 100%;
 position: relative;
 background: rgb(252, 253, 255);
-height: calc(100vh - 50px);
+height: calc(100vh - 48px);
 /* border: 1px solid rgb(151, 151, 151,0.1); */
 }
 .lenskart-container {
@@ -1490,7 +1502,13 @@ color: rgba(74, 74, 74, 1);
 .frame-container{
 border-top: 1px solid rgb(151, 151, 151,0.1);
 padding: 10px 0;
+margin-bottom: 44px;
 /* border-bottom: 1px solid rgb(151, 151, 151,0.1); */
+}
+.face-model{
+  background: #EBF9F6;
+  padding: 8px 0;
+
 }
 .frame-container .col-md-5{
 -ms-flex: 0 0 41.666667%;
@@ -1511,6 +1529,7 @@ max-width: 16.666667%;
 color: #fff;
 font-size: 18px;
 margin: 0px;
+display: block;
 }
 .col-md-12.l-purchase{
   background: #55BAC7;
