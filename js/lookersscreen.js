@@ -97,6 +97,7 @@ var lookersscreen = {
         ///////////////Card Html
         htmlStr += '<div class="global-actions">';
         htmlStr += '<div class="left-action"></div>';
+        htmlStr += '<div class="top-action"></div>';
         htmlStr += '<div class="filter-action">Filter</div>';
         htmlStr += '<div class="right-action"></div>';
         htmlStr += '</div>';
@@ -145,25 +146,25 @@ var lookersscreen = {
         }
         // Set Swipe Cards
         $('#settings').click(function(){
-            $('#preloader').show();                  
+            $('#preloader').show();
             $('body').removeAttr('class');
-            setTimeout(function(){                
+            setTimeout(function(){
                 appObj.mainDom.innerHTML = appObj.settingScreen.loadSettingScreen(appObj);
                 appObj.settingScreen.bindClicks(appObj);
             }, 0);
-            
+
         });
 
-        
+
 
         // Wishlist click
-        $('#wishlist').click(function(){  
-            $('#preloader').show();                  
+        $('#wishlist').click(function(){
+            $('#preloader').show();
             $('body').removeAttr('class');
-            setTimeout(function(){                
+            setTimeout(function(){
                 appObj.mainDom.innerHTML = appObj.wishListScreen.wishListScreen(appObj);
                 appObj.wishListScreen.bindClicks(appObj);
-            }, 0);  
+            }, 0);
         });
 
         if(common.readCookie('lookr-demo') == null){
