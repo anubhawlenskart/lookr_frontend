@@ -307,7 +307,7 @@ font-family: 'rajdhanisemibold';
 }
 .buttons .row{
 color: #fff;
-margin-bottom: 9px;
+margin-bottom: 0px;
 font-family: 'rajdhanibold';
 }
 .buttons a{
@@ -363,6 +363,21 @@ background-size:32px;
   margin-top: 15px;
   top: 0px;
   left: 10px;
+}
+
+.filter-action{
+  color: rgba(255, 255, 255, 0.7);
+  border:1px solid rgba(255, 255, 255, 0.21);
+  font-size: 16px;
+  width: 124px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 18px;
+  position: relative;
+  top: -27px;
+  display: none;
 }
 .other-info .buttons span{
 font-size: 14px;
@@ -493,6 +508,9 @@ border: 1px solid rgb(151, 151, 151,0.1);
 padding-bottom: 20px;
 background: rgba(252, 253, 255);
 }
+.edit-wrapper{
+  padding-bottom: 0px;
+}
 .edit-wrapper .header-section ul{
 margin: 0px;
 }
@@ -543,7 +561,7 @@ text-transform: uppercase;
 }
 .other-info .buttons.update{
 position: static;
-margin-top: 20px;
+margin-top: 14px;
 padding: 0px;
 }
 .other-info .buttons.update i{
@@ -557,9 +575,18 @@ font-size: 16px;
 }
 .other-info .buttons.update span{
 font-size: 20px;
-color: rgba(74, 74, 74);
+color: #55BAC7;
 padding: 10px;
 display: inline-block;
+}
+.other-info .buttons.update .logout{
+padding: 8px 0;
+}
+.edit-profile-face .otp-section{
+  height: calc(100vh - 333px);
+}
+.other-info .buttons.update .logout span{
+  color: #4A4A4A;
 }
 .edit-wrapper .other-info .age-group label{
 border: 1px solid rgb(151, 151, 151,0.3);
@@ -581,7 +608,7 @@ font-size: 22px;
 text-align: left;
 }
 .edit-wrapper .age-group,.other-info .age-group {
-margin: 25px 0 0 0;
+margin: 17px 0 0 0;
 }
 .settings-page .other-info .age-group{
  margin: 7px 0 0 0;
@@ -1223,7 +1250,14 @@ padding: 0;
 width: 100%;
 position: relative;
 background: rgb(252, 253, 255);
-border: 1px solid rgb(151, 151, 151,0.1);
+height: calc(100vh - 48px);
+/* border: 1px solid rgb(151, 151, 151,0.1); */
+}
+.lenskart-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 .single-details img{
 width: 100%;
@@ -1468,7 +1502,13 @@ color: rgba(74, 74, 74, 1);
 .frame-container{
 border-top: 1px solid rgb(151, 151, 151,0.1);
 padding: 10px 0;
-border-bottom: 1px solid rgb(151, 151, 151,0.1);
+margin-bottom: 44px;
+/* border-bottom: 1px solid rgb(151, 151, 151,0.1); */
+}
+.face-model{
+  background: #EBF9F6;
+  padding: 8px 0;
+
 }
 .frame-container .col-md-5{
 -ms-flex: 0 0 41.666667%;
@@ -1486,7 +1526,14 @@ flex: 0 0 16.666667%;
 max-width: 16.666667%;
 }
 .l-purchase p,.lenskart-container span,.lenskart-container p a{
-color: #55bac7;
+color: #fff;
+font-size: 18px;
+margin: 0px;
+display: block;
+}
+.col-md-12.l-purchase{
+  background: #55BAC7;
+  padding: 12px 30px;
 }
 .lenskart-container span{
 font-size: 13px;
@@ -1495,9 +1542,7 @@ font-family: 'rajdhanisemibold';
 }
 .l-purchase p i{
 margin-left: 8px;
-}
-.lenskart-container{
-margin-top: 15px;
+float: right;
 }
 .wishlist-page .demo__card__name span.toggleTrueFalse,.details-wrapper .demo__card__name span.toggleTrueFalse {
 width: 36px;
@@ -2191,6 +2236,20 @@ height: 65%;
   padding: 14% 0 0 0;
   min-height: calc(69vh);
   height: 394px;
+}
+.details-wrapper .demo__card__name span.post-name {
+  float: left;
+  width: 46%;
+}
+.details-wrapper .demo__card__name{
+  margin-top: 14px;
+  margin-bottom: 3px;
+}
+.col-md-12.l-purchase{
+  padding: 7px 30px;
+}
+.main-content.details-page{
+  height: calc(100vh - 38px);
 }
 .ditto-des ul li dfn{
   font-size: 14px;

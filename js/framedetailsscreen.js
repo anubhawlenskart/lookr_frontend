@@ -59,12 +59,12 @@ var framedetailsscreen = {
         htmlStr += '</div>';
         htmlStr += '<div class="lenskart-container">';
         htmlStr += '<div class="row">';
-        htmlStr += '<div class="col-md-8 l-purchase">';
-        htmlStr += '<p><a href="https://www.lenskart.com/'+framedet.buynowkey+'.html" target="_blank">Go to Lenskart.com to purchase <i class="fa fa-arrow-right"></i></a></p>';
+        htmlStr += '<div class="col-md-12 l-purchase">';
+        htmlStr += '<p><a href="https://www.lenskart.com/'+framedet.buynowkey+'.html" target="_blank">Buy Now <i class="fa fa-arrow-right"></i></a></p>';
         htmlStr += '</div>';
-        htmlStr += '<div class="col-md-4 text-right">';
-        htmlStr += '<span>Share</span>';
-        htmlStr += '</div>';
+        //htmlStr += '<div class="col-md-4 text-right">';
+        //htmlStr += '<span>Share</span>';
+        //htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
         htmlStr += '</div>';

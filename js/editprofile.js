@@ -136,7 +136,7 @@ var editprofile = {
         htmlStr +='<div class="col-md-6"><span class="back" id="backbtn"></span><span class="profile-title">Profile</span></div>';
         htmlStr +='<div class="col-md-6"><span class="save" id="savebtn">Save</span></div>';
         htmlStr +='</div>';
-        htmlStr +='<div class="main-content other-info">';
+        htmlStr +='<div class="main-content other-info edit-profile-face">';
         htmlStr +='<div class="input-box">';
         htmlStr +='<div class="row otp-section">';
         htmlStr +='<div class="col-md-12 name">';
@@ -191,9 +191,10 @@ var editprofile = {
         htmlStr += '</div>';
         htmlStr +='</div>';
         htmlStr +='</div>';
-        htmlStr +='<div class="buttons update">';
+        htmlStr +='<div class="buttons update cprofile">';
         htmlStr +='<div class="row">';
-        htmlStr +='<div class="col-md-12"><span>Change your face model</span> <i class="fa fa-arrow-right" id="gotoditto"></i></div>';
+        htmlStr +='<div class="col-md-12 face-model" id="gotoditto"><span>Change your face model</span> <i class="fa fa-arrow-right"></i></div>';
+        htmlStr +='<div class="col-md-12 logout"><span>Log Out</span></div>';
         htmlStr +='</div>';
         htmlStr +='</div>';
         htmlStr +='</div>';
