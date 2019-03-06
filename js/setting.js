@@ -225,6 +225,7 @@ var setting = {
     bindClicks : function(appObj){
         var _this = this;
         $('.wrapper').addClass('settings-page');
+
         $(".frame-shape label").on('change', function(){
             $(this).toggleClass("active");
             return false;
@@ -236,19 +237,25 @@ var setting = {
         });
         // bind click for lookr
         $('#dittoprofile').click(function(){
+            $('#preloader').show();                  
             $('.wrapper').removeClass('settings-page');
-            appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
-            if(appObj.lookersScreen.userFrames.length > 0){
-                stackedCards();
-            }
-            appObj.lookersScreen.bindClicks(app);
+            setTimeout(function(){                
+                appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
+                if(appObj.lookersScreen.userFrames.length > 0){
+                    stackedCards();
+                }
+                appObj.lookersScreen.bindClicks(app);
+            }, 0);            
         });
 
         // Wishlist click
         $('#wishlist').click(function(){
+            $('#preloader').show();                  
             $('.wrapper').removeClass('settings-page');
-            appObj.mainDom.innerHTML = appObj.wishListScreen.wishListScreen(appObj);
-            appObj.wishListScreen.bindClicks(appObj);
+            setTimeout(function(){                
+                appObj.mainDom.innerHTML = appObj.wishListScreen.wishListScreen(appObj);
+                appObj.wishListScreen.bindClicks(appObj);
+            }, 0);
         });
 
         // Bind edit profile click

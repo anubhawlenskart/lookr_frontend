@@ -109,7 +109,6 @@ var lookersscreen = {
         var _this = this;
         $('.stackedcards-overlay').css("z-index", '');
         $('.card').click(function(e){
-            console.log('Bind card click');
             $('.wrapper').removeClass('ditto-wrapper');
             appObj.mainDom.innerHTML = appObj.frameDetailScreen.loadDetailProfileScreen(appObj,_this.userFrames[$(this).attr('id')]);
             appObj.frameDetailScreen.bindClicks(appObj);
@@ -146,16 +145,25 @@ var lookersscreen = {
         }
         // Set Swipe Cards
         $('#settings').click(function(){
+            $('#preloader').show();                  
             $('body').removeAttr('class');
-            appObj.mainDom.innerHTML = appObj.settingScreen.loadSettingScreen(appObj);
-            appObj.settingScreen.bindClicks(appObj);
+            setTimeout(function(){                
+                appObj.mainDom.innerHTML = appObj.settingScreen.loadSettingScreen(appObj);
+                appObj.settingScreen.bindClicks(appObj);
+            }, 0);
+            
         });
 
+        
+
         // Wishlist click
-        $('#wishlist').click(function(){
+        $('#wishlist').click(function(){  
+            $('#preloader').show();                  
             $('body').removeAttr('class');
-            appObj.mainDom.innerHTML = appObj.wishListScreen.wishListScreen(appObj);
-            appObj.wishListScreen.bindClicks(appObj);
+            setTimeout(function(){                
+                appObj.mainDom.innerHTML = appObj.wishListScreen.wishListScreen(appObj);
+                appObj.wishListScreen.bindClicks(appObj);
+            }, 0);  
         });
         
         if(common.readCookie('lookr-demo') == null){

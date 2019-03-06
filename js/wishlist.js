@@ -173,19 +173,25 @@ var wishlist = {
         }
         // Bind setting CLick
         $('#settings').click(function(){
+            $('#preloader').show();                  
             $('.wrapper').removeClass('wishlist-wrapper');
-            appObj.mainDom.innerHTML = appObj.settingScreen.loadSettingScreen(appObj);
-            appObj.settingScreen.bindClicks(appObj);
+            setTimeout(function(){                
+                appObj.mainDom.innerHTML = appObj.settingScreen.loadSettingScreen(appObj);
+                appObj.settingScreen.bindClicks(appObj);
+            }, 0);
         });
 
         // Bind click for lookr
         $('#dittoprofile').click(function(){
+            $('#preloader').show();                  
             $('.wrapper').removeClass('wishlist-wrapper');
-            appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
-            if(appObj.lookersScreen.userFrames.length > 0){
-                stackedCards();
-            }            
-            appObj.lookersScreen.bindClicks(appObj);
+            setTimeout(function(){                
+                appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
+                if(appObj.lookersScreen.userFrames.length > 0){
+                    stackedCards();
+                }            
+                appObj.lookersScreen.bindClicks(appObj);
+            }, 0);
         });
 
         // Bind Frames only filter click
