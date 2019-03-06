@@ -63,7 +63,7 @@ var lookersscreen = {
 
         if('success' in userFrames){
             _this.userFrames = userFrames.success;
-            var frameLen = _this.userFrames.length; 
+            var frameLen = _this.userFrames.length;
             if(frameLen > 0){
                 for(var i=0; i<=(frameLen - 1); i++){
                 //for(var i=0; i<=4; i++){
@@ -97,7 +97,7 @@ var lookersscreen = {
         ///////////////Card Html
         htmlStr += '<div class="global-actions">';
         htmlStr += '<div class="left-action"></div>';
-        htmlStr += '<div class="top-action"></div>';
+        htmlStr += '<div class="filter-action">Filter</div>';
         htmlStr += '<div class="right-action"></div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
@@ -157,7 +157,7 @@ var lookersscreen = {
             appObj.mainDom.innerHTML = appObj.wishListScreen.wishListScreen(appObj);
             appObj.wishListScreen.bindClicks(appObj);
         });
-        
+
         if(common.readCookie('lookr-demo') == null){
             $('#lookr-popup').modal('show');
             common.createCookie('lookr-demo',1)
