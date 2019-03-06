@@ -84,10 +84,13 @@ var framedetailsscreen = {
         });
 
         $('#backscreen').click(function(){
+            $('#preloader').show();                  
             $('.wrapper').removeClass('details-wrapper');
-            appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
-            stackedCards();
-            appObj.lookersScreen.bindClicks(app);
+            setTimeout(function(){                
+                appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
+                stackedCards();
+                appObj.lookersScreen.bindClicks(app);
+            }, 0);
         });
 
         $('#backscreenfromslider').click(function(){

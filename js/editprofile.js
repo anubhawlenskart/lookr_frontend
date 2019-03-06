@@ -281,5 +281,15 @@ var editprofile = {
                 }
             }
         });
+
+        // Bind Logout
+        $('.logout').click(function(){
+            $('.wrapper').removeClass('edit-wrapper');
+            common.eraseCookie('eyewish-ditto');
+            common.eraseCookie('eyewish-mobile');
+            common.eraseCookie('eyewish-token');
+            common.eraseCookie('lookr-demo');
+            appObj.loadScreen();
+        });
     }
 }

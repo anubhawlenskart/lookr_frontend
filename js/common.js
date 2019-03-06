@@ -82,7 +82,7 @@ var common = {
     },
     
     eraseCookie : function (name) {
-        createCookie(name, "", -1);
+        this.createCookie(name, "", -1);
     },
 
     getType : function (p) {
