@@ -1953,6 +1953,35 @@ background: rgba(85, 186, 199);
   box-shadow: 0 15px 20px 0 rgba(0,0,0,0.10);
   border: none;
 }
+#carousel img {
+  display: block;
+  opacity: .5;
+  cursor: pointer;
+}
+#carousel .flex-active-slide img {
+  opacity: 1;
+  cursor: default;
+}
+.flexslider .slides img {
+  width: 100%;
+  object-fit: cover;
+  height: calc(100vh - 310px);
+}
+#carousel img{
+  object-fit: cover;
+  height: auto;
+  width: auto;
+  border: 1px solid #DDD;
+}
+#carousel .flex-active-slide img{
+  border: 1px solid #333;
+}
+div#carousel {
+    margin-top: 20px;
+}
+.main-content.wishlist-page{
+  min-height: 86%;
+}
 /* ) content css end here */
 @media only screen and (min-width: 2700px) {
 .ditto-wrapper::before{
