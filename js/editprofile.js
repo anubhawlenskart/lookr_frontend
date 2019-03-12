@@ -207,6 +207,7 @@ var editprofile = {
 
     bindClicks : function(appObj){
         $('.wrapper').addClass('edit-wrapper');
+        $('.wrapper').removeClass('settings-page');
         // bind click for lookr
         $('#dittoprofile').click(function(){
             $('.wrapper').removeClass('edit-wrapper');

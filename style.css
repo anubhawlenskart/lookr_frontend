@@ -143,6 +143,17 @@ background: none;
 border:none;
 box-shadow: none;
 }
+#filter-popup .modal-content{
+overflow-x: hidden;
+overflow-y: auto;
+position: absolute;
+left: 0px;
+right: 0px;
+bottom: 0px;
+top: 0px;
+width: 100%;
+height: 100%;
+}
 .input-box input:-webkit-autofill,
 .input-box input:-webkit-autofill:hover,
 .input-box input:-webkit-autofill:focus
@@ -304,6 +315,13 @@ background: rgba(255, 255, 255, 0.5);
 }
 .buttons span{
 font-family: 'rajdhanisemibold';
+}
+#otpscreenbtn.buttons span{
+  display: block;
+  margin-bottom: 5px;
+}
+#single-product .col-md-12{
+  margin-bottom: 15px;
 }
 .buttons .row{
 color: #fff;
@@ -698,7 +716,7 @@ top: 15px;
 left: auto;
 }
 #single-product .wishlist-img{
-padding: 50px 0;
+padding:0 0 50px 0;
 border: 1px solid rgba(155, 155, 155, 0.3);
 border-radius: 10px;
 }
@@ -1729,8 +1747,6 @@ z-index: 10;
 div#filter-popup {
     background:rgb(252, 253, 255);
     padding-right: 0 !important;
-    overflow-x: hidden;
-    overflow-y: auto;
 }
 .filter-header .col-md-6 + .col-md-6{
  text-align: right;
@@ -1937,6 +1953,7 @@ background: rgba(85, 186, 199);
 #filter-popup .modal-dialog{
   margin: 0;
   max-width: none;
+  height: 100%;
 }
 .filter-buttons span{
   border: 1px solid rgb(155, 155, 155,0.3);
@@ -2223,7 +2240,7 @@ font-size: 14px;
 .otp-section .col-md-3{
 text-align: center;
 }
-.other-info .buttons span {
+#otpscreenbtn.buttons span {
 font-size: 13px;
 }
 

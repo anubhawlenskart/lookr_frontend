@@ -48,8 +48,8 @@ var wishlist = {
 
 
             });
-        }else{ 
-            framesonlyHtm =  _this.emptyHtml();          
+        }else{
+            framesonlyHtm =  _this.emptyHtml();
             dittoHtm = framesonlyHtm;
         }
 
@@ -185,23 +185,23 @@ var wishlist = {
         }
         // Bind setting CLick
         $('#settings').click(function(){
-            $('#preloader').show();                  
+            $('#preloader').show();
             $('.wrapper').removeClass('wishlist-wrapper');
-            setTimeout(function(){  
+            setTimeout(function(){
                 appObj.mainDom.innerHTML = appObj.editprofileScreen.loadProfileScreen(appObj);
-                appObj.editprofileScreen.bindClicks(appObj); 
+                appObj.editprofileScreen.bindClicks(appObj);
             }, 0);
         });
 
         // Bind click for lookr
         $('#dittoprofile').click(function(){
-            $('#preloader').show();                  
+            $('#preloader').show();
             $('.wrapper').removeClass('wishlist-wrapper');
-            setTimeout(function(){                
+            setTimeout(function(){
                 appObj.mainDom.innerHTML = appObj.lookersScreen.loadLookersScreen(appObj);
                 if(appObj.lookersScreen.userFrames.length > 0){
                     stackedCards();
-                }            
+                }
                 appObj.lookersScreen.bindClicks(appObj);
             }, 0);
         });
@@ -223,7 +223,7 @@ var wishlist = {
             var requestUrl = common.apiUrl+'/clearwishlist?mobile='+appObj.getUserMobile();
             requestUrl +='&sku='+$(this).parent().parent().attr('sku');
             res = common.sendRequest(requestUrl,'POST',false);
-            if('success' in res){                
+            if('success' in res){
                 $(this).parent().parent().parent().fadeOut( "slow", function() {
                     $(this).remove();
                     if($('.single-details .col-md-6').length == 0){
