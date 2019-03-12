@@ -100,8 +100,6 @@ var lookersscreen = {
                 htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right disabled"></div>';
                 htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left disabled"></div>';
                 htmlStr += '</div>';
-
-
             }
         }
         ///////////////Card Html
@@ -124,11 +122,11 @@ var lookersscreen = {
         var _this = this;
         $('body').removeAttr('class');
         $('.stackedcards-overlay').css("z-index", '');
-        $('.card').click(function(e){
+        /*$('.card').click(function(e){
             $('.wrapper').removeClass('ditto-wrapper');
             appObj.mainDom.innerHTML = appObj.frameDetailScreen.loadDetailProfileScreen(appObj,_this.userFrames[$(this).attr('id')]);
             appObj.frameDetailScreen.bindClicks(appObj);
-        });
+        });*/
     },
 
     getUserFrames : function(appObj){

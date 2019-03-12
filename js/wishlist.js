@@ -31,10 +31,22 @@ var wishlist = {
                 framesonlyHtm += '<span class="wish-title">'+element.brand+' '+element.size+' <span class="input-arrow" ></span></span>';
                 framesonlyHtm += '</div>';
                 framesonlyHtm += '</div>';
+
+
+                /*dittoHtm += '<div class="col-md-6">  <div class="wishlist-img" sku="'+element.sku+'">';
+                dittoHtm += '<img src="'+element.image+'" alt="">  <span class="arrow-up"><i class="fa">&times;</i></span>';
+                dittoHtm += '<span class="wish-title">'+element.brand+' '+element.size+' <span class="input-arrow"><i class="fa fa-arrow-right"></i></span></span>';
+                dittoHtm += '</div></div>';*/
+
+
+
+
                 dittoHtm += '<div class="col-md-6">  <div class="wishlist-img" sku="'+element.sku+'">';
                 dittoHtm += '<img src="'+element.image+'" alt="">  <span class="arrow-up"><i class="fa">&times;</i></span>';
                 dittoHtm += '<span class="wish-title">'+element.brand+' '+element.size+' <span class="input-arrow"><i class="fa fa-arrow-right"></i></span></span>';
                 dittoHtm += '</div></div>';
+
+
             });
         }else{ 
             framesonlyHtm =  _this.emptyHtml();          
@@ -177,9 +189,7 @@ var wishlist = {
             $('.wrapper').removeClass('wishlist-wrapper');
             setTimeout(function(){  
                 appObj.mainDom.innerHTML = appObj.editprofileScreen.loadProfileScreen(appObj);
-                appObj.editprofileScreen.bindClicks(appObj);              
-                //appObj.mainDom.innerHTML = appObj.settingScreen.loadSettingScreen(appObj);
-                //appObj.settingScreen.bindClicks(appObj);
+                appObj.editprofileScreen.bindClicks(appObj); 
             }, 0);
         });
 

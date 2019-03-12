@@ -183,8 +183,7 @@ var setting = {
                 }
                 appObj.lookersScreen.bindClicks(app);                
             }, 0);
-            alert('jhjhjhjh');
-            $('body').addClass('background-0');            
+                    
         });
 
         // Wishlist click
