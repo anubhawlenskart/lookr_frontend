@@ -181,8 +181,10 @@ var setting = {
                 if(appObj.lookersScreen.userFrames.length > 0){
                     stackedCards();
                 }
-                appObj.lookersScreen.bindClicks(app);
-            }, 0);            
+                appObj.lookersScreen.bindClicks(app);                
+            }, 0);
+            alert('jhjhjhjh');
+            $('body').addClass('background-0');            
         });
 
         // Wishlist click

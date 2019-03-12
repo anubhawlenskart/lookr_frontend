@@ -149,15 +149,14 @@ var lookersscreen = {
     },
 
 
-    bindClicks : function(appObj){
-        var _this = this;
+    bindClicks : function(appObj){        
+        var _this = this;       
         if(_this.userFrames.length > 0){
             _this.bindCardCLick(appObj);
             $('.card-content-overlay-left').remove();
             $('.card-content-overlay-right').remove();
         }
         _this.setFilterHtml(appObj);
-        
         // Set Swipe Cards
         $('#settings').click(function(){
             $('#preloader').show();
@@ -188,7 +187,7 @@ var lookersscreen = {
         $('.got-it').click(function(){
             $('#lookr-popup').modal('hide');
         });
-        
+        $('body').addClass('background-0');
     },
 
     swipeCard : function(appObj,key,swipeDirection){
