@@ -377,7 +377,6 @@ background-size:32px;
   border-radius: 18px;
   position: relative;
   top: -27px;
-  display: none;
 }
 .other-info .buttons span{
 font-size: 14px;
@@ -815,7 +814,7 @@ float: left;
 max-width: none;
 flex: none;
 }
-.settings .apply {
+.settings .applybtn {
 float: right;
 background:#55bac7;
 color: #fff;
@@ -1633,7 +1632,7 @@ z-index: 10;
   padding:12% 20px 10% 20px;
   border-radius: 10px;
   background: #FFFFFF;
-  height: calc(100vh - 113px);
+  height: calc(100vh - 266px);
 }
 .empty p{
   font-size: 18px;
@@ -1730,6 +1729,8 @@ z-index: 10;
 div#filter-popup {
     background:rgb(252, 253, 255);
     padding-right: 0 !important;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 .filter-header .col-md-6 + .col-md-6{
  text-align: right;
@@ -1821,7 +1822,7 @@ div#filter-popup {
   font-family: 'rajdhanisemibold';
   font-size: 20px;
 }
-.settings-page #filter-popup .modal-footer span.apply{
+.settings-page #filter-popup .modal-footer span.applybtn{
   color: #55bac7;
   font-family: 'rajdhanibold';
 }
@@ -1853,9 +1854,9 @@ div#filter-popup {
 #filter-popup .select-item .col-md-3{
  margin: 0 0 15px 0;
 }
-#filter-popup .select-item .col-md-3{
+/* #filter-popup .select-item .col-md-3{
   width: 33%;
-}
+} */
  .settings-page #filter-popup label{
   display: block;
   text-align: center;
@@ -1867,10 +1868,10 @@ div#filter-popup {
  padding: 0px;
  border-radius: 50%;
 }
-.settings-page #filter-popup .frame-color label.color1 {
-background: rgba(0, 0, 0);
+.settings-page #filter-popup .frame-color label.black {
+background  :#000000;
 }
-.settings-page #filter-popup .frame-color label.color2{
+.settings-page #filter-popup .frame-color label.red{
 background: rgba(224, 32, 32);
 }
 .settings-page #filter-popup .frame-color label.color3 {
@@ -2281,7 +2282,7 @@ height: 64%;
 .details-page p{
   font-size: 12px;
 }
-.settings .apply{
+.settings .applybtn{
   padding: 0 15px;
   margin: 0 0 0 7px
 }
@@ -2290,4 +2291,24 @@ height: 64%;
   padding: 8px 8px 8px 8px;
   font-size: 12px;
 }
+}
+
+.card-content-overlay-left{
+  position: absolute;
+  left: -15px;
+  bottom: -145px;
+  width:90px;
+  height: 90px;
+  z-index: 999;
+}
+.card-content-overlay-right{
+  position: absolute;
+  right: -15px;
+  bottom: -145px;
+  width:90px;
+  height: 90px;
+  z-index: 999;
+}
+.card-content-overlay-left+.card-content-overlay-right+.global-actions .left-action,.card-content-overlay-right+.global-actions .right-action{
+ opacity: 0.5;
 }

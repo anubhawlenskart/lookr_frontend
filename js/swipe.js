@@ -23,6 +23,9 @@ function stackedCards () {
     var cardColor = 0;
 
 		obj = document.getElementById('stacked-cards-block');
+		if($('.stackedcards-container').length == 0){
+			return false;
+		}
 		stackedCardsObj = obj.querySelector('.stackedcards-container');
 		listElNodesObj = stackedCardsObj.children;
 
@@ -699,9 +702,11 @@ function stackedCards () {
 			}
 		};
 
-		element.addEventListener('touchstart', gestureStart, false);
-		element.addEventListener('touchmove', gestureMove, false);
-		element.addEventListener('touchend', gestureEnd, false);
+		if(app.lookersScreen.userFrames.length > 0){
+			element.addEventListener('touchstart', gestureStart, false);
+			element.addEventListener('touchmove', gestureMove, false);
+			element.addEventListener('touchend', gestureEnd, false);
+		}
 
 		//Add listeners to call global action for swipe cards
 		var buttonLeft = document.querySelector('.left-action');

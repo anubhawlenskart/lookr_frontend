@@ -1,4 +1,4 @@
-var common = {
+var common = {    
     rootElement : document.querySelector('main'),
     dittoId : '',
     apiUrl : 'https://labs.lenskart.com/tinder/api',
@@ -15,6 +15,26 @@ var common = {
         $('#preloader').delay(100).fadeOut('slow',function(){
             $(this).hide();
         });
+    },
+
+    getColorCode : function(){
+        var colorCode = new Array();
+        colorCode['black'] = '#000000';
+        colorCode['blue'] = '#0000FF';
+        colorCode['gunmetal'] = '#800080';
+        colorCode['purple'] = '#800080';
+        colorCode['red'] = '#FF0000';
+        colorCode['brown'] = '#A52A2A';
+        colorCode['tortoise'] = '#000000';
+        colorCode['cream'] = '#FFFFCC';
+        colorCode['grey'] = '#808080';
+        colorCode['pink'] = '#F660AB';
+        colorCode['green'] = '#008000';
+        colorCode['maroon'] = '#810541';
+        colorCode['silver'] = '#C0C0C0';
+        colorCode['sky'] = '#3BB9FF';
+        colorCode['golden']= '#FFD700';
+        return colorCode;
     },
 
     sendRequest : function(url,method = 'POST',isloadertrue=true,isasync=false){
@@ -91,6 +111,29 @@ var common = {
         else if (p != null && typeof p == 'object') return 'object';
         else return 'other';
     },
+
+
+    getColorCode : function(){
+        var colorCode = new Array();
+        colorCode['black'] = '#000000';
+        colorCode['blue'] = '#0000FF';
+        colorCode['gunmetal'] = '#800080';
+        colorCode['purple'] = '#800080';
+        colorCode['red'] = '#FF0000';
+        colorCode['brown'] = '#A52A2A';
+        colorCode['tortoise'] = '#000000';
+        colorCode['cream'] = '#FFFFCC';
+        colorCode['grey'] = '#808080';
+        colorCode['pink'] = '#F660AB';
+        colorCode['green'] = '#008000';
+        colorCode['maroon'] = '#810541';
+        colorCode['silver'] = '#C0C0C0';
+        colorCode['sky'] = '#3BB9FF';
+        colorCode['golden']= '#FFD700';
+        return colorCode;
+    },
+
+    
 }
 
 

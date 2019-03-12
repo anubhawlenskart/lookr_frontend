@@ -175,9 +175,11 @@ var wishlist = {
         $('#settings').click(function(){
             $('#preloader').show();                  
             $('.wrapper').removeClass('wishlist-wrapper');
-            setTimeout(function(){                
-                appObj.mainDom.innerHTML = appObj.settingScreen.loadSettingScreen(appObj);
-                appObj.settingScreen.bindClicks(appObj);
+            setTimeout(function(){  
+                appObj.mainDom.innerHTML = appObj.editprofileScreen.loadProfileScreen(appObj);
+                appObj.editprofileScreen.bindClicks(appObj);              
+                //appObj.mainDom.innerHTML = appObj.settingScreen.loadSettingScreen(appObj);
+                //appObj.settingScreen.bindClicks(appObj);
             }, 0);
         });
 

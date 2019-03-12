@@ -1,3 +1,4 @@
+
 var lookersscreen = {
     userFrames : Array(),
     swipedFrameIndex : Array(),
@@ -73,15 +74,7 @@ var lookersscreen = {
                     htmlStr += '<div class="card-titles">';
                     htmlStr += '<p class="demo__card__name"><span class="post-name">'+_this.userFrames[i].brand+' </span><span class="like-post">';
                     htmlStr += '<i>';
-                    htmlStr += '<svg width="16px" height="16px" viewBox="0 0 24 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">';
-                    htmlStr += '<g id="Changes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">';
-                    htmlStr += '<g id="5.1-Frame-card-28-jan-Copy" transform="translate(-243.000000, -61.000000)" fill="#FFFFFF" fill-rule="nonzero">';
-                    htmlStr += '<g id="Group-7" transform="translate(110.000000, 46.000000)">';
-                    htmlStr += '<path d="M155.063342,17.0914579 C152.284839,14.3028474 147.779702,14.3028474 145.001199,17.0914579 L144.998883,17.0914579 C142.22022,14.3028474 137.715163,14.3028474 134.93666,17.0914579 C132.157997,19.8800684 132.558656,24.0503232 134.93666,27.189914 C137.45503,30.514691 142.053106,36 144.998883,36 L145.001199,36 C147.947056,36 152.544972,30.514691 155.063342,27.189914 C157.441426,24.0504033 157.841926,19.8801485 155.063342,17.0914579 Z" id="wishlist"></path>';
-                    htmlStr += '</g>';
-                    htmlStr += '</g>';
-                    htmlStr += '</g>';
-                    htmlStr += '</svg>';
+                    htmlStr += '<img src="./images/icons/heart.svg">';
                     htmlStr += '</i> '+_this.userFrames[i].like_count+' </span></p>';
                     htmlStr += '<div class="card-des"><span class="shape-color"><i class="'+_this.userFrames[i].color.toLowerCase()+'"></i></span><span class="card-shape">'+_this.userFrames[i].shape+' </span><span class="card-size">'+_this.userFrames[i].size+' </span><span class="info"><i></i></span></div>';
                     htmlStr += '</div>';
@@ -92,13 +85,34 @@ var lookersscreen = {
                 htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right"><i>COOL</i></div>';
                 htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left"><i>NOPE</i></div>';
                 htmlStr += '</div>';
+            }else{
+                htmlStr += '<div class="card1" id="">';
+                htmlStr += '<div class="card-content1 empty">';  
+                /************    Empty Screen  **************************/
+                htmlStr += '<img src="images/lookr-empty.svg" alt="" title="">';
+                htmlStr += '<p> <strong>OOPS!</strong></br>We have limited products for your filters.</br>';
+                htmlStr += 'Please clear the filters and try again.</p>';
+                /************    Empty Screen  **************************/
+                
+                htmlStr += '</div>';
+                htmlStr += '</div>';
+                htmlStr += '<div class="stackedcards--animatable stackedcards-overlay top"></div>';
+                htmlStr += '<div class="stackedcards--animatable stackedcards-overlay right disabled"></div>';
+                htmlStr += '<div class="stackedcards--animatable stackedcards-overlay left disabled"></div>';
+                htmlStr += '</div>';
+
+
             }
         }
         ///////////////Card Html
-        htmlStr += '<div class="global-actions">';
+        htmlStr += '<div class="card-content-overlay-left">';
+        htmlStr += '</div>';
+        htmlStr += '<div class="card-content-overlay-right">';
+        htmlStr += '</div>';
+        htmlStr += '<div class="global-actions">'; 
         htmlStr += '<div class="left-action"></div>';
         htmlStr += '<div class="top-action"></div>';
-        htmlStr += '<div class="filter-action">Filter</div>';
+        htmlStr += '<div class="filter-action" data-toggle="modal" data-target="#filter-popup">Filter</div>';        
         htmlStr += '<div class="right-action"></div>';
         htmlStr += '</div>';
         htmlStr += '</div>';
@@ -108,6 +122,7 @@ var lookersscreen = {
 
     bindCardCLick : function(appObj){
         var _this = this;
+        $('body').removeAttr('class');
         $('.stackedcards-overlay').css("z-index", '');
         $('.card').click(function(e){
             $('.wrapper').removeClass('ditto-wrapper');
@@ -136,27 +151,23 @@ var lookersscreen = {
 
     bindClicks : function(appObj){
         var _this = this;
-        if(_this.userFrames.length == 0){
-            var msgtoshow = '';
-            msgtoshow += '<p> <strong>OOPS!</strong></br>We have limited products for your filters.</br>';
-            msgtoshow += 'Please clear the filters and try again.</p>';
-            _this.emptyScreenMessage(appObj,msgtoshow);
-        }else{
+        if(_this.userFrames.length > 0){
             _this.bindCardCLick(appObj);
+            $('.card-content-overlay-left').remove();
+            $('.card-content-overlay-right').remove();
         }
+        _this.setFilterHtml(appObj);
+        
         // Set Swipe Cards
         $('#settings').click(function(){
             $('#preloader').show();
             $('body').removeAttr('class');
             setTimeout(function(){
-                appObj.mainDom.innerHTML = appObj.settingScreen.loadSettingScreen(appObj);
-                appObj.settingScreen.bindClicks(appObj);
+                appObj.mainDom.innerHTML = appObj.editprofileScreen.loadProfileScreen(appObj);
+                appObj.editprofileScreen.bindClicks(appObj);
             }, 0);
 
         });
-
-
-
         // Wishlist click
         $('#wishlist').click(function(){
             $('#preloader').show();
@@ -177,6 +188,7 @@ var lookersscreen = {
         $('.got-it').click(function(){
             $('#lookr-popup').modal('hide');
         });
+        
     },
 
     swipeCard : function(appObj,key,swipeDirection){
@@ -197,5 +209,55 @@ var lookersscreen = {
             ms +='Try again later for more.</p>';
             _this.emptyScreenMessage(appObj,ms);
         }
+    },
+
+    setFilterHtml : function(appObj){        
+        $.ajax({
+            url : 'htmltemplate/filter.html',
+            dataType: "text",
+            async:false,
+            success : function (res) {
+                $("main").after(res); 
+                $('.filter-action').click(function(){
+                    $('.wrapper').addClass('settings-page');
+                });
+        
+                $('.close-btn').click(function(){
+                    $('.wrapper').removeClass('settings-page');
+                });   
+                console.log(appObj);
+                var Filters = appObj.settingScreen.getFilters(appObj);
+                var UserFilters = appObj.settingScreen.getUserFilters(appObj);
+                var UserBrands = null;
+                var UserColors = null;
+                var UserShapes = null;
+                var UserSize = null;
+
+                if(UserFilters.length > 0){
+                    var filters = UserFilters[0];
+                    if(filters.hasOwnProperty("color") && filters.color!=null){
+                        UserColors = filters.color;
+                    }
+
+                    if(filters.hasOwnProperty("shape") && filters.shape!=null){
+                        UserShapes = filters.shape;
+                    }
+
+                    if(filters.hasOwnProperty("brand") && filters.brand!=null ){
+                        UserBrands = filters.brand;
+                    }
+
+                    if(filters.hasOwnProperty("size") && filters.size!=null){
+                        UserSize = filters.size;
+                    }
+                }
+                
+                $('.frame-color .select-item').html(appObj.settingScreen.getFrameColorHtml(Filters.color,UserColors));
+                $('.brand .select-item').html(appObj.settingScreen.getFrameBrandHtml(Filters.brand,UserBrands));
+                $('#shape .select-item').html(appObj.settingScreen.getFrameShapeHtml(Filters.shape,UserShapes));
+                $('#size .select-item').html(appObj.settingScreen.getFrameSizeHtml(Filters.size,UserSize));
+                appObj.settingScreen.bindClicks(appObj);
+            }
+        });
     }
 }
